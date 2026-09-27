@@ -10,14 +10,20 @@ const logger = new Logger('MultiSiteBenchmark');
 export interface SiteBenchmarkResult {
   name: string;
   url: string;
+  title: string;
   analyzerSuccess: boolean;
+  analyzerTimeSeconds: number;
   sectionsDetected: number;
   assetsDetected: number;
   specSuccess: boolean;
+  preservedSections: number;
   reactGenSuccess: boolean;
+  generatedFilesCount: number;
   tsValidation: boolean;
   viteBuildSuccess: boolean;
-  durationSeconds: number;
+  validationAttempts: number;
+  totalDurationSeconds: number;
+  overallStatus: 'PASSED' | 'FAILED';
   projectDir?: string;
   error?: string;
 }
@@ -47,24 +53,26 @@ const DEFAULT_SITES: TargetSite[] = [
 ];
 
 async function runBenchmarkForSite(site: TargetSite, outputBase: string): Promise<SiteBenchmarkResult> {
-  console.log(`\n================================================================================`);
-  console.log(`🚀 BENCHMARKING TARGET: ${site.name.toUpperCase()} (${site.url})`);
-  console.log(`================================================================================`);
-
   const startTime = Date.now();
   const targetDir = path.join(outputBase, site.folderName);
 
   const result: SiteBenchmarkResult = {
     name: site.name,
     url: site.url,
+    title: site.name,
     analyzerSuccess: false,
+    analyzerTimeSeconds: 0,
     sectionsDetected: 0,
     assetsDetected: 0,
     specSuccess: false,
+    preservedSections: 0,
     reactGenSuccess: false,
+    generatedFilesCount: 0,
     tsValidation: false,
     viteBuildSuccess: false,
-    durationSeconds: 0,
+    validationAttempts: 0,
+    totalDurationSeconds: 0,
+    overallStatus: 'FAILED',
     projectDir: targetDir,
   };
 
@@ -72,38 +80,29 @@ async function runBenchmarkForSite(site: TargetSite, outputBase: string): Promis
     // -------------------------------------------------------------------------
     // STEP 1: Website Analyzer (Playwright Perception)
     // -------------------------------------------------------------------------
-    console.log(`\n[Stage 1/4] Running Playwright Website Analyzer on ${site.url}...`);
+    const analyzerStart = Date.now();
     const extractedData = await analyzeWebsite(site.url, {
       timeoutMs: 45000,
-      onProgress: (event) => {
-        const bar = '='.repeat(Math.floor(event.progress / 5)).padEnd(20, ' ');
-        process.stdout.write(`\r  [${bar}] ${event.progress.toString().padStart(3, ' ')}% | ${event.message.slice(0, 50)}...`);
+      onProgress: (_event) => {
+        // quiet in benchmark loop
       },
     });
-    console.log('\n  ✅ Analysis complete!');
-
+    result.analyzerTimeSeconds = Number(((Date.now() - analyzerStart) / 1000).toFixed(1));
     result.analyzerSuccess = true;
+    result.title = extractedData.metadata.title || site.name;
     result.sectionsDetected = extractedData.sections.length;
     result.assetsDetected = extractedData.assets.length;
-
-    console.log(`  📊 Extracted Metrics:`);
-    console.log(`     • Title:            ${extractedData.metadata.title}`);
-    console.log(`     • Colors Detected:  ${extractedData.colors.palette.length} palette tokens (Primary: ${extractedData.colors.primary})`);
-    console.log(`     • Typography Fonts: ${extractedData.typography.headingFont} / ${extractedData.typography.bodyFont}`);
-    console.log(`     • Sections Found:   ${result.sectionsDetected} (${extractedData.sections.map((s) => s.type).join(', ')})`);
-    console.log(`     • Assets Found:     ${result.assetsDetected} media items`);
 
     // -------------------------------------------------------------------------
     // STEP 2: AI Analysis & UI Specification Layer
     // -------------------------------------------------------------------------
-    console.log(`\n[Stage 2/4] Synthesizing Grounded UI Specification...`);
     const spec = await generateUISpecification(extractedData, {
       providerName: 'grounded',
     });
 
     if (spec && Array.isArray(spec.sections) && spec.sections.length > 0) {
       result.specSuccess = true;
-      console.log(`  ✅ UI Specification synthesized cleanly (${spec.sections.length} typed sections, ${spec.navigation.links.length} nav links)`);
+      result.preservedSections = spec.sections.length;
     } else {
       throw new Error('UI Specification synthesis produced invalid or empty sections');
     }
@@ -111,9 +110,6 @@ async function runBenchmarkForSite(site: TargetSite, outputBase: string): Promis
     // -------------------------------------------------------------------------
     // STEP 3: React + Tailwind Code Generator
     // -------------------------------------------------------------------------
-    console.log(`\n[Stage 3/4] Generating Modular React + Tailwind Project in:`);
-    console.log(`  📁 ${targetDir}`);
-
     const project = await generateReactProject(spec, {
       outputDir: targetDir,
       validateBuild: false, // validate explicitly in Step 4 for fine-grained reporting
@@ -121,7 +117,7 @@ async function runBenchmarkForSite(site: TargetSite, outputBase: string): Promis
 
     if (project && Object.keys(project.files).length > 0) {
       result.reactGenSuccess = true;
-      console.log(`  ✅ React project scaffolded (${Object.keys(project.files).length} files generated)`);
+      result.generatedFilesCount = Object.keys(project.files).length;
     } else {
       throw new Error('React code generation failed: no files generated');
     }
@@ -129,39 +125,40 @@ async function runBenchmarkForSite(site: TargetSite, outputBase: string): Promis
     // -------------------------------------------------------------------------
     // STEP 4: Validation & Auto-Healing Engine (tsc + vite build)
     // -------------------------------------------------------------------------
-    console.log(`\n[Stage 4/4] Validating Build with Auto-Healing (tsc --noEmit & vite build)...`);
     const { validateAndHealProject } = await import('../validator');
     const valResult = await validateAndHealProject(targetDir, {
       maxAttempts: 3,
       spec,
     });
 
-    const tsErrors = valResult.diagnostics.filter((d) => d.errorType === 'type');
+    result.validationAttempts = valResult.attempts || 1;
+    const tsErrors = (valResult.diagnostics || []).filter((d) => d.errorType === 'type');
     result.tsValidation = tsErrors.length === 0 || valResult.success;
     result.viteBuildSuccess = valResult.success;
 
-    if (valResult.success) {
-      console.log(`  ✅ Build Validation PASSED (Production bundle ready in dist/)`);
-    } else {
-      console.warn(`  ⚠️ Build validation completed with diagnostics: ${valResult.diagnostics[0]?.message || 'Build errors'}`);
+    if (
+      result.analyzerSuccess &&
+      result.specSuccess &&
+      result.reactGenSuccess &&
+      result.tsValidation &&
+      result.viteBuildSuccess
+    ) {
+      result.overallStatus = 'PASSED';
     }
   } catch (err: any) {
     logger.error(`Benchmark failed for ${site.name}`, { error: err.message });
     result.error = err.message;
-    console.error(`\n❌ Error during pipeline execution: ${err.message}`);
   } finally {
-    result.durationSeconds = Number(((Date.now() - startTime) / 1000).toFixed(1));
+    result.totalDurationSeconds = Number(((Date.now() - startTime) / 1000).toFixed(1));
   }
 
   return result;
 }
 
 export async function runMultiSiteBenchmark(customUrls?: string[]) {
-  console.log(`\n`);
-  console.log(`================================================================================`);
-  console.log(`       AI WEBSITE RECREATOR — AUTOMATED MULTI-SITE GENERALIZATION BENCHMARK      `);
-  console.log(`================================================================================`);
-  console.log(`Evaluating pipeline adaptability across structurally diverse public websites.\n`);
+  console.log(`\n====================================================`);
+  console.log(`        AI WEBSITE RECREATOR BENCHMARK`);
+  console.log(`====================================================\n`);
 
   const outputBase = path.resolve(__dirname, '../../../output/generated_projects');
   if (!fs.existsSync(outputBase)) {
@@ -180,49 +177,69 @@ export async function runMultiSiteBenchmark(customUrls?: string[]) {
   const results: SiteBenchmarkResult[] = [];
   const benchmarkStart = Date.now();
 
-  for (const site of targets) {
+  for (let i = 0; i < targets.length; i++) {
+    const site = targets[i];
+    process.stdout.write(`Processing [${i + 1}/${targets.length}] ${site.name} (${site.url})... `);
     const res = await runBenchmarkForSite(site, outputBase);
     results.push(res);
+    console.log(`${res.overallStatus} (${res.totalDurationSeconds}s)`);
   }
 
   const totalTimeSeconds = Number(((Date.now() - benchmarkStart) / 1000).toFixed(1));
 
   // ---------------------------------------------------------------------------
-  // COMPARISON TABLE REPORT
+  // PER-SITE DETAILED TERMINAL REPORT
   // ---------------------------------------------------------------------------
-  console.log(`\n\n`);
-  console.log(`========================================================================================================================`);
-  console.log(`                                        FINAL MULTI-SITE BENCHMARK COMPARISON TABLE                                     `);
-  console.log(`========================================================================================================================`);
+  console.log(`\n====================================================`);
+  console.log(`        AI WEBSITE RECREATOR BENCHMARK REPORT`);
+  console.log(`====================================================`);
 
-  const pad = (str: string, len: number) => str.padEnd(len, ' ').slice(0, len);
-  const statusIcon = (val: boolean) => (val ? '✅ PASS' : '❌ FAIL');
+  for (let i = 0; i < results.length; i++) {
+    const r = results[i];
+    console.log(`\nSite: ${r.name}`);
+    console.log(`URL: ${r.url}`);
+    console.log(`Title: ${r.title}`);
+    console.log(``);
+    console.log(`Analyzer:        ${r.analyzerSuccess ? 'PASSED' : 'FAILED'} (${r.analyzerTimeSeconds}s)`);
+    console.log(`Sections:        ${r.sectionsDetected}`);
+    console.log(`Assets:          ${r.assetsDetected}`);
+    console.log(`UI Spec:         ${r.specSuccess ? 'PASSED' : 'FAILED'} (${r.preservedSections} preserved)`);
+    console.log(`Generator:       ${r.reactGenSuccess ? 'PASSED' : 'FAILED'} (${r.generatedFilesCount} files)`);
+    console.log(`TypeScript:      ${r.tsValidation ? 'PASSED' : 'FAILED'}`);
+    console.log(`Vite Build:      ${r.viteBuildSuccess ? 'PASSED' : 'FAILED'}`);
+    console.log(`Attempts:        ${r.validationAttempts}/3`);
+    console.log(`Total Time:      ${r.totalDurationSeconds}s`);
+    console.log(`Status:          ${r.overallStatus}`);
 
-  console.log(
-    `${pad('Site Name', 18)} | ${pad('Target URL', 30)} | ${pad('Analyzer', 9)} | ${pad('Sec', 4)} | ${pad('Assets', 6)} | ${pad('UI Spec', 9)} | ${pad('React Gen', 9)} | ${pad('TS Valid', 9)} | ${pad('Vite Build', 10)} | ${pad('Time', 6)}`
-  );
-  console.log(`-------------------|--------------------------------|-----------|------|--------|-----------|-----------|-----------|------------|-------`);
-
-  for (const r of results) {
-    console.log(
-      `${pad(r.name, 18)} | ${pad(r.url, 30)} | ${pad(statusIcon(r.analyzerSuccess), 9)} | ${pad(String(r.sectionsDetected), 4)} | ${pad(String(r.assetsDetected), 6)} | ${pad(statusIcon(r.specSuccess), 9)} | ${pad(statusIcon(r.reactGenSuccess), 9)} | ${pad(statusIcon(r.tsValidation), 9)} | ${pad(statusIcon(r.viteBuildSuccess), 10)} | ${pad(`${r.durationSeconds}s`, 6)}`
-    );
+    if (i < results.length - 1) {
+      console.log(`\n----------------------------------------------------`);
+    }
   }
 
-  console.log(`========================================================================================================================`);
+  // ---------------------------------------------------------------------------
+  // FINAL COMPARISON SUMMARY TABLE
+  // ---------------------------------------------------------------------------
+  console.log(`\n====================================================`);
+  console.log(`                 FINAL SUMMARY`);
+  console.log(`====================================================\n`);
+
+  console.log(`| Site | Analyzer | Spec | Generator | Validator | Overall |`);
+  console.log(`|------|----------|------|-----------|-----------|---------|`);
+
+  for (const r of results) {
+    const a = r.analyzerSuccess ? 'PASS' : 'FAIL';
+    const s = r.specSuccess ? 'PASS' : 'FAIL';
+    const g = r.reactGenSuccess ? 'PASS' : 'FAIL';
+    const v = r.viteBuildSuccess ? 'PASS' : 'FAIL';
+    const o = r.overallStatus === 'PASSED' ? 'PASS' : 'FAIL';
+    console.log(`| ${r.name} | ${a} | ${s} | ${g} | ${v} | ${o} |`);
+  }
 
   const totalSites = results.length;
-  const successfulSites = results.filter(
-    (r) => r.analyzerSuccess && r.specSuccess && r.reactGenSuccess && r.viteBuildSuccess
-  ).length;
-  const passRate = Math.round((successfulSites / totalSites) * 100);
+  const successfulSites = results.filter((r) => r.overallStatus === 'PASSED').length;
 
-  console.log(`📌 SUMMARY METRICS:`);
-  console.log(`   • Total Websites Evaluated:   ${totalSites}`);
-  console.log(`   • Fully Recreated & Built:    ${successfulSites}/${totalSites} (${passRate}%)`);
-  console.log(`   • Total Benchmark Duration:   ${totalTimeSeconds}s`);
-  console.log(`   • Architecture Generalization: ${passRate === 100 ? '✅ 100% GENERALIZATION CONFIRMED' : '⚠️ PARTIAL GENERALIZATION'}`);
-  console.log(`========================================================================================================================\n`);
+  console.log(`\nOverall:`);
+  console.log(`${successfulSites}/${totalSites} websites completed successfully (Total Time: ${totalTimeSeconds}s)\n`);
 
   // Save audit artifact
   const auditPath = path.resolve(__dirname, '../../../output/multi_site_benchmark.json');
@@ -232,7 +249,9 @@ export async function runMultiSiteBenchmark(customUrls?: string[]) {
       {
         timestamp: new Date().toISOString(),
         totalDurationSeconds: totalTimeSeconds,
-        passRatePercent: passRate,
+        successfulSites,
+        totalSites,
+        passRatePercent: Math.round((successfulSites / totalSites) * 100),
         results,
       },
       null,
