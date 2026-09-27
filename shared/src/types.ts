@@ -215,3 +215,25 @@ export interface ModifyRequest {
   projectId: string;
   instruction: string;
 }
+
+export type DiagnosticErrorType = 'syntax' | 'import' | 'type' | 'build' | 'unknown';
+
+export interface BuildDiagnostic {
+  file?: string;
+  line?: number;
+  column?: number;
+  errorType: DiagnosticErrorType;
+  message: string;
+  severity: 'error' | 'warning';
+  raw?: string;
+}
+
+export interface ValidationResult {
+  success: boolean;
+  attempts: number;
+  diagnostics: BuildDiagnostic[];
+  fixedFiles: string[];
+  buildOutput: string;
+  healed: boolean;
+}
+

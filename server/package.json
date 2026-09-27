@@ -10,6 +10,7 @@
     "test:analyzer": "tsx src/analyzer/cli.ts",
     "test:spec": "tsx src/ai/spec.test.ts",
     "test:generator": "tsx src/generator/generator.test.ts",
+    "test:validator": "tsx src/validator/validator.test.ts",
     "playwright:install": "playwright install chromium"
   },
   "dependencies": {

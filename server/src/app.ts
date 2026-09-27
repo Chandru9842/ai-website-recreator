@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import analyzeRouter from './routes/analyze';
 import specRouter from './routes/spec';
 import generateRouter from './routes/generate';
+import validateRouter from './routes/validate';
 
 dotenv.config();
 
@@ -28,6 +29,7 @@ export function createApp() {
   app.use('/api/analyze', analyzeRouter);
   app.use('/api/spec', specRouter);
   app.use('/api/generate', generateRouter);
+  app.use('/api/validate', validateRouter);
 
   // Fallback 404
   app.use((req, res) => {

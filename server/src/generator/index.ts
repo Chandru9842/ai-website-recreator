@@ -25,7 +25,7 @@ export async function generateReactProject(
 
     // 3. Build Validation if requested
     if (options.validateBuild) {
-      project = await validateProjectBuild(project);
+      project = await validateProjectBuild(project, spec);
       if (project.buildStatus === 'failed') {
         throw new Error(
           `Project build validation failed for "${spec.metadata.title}":\n${project.buildErrors?.join('\n')}`

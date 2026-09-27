@@ -1,4 +1,5 @@
 import { Router, Request, Response } from 'express';
+import * as path from 'path';
 import { generateReactProject } from '../generator';
 import { UISpecification } from '@ai-website-recreator/shared';
 import { Logger } from '../utils/logger';
@@ -24,14 +25,24 @@ router.post('/', async (req: Request, res: Response) => {
 
     logger.info(`Received React generation request for "${spec.metadata.title}"`);
 
+    // Default output directory if not explicitly provided
+    const targetDir =
+      outputDir ||
+      path.resolve(
+        __dirname,
+        '../../../output/generated_projects',
+        spec.metadata.title.toLowerCase().replace(/[^a-z0-9]+/g, '_')
+      );
+
     const project = await generateReactProject(spec as UISpecification, {
-      outputDir,
-      validateBuild: Boolean(validateBuild),
+      outputDir: targetDir,
+      validateBuild: validateBuild !== false, // default true
     });
 
     res.json({
       success: true,
       data: project,
+      validation: project.validation,
     });
   } catch (error: any) {
     logger.error('Error during React project generation', { error: error.message });

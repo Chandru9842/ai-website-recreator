@@ -1,4 +1,4 @@
-import { UISpecification } from '@ai-website-recreator/shared';
+import { UISpecification, ValidationResult } from '@ai-website-recreator/shared';
 
 export interface GeneratedProject {
   id: string;
@@ -10,6 +10,7 @@ export interface GeneratedProject {
   buildStatus: 'untested' | 'passed' | 'failed';
   buildOutput?: string;
   buildErrors?: string[];
+  validation?: ValidationResult;
 }
 
 export interface GeneratorOptions {

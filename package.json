@@ -15,7 +15,8 @@
     "build": "npm run build --workspaces",
     "test:analyzer": "npm run test:analyzer --workspace=server",
     "test:spec": "npm run test:spec --workspace=server",
-    "test:generator": "npm run test:generator --workspace=server"
+    "test:generator": "npm run test:generator --workspace=server",
+    "test:validator": "npm run test:validator --workspace=server"
   },
   "keywords": [
     "ai",
