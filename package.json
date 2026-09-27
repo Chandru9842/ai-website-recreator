@@ -18,6 +18,7 @@
     "test:generator": "npm run test:generator --workspace=server",
     "test:validator": "npm run test:validator --workspace=server",
     "test:modifier": "npm run test:modifier --workspace=server",
+    "test:preview": "npm run test:preview --workspace=server",
     "test:multi-site": "npm run test:multi-site --workspace=server"
   },
   "keywords": [

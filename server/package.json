@@ -12,6 +12,7 @@
     "test:generator": "tsx src/generator/generator.test.ts",
     "test:validator": "tsx src/validator/validator.test.ts",
     "test:modifier": "tsx src/modifier/modifier.test.ts",
+    "test:preview": "tsx src/routes/preview.test.ts",
     "test:multi-site": "tsx src/scripts/benchmarkMultiSite.ts",
     "playwright:install": "playwright install chromium"
   },

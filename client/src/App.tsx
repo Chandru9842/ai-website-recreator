@@ -402,7 +402,7 @@ export default function App() {
                   }`}
                 >
                   <Eye className="h-4 w-4" />
-                  Visual Live Preview
+                  Visual Preview
                 </button>
                 <button
                   type="button"
