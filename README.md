@@ -442,11 +442,5 @@ npm run build
 
 ---
 
-## Time Limit & MVP Scope
-> **Time Limit**: 48 hours  
-> *Built as a high-fidelity working MVP demonstrating autonomous AI agent design, compiler grounding, unfamiliar systems reverse-engineering, and natural-language code transformation.*
-
----
-
-*Authored with engineering precision for the Founding AI Engineer Assessment.*  
+*Authored by Chandru M — AI Systems & Autonomous Agent Engineer.*  
 *Repository: [https://github.com/Chandru9842/ai-website-recreator](https://github.com/Chandru9842/ai-website-recreator)*
