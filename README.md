@@ -1,7 +1,7 @@
 # AI Website Recreator 🌐✨
 
 > **Founding AI Engineer Assessment Project**
-> An autonomous AI agent pipeline that analyzes live public websites via Playwright and recreates their exact layout, sections, navigation, content, assets, typography, and responsive styling as a fresh React + Tailwind CSS application.
+> An autonomous AI agent pipeline that analyzes live public websites via Playwright and recreates their exact layout, sections, navigation, content, assets, typography, and responsive styling as a fresh React + Tailwind CSS application, with an iterative natural-language modification engine and automated build healing.
 
 ---
 
@@ -9,19 +9,31 @@
 
 This is **NOT** a generic AI website template generator that outputs random themes based on a simple prompt.
 
-Instead, the agent:
-1. **Navigates to the live target URL** in a headless browser instance.
-2. **Deeply inspects the live DOM, computed styles, assets, and layouts**.
-3. **Mines exact visual tokens**: primary/secondary/surface colors, typography families & scales, and responsive breakpoint shifts.
-4. **Segments actual structural sections**: Navigation bar, Hero banner, Features grid, Social proof, Pricing tiers, FAQ, and Footer.
-5. **Extracts high-resolution assets**: Logos, inline SVGs, imagery, and CSS backgrounds.
-6. **Produces an accurate, validated React + Tailwind recreation** preserving the source site's visual identity.
+Instead, the agent executes an end-to-end 5-stage pipeline:
+
+```
+Target Website URL
+        ↓
+[1. Playwright Analyzer] ──→ Computed DOM, Typography, Colors, Assets, Viewports
+        ↓
+[2. AI UI Specification] ──→ Grounded UISpecification (Zero Hallucinations)
+        ↓
+[3. React Generator]     ──→ Reusable Components, Tailwind Tokens, Vite App
+        ↓
+[4. Validator & Auto-Heal] ──→ tsc + vite build (Diagnostics & Iterative Fixes)
+        ↓
+[Live Preview in Dashboard]
+        ↓
+[5. NL Modifier]        ──→ "Make navbar sticky" / "Change primary color"
+        ↓
+[Re-Validate & Rollback] ──→ Verified Updated React Frontend
+```
 
 ---
 
 ## 🏗️ System Architecture & Modular Design
 
-The project is structured as a modular TypeScript monorepo with strict separation of concerns:
+The project is structured as a modular TypeScript monorepo:
 
 ```
 ai-website-recreator/
@@ -36,7 +48,7 @@ ai-website-recreator/
 │
 ├── server/                     # Backend API & Autonomous Agent Core (Node.js + Express)
 │   ├── src/
-│   │   ├── analyzer/           # 🔍 MODULE 1: Playwright Website Analyzer (IMPLEMENTED)
+│   │   ├── analyzer/           # 🔍 MODULE 1: Playwright Website Analyzer
 │   │   │   ├── browser.ts      # Headless browser lifecycle, stealth headers, viewport manager
 │   │   │   ├── domExtractor.ts # Semantic DOM tree, metadata, navigation bar, and text extraction
 │   │   │   ├── styleExtractor.ts # Computed color palette clustering, typography scale mining
@@ -46,87 +58,131 @@ ai-website-recreator/
 │   │   │   ├── index.ts        # Orchestrator: analyzeWebsite(url, options)
 │   │   │   └── cli.ts          # Standalone CLI test runner
 │   │   │
-│   │   ├── ai/                 # 🧠 MODULE 2: AI Analysis & UI Specification Layer
-│   │   │   └── index.ts        # Translates extracted DOM/style data into clean UI specification
+│   │   ├── spec/               # 🧠 MODULE 2: AI Analysis & UI Specification Layer
+│   │   │   ├── specGenerator.ts# Gemini LLM grounder + deterministic rule-based fallback
+│   │   │   ├── promptBuilder.ts# Grounding prompt builder enforcing strict data fidelity
+│   │   │   ├── validator.ts    # JSON schema validator for UISpecification
+│   │   │   └── index.ts        # Entry point: generateUISpecification(extractedData)
 │   │   │
 │   │   ├── generator/          # ⚛️ MODULE 3: React + Tailwind Code Generator
-│   │   │   └── index.ts        # Generates clean, modular React components & Tailwind styles
+│   │   │   ├── componentGenerator.ts # Generates Navbar, Hero, Section, Card, CTA, Footer
+│   │   │   ├── styleConfigurator.ts  # Generates tailwind.config.js with exact extracted tokens
+│   │   │   ├── projectScaffolder.ts  # Scaffolds complete standalone Vite + React + TS project
+│   │   │   └── index.ts        # Entry point: generateReactProject(spec, outputDir)
 │   │   │
 │   │   ├── validator/          # 🛡️ MODULE 4: Validation & Auto-Healing Engine
-│   │   │   └── index.ts        # Compiles code, captures errors, feeds back to AI for auto-fix
+│   │   │   ├── buildRunner.ts  # Executes `tsc --noEmit` and `vite build`
+│   │   │   ├── diagnosticExtractor.ts # Parses raw compiler output into structured diagnostics
+│   │   │   ├── autoHealer.ts   # AI + regex diagnostic healing loop (up to 3 iterations)
+│   │   │   └── index.ts        # Entry point: validateAndHeal(projectPath)
 │   │   │
-│   │   ├── modifier/           # 💬 MODULE 5: Natural Language Iterative Modifier
-│   │   │   └── index.ts        # Applies targeted prompt modifications to existing code
+│   │   ├── modifier/           # 💬 MODULE 5: Natural Language Frontend Modification Engine
+│   │   │   ├── safeFileModifier.ts # Sandboxed file read/write with path traversal guard
+│   │   │   ├── fileSelector.ts # Intent-to-file mapper for targeted in-place edits
+│   │   │   ├── aiModifier.ts   # LLM instruction parser + high-precision deterministic rules
+│   │   │   ├── historyManager.ts # Persistent modification history (.modifications.json)
+│   │   │   └── index.ts        # Orchestrator: modifyProject(options) with rollback
 │   │   │
 │   │   ├── routes/
-│   │   │   └── analyze.ts      # REST & SSE streaming endpoints (/api/analyze)
-│   │   ├── utils/
-│   │   │   ├── logger.ts       # Structured timestamped logger
-│   │   │   └── urlHelper.ts    # URL normalization and absolute asset resolution
+│   │   │   ├── analyze.ts      # REST & SSE streaming endpoints (/api/analyze)
+│   │   │   ├── generate.ts     # Generation endpoint (/api/generate)
+│   │   │   ├── validate.ts     # Validation endpoint (/api/validate)
+│   │   │   └── modify.ts       # Natural language modification endpoint (/api/modify)
 │   │   ├── app.ts              # Express application factory
 │   │   └── index.ts            # Server entry point (Port 5000)
 │   └── package.json
 │
 ├── shared/                     # 📦 Shared TypeScript Types & Contracts
 │   ├── src/
-│   │   ├── types.ts            # ExtractedWebsiteData, UISpecification, AnalysisProgressEvent
+│   │   ├── types.ts            # ExtractedWebsiteData, UISpecification, Diagnostic, etc.
 │   │   └── index.ts
 │   └── package.json
 │
-├── output/                     # Analysis results & JSON audit artifacts
 └── package.json                # Root workspaces package
 ```
 
 ---
 
-## 🔍 Module 1: Website Analyzer (Deep Dive)
+## 🔍 The 5 Modules
 
-The **Website Analyzer** is the foundational perception module of the agent. It operates through 6 specialized sub-engines:
+### Module 1: Website Analyzer (`server/src/analyzer/`)
+- Launches headless Chromium via Playwright (with fallback to system Chrome/Edge).
+- Extracts DOM structure, page metadata, navigation links, and action buttons.
+- Computes styles: color clustering (`primary`, `secondary`, `background`, `surface`, `text`), font families, and typography scales.
+- Resolves all image, SVG, background, and OpenGraph asset URLs.
+- Classifies layout sections: `hero`, `features`, `pricing`, `testimonials`, `cta`, `footer`.
+- Samples mobile (375px) and tablet (768px) viewports for responsive behaviors and hamburger navigation.
 
-| Sub-Engine | Responsibilities | Output Key |
-| :--- | :--- | :--- |
-| **`browser.ts`** | Manages Playwright Chromium sessions with automatic fallback to system Chrome/Edge. Injects scroll triggers to force lazy-loaded images to load. | Active Page Context |
-| **`domExtractor.ts`** | Analyzes DOM hierarchy, page title, meta description, brand logo, navigation links, and action buttons. | `metadata`, `navigation` |
-| **`styleExtractor.ts`** | Traverses visible elements, converts RGB/RGBA to HEX, deduplicates, and clusters colors into functional roles (`primary`, `secondary`, `background`, `surface`, `text`). Extracts typography fonts and scale. | `colors`, `typography` |
-| **`assetExtractor.ts`** | Finds `<img>`, inline `<svg>`, CSS `background-image`, and OpenGraph media. Resolves all relative URLs to absolute URLs. | `assets` |
-| **`sectionDetector.ts`** | Detects major visual containers, classifies semantic section types (`hero`, `features`, `pricing`, `testimonials`, `footer`), extracts card items, buttons, and layout styles (`grid`, `flex`, `columns`). | `sections` |
-| **`responsiveInspector.ts`** | Samples viewports at Mobile (375x812) and Tablet (768x1024). Detects hamburger menus and layout changes. | `responsive` |
+### Module 2: AI Analysis & UI Specification Layer (`server/src/spec/`)
+- Converts raw `ExtractedWebsiteData` into a strongly-typed `UISpecification`.
+- Primary grounding source: the extracted data (not assumptions from the URL).
+- Uses Gemini 2.5 Flash with structured system instructions forbidding synthetic or hallucinated sections.
+- Includes a deterministic rule-based fallback ensuring 100% reliability offline or in testing environments.
+
+### Module 3: React + Tailwind Code Generator (`server/src/generator/`)
+- Translates `UISpecification` into a clean, standalone Vite + React + TypeScript + Tailwind project.
+- Generates only components that actually exist in the target specification (`Navbar`, `Hero`, `Section`, `Footer`).
+- Preserves exact section ordering, headings, body text, buttons, links, images, and layout geometries.
+- Configures custom Tailwind color tokens and font families derived from the original site.
+
+### Module 4: Validation & Auto-Healing Engine (`server/src/validator/`)
+- Runs `tsc --noEmit` and `vite build` against generated projects.
+- Parses raw compiler output into structured diagnostics:
+  ```json
+  {
+    "file": "src/components/Hero.tsx",
+    "line": 42,
+    "column": 12,
+    "errorType": "typescript",
+    "message": "Cannot find name 'ChevronRight'",
+    "severity": "error"
+  }
+  ```
+- Executes an automated repair loop (up to 3 iterations) resolving missing imports, unclosed tags, and syntax errors.
+
+### Module 5: Natural Language Frontend Modification Engine (`server/src/modifier/`)
+- Modifies existing projects **in-place** without regenerating from scratch.
+- Selects and edits only the minimal set of files required for the requested change.
+- Sandboxed safe file access: strictly rejects absolute paths, `..` path traversals, and edits outside the project.
+- Closed-loop validation: all modifications pass Module 4 build validation before returning success.
+- Automatic rollback: restores files to their previous state if validation fails after repair attempts.
+- Persistent audit log: records instruction, timestamp, files modified, and validation outcome in `.modifications.json`.
 
 ---
 
-## 🚀 Quickstart & Testing
+## 🚀 Quickstart & Running Tests
 
 ### 1. Install Dependencies
 ```bash
 npm install
 ```
 
-### 2. Test Website Analyzer via CLI
-Run the analyzer on any live public website directly from your terminal:
+### 2. Run All Automated Test Suites
+Every module includes dedicated unit and integration tests:
 
 ```bash
-# Test on Hacker News
-npm run test:analyzer -- https://news.ycombinator.com
+# Module 1: Website Analyzer
+npm run test:analyzer
 
-# Test on Tailwind CSS
-npm run test:analyzer -- https://tailwindcss.com
+# Module 2: UI Specification Layer
+npm run test:spec
 
-# Test on Stripe
-npm run test:analyzer -- https://stripe.com
+# Module 3: React + Tailwind Code Generator
+npm run test:generator
+
+# Module 4: Validation & Auto-Healing Engine
+npm run test:validator
+
+# Module 5: Natural Language Frontend Modification Engine
+npm run test:modifier
 ```
 
-The CLI outputs:
-- Real-time percentage progress bar
-- Extracted metadata (Title, Viewport, Description)
-- Identified Color Palette with hex codes & functional roles
-- Font families & Typography scale
-- Navigation structure (Brand, Links, CTAs)
-- Section-by-section breakdown (Hero, Content, Pricing, Footer)
-- Total assets extracted (Images, SVGs, Logos)
-- Responsive findings (Mobile hamburger detection, layout shifts)
-- Saves full detailed JSON to `output/analysis_sample.json`
+### 3. Build All Monorepo Workspaces
+```bash
+npm run build
+```
 
-### 3. Run Development Servers (Dashboard + API)
+### 4. Start Development Servers (Dashboard + API)
 ```bash
 npm run dev
 ```
@@ -135,17 +191,76 @@ npm run dev
 
 ---
 
-## 🎙️ Founding AI Engineer Interview Talking Points
+## 🌐 API Reference
+
+### 1. Analyze Website
+`POST /api/analyze`
+```json
+{
+  "url": "https://example.com"
+}
+```
+*Supports Server-Sent Events (SSE) streaming progress updates when requested with `Accept: text/event-stream`.*
+
+### 2. Generate React Recreation
+`POST /api/generate`
+```json
+{
+  "spec": { ...UISpecification },
+  "projectName": "my-recreation"
+}
+```
+
+### 3. Validate & Auto-Heal Project
+`POST /api/validate`
+```json
+{
+  "projectPath": "output/projects/my-recreation"
+}
+```
+
+### 4. Natural Language Modify
+`POST /api/modify`
+```json
+{
+  "projectPath": "output/projects/my-recreation",
+  "instruction": "Make the navbar sticky"
+}
+```
+**Response:**
+```json
+{
+  "success": true,
+  "projectPath": "output/projects/my-recreation",
+  "instruction": "Make the navbar sticky",
+  "modifiedFiles": ["src/components/Navbar.tsx"],
+  "record": {
+    "id": "mod_1774691456789_abc",
+    "timestamp": 1774691456789,
+    "instruction": "Make the navbar sticky",
+    "summary": "Updated Navbar.tsx to make navbar sticky with sticky top-0 z-50",
+    "filesModified": ["src/components/Navbar.tsx"],
+    "validationPassed": true,
+    "diagnosticsCount": 0
+  }
+}
+```
+
+---
+
+## 🎙️ Founding AI Engineer Assessment Talking Points
 
 1. **Why Playwright over standard Cheerio / Axios?**
-   - Modern websites rely on client-side hydration (React/Next.js/Vue), CSS-in-JS, Tailwind variables, and lazy loading. A simple HTML parser only sees empty `<div id="root"></div>` tags and miss computed styles. Playwright inspects the rendered, computed DOM and live CSS.
+   - Modern websites rely on client-side hydration (React/Next.js/Vue), CSS-in-JS, Tailwind variables, and lazy loading. Playwright inspects the rendered, computed DOM and live CSS rules rather than static initial HTML.
 
 2. **How does the system prevent hallucinated sections?**
-   - The AI generation layer is grounded strictly on the structured JSON produced by the Analyzer (`sections`, `items`, `buttons`, `styling`). The prompt schema forbids adding synthetic sections not detected in the source.
+   - The AI generation layer is grounded strictly on the structured JSON produced by the Analyzer (`sections`, `items`, `buttons`, `styling`). The prompt schema forbids inventing synthetic sections or content not detected in the source.
 
-3. **Multi-Viewport & Responsive Awareness:**
-   - Instead of guessing responsive rules, the analyzer programmatically resizes the browser viewport to 375px (mobile) and inspects hamburger menu triggers, hidden elements, and grid collapse patterns.
+3. **Closed-Loop Auto-Healing:**
+   - Rather than hoping generated code works, the system compiles each project with `tsc --noEmit` and `vite build`. Any errors are parsed into structured diagnostics and fed back into an iterative auto-healer with AST-aware rules.
 
-4. **Fault Tolerance & Resilience:**
-   - Playwright uses auto-fallback: if bundled Chromium is missing, it dynamically switches to system-installed Chrome or Edge without failing.
-   - Network navigation gracefully falls back from `networkidle` to `domcontentloaded` to prevent hangs on long-polling trackers.
+4. **In-Place Modification vs Full Regeneration:**
+   - When the user asks for a change (e.g. "Make navbar sticky" or "Change primary color to blue"), the modification engine targets only affected files (`Navbar.tsx` or `tailwind.config.js`). It never wipes out existing work or regenerates from scratch.
+
+5. **Sandbox Security & Rollback Safety:**
+   - File modification is strictly sandboxed: path traversal attacks (`..`), absolute paths, and modifications to root directories are rejected before execution. Every modification snapshots modified files and automatically rolls back if builds fail.
