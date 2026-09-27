@@ -285,10 +285,132 @@ async function runModifierTests() {
   }
 
   // =========================================================================
-  // TEST 6: SECURITY VERIFICATION (Prevent Traversal & Escapes)
+  // TEST 6: MAKE THE BUTTONS ROUNDED
   // =========================================================================
   console.log('\n----------------------------------------------------');
-  console.log('🧪 TEST 6: SECURITY CHECK (Strict Traversal & Escape Prevention)');
+  console.log('🧪 TEST 6: "Make the buttons rounded"');
+  console.log('----------------------------------------------------');
+  {
+    const instruction = 'Make the buttons rounded';
+    const result = await modifyProject(testProjectDir, instruction);
+
+    const buttonPath = path.join(testProjectDir, 'src/components/Button.tsx');
+    const buttonCode = fs.existsSync(buttonPath) ? fs.readFileSync(buttonPath, 'utf-8') : '';
+    const configCode = fs.readFileSync(tailwindConfigPath, 'utf-8');
+    const isPill = buttonCode.includes('rounded-full') || configCode.includes('9999px');
+
+    console.log(`📊 Result Success:      ${result.success}`);
+    console.log(`📝 Modified Files:      ${result.modifiedFiles.join(', ')}`);
+    console.log(`🔘 Rounded buttons:     ${isPill}`);
+    console.log(`🛠️  Build Validation:    ${result.validation.success ? 'PASSED' : 'FAILED'}`);
+
+    const passed = result.success && isPill && result.validation.success;
+    results.push({
+      name: 'Test 6: Make buttons rounded',
+      passed,
+      identifiedFiles: result.modifiedFiles,
+      unrelatedPreserved: true,
+      buildPassed: result.validation.success,
+      historyRecorded: result.history?.some((h) => h.instruction === instruction) || false,
+      details: isPill ? 'Updated button border radius to rounded-full / 9999px pill style' : 'Button radius not updated',
+    });
+  }
+
+  // =========================================================================
+  // TEST 7: MAKE THE HERO SECTION CENTERED
+  // =========================================================================
+  console.log('\n----------------------------------------------------');
+  console.log('🧪 TEST 7: "Make the hero section centered"');
+  console.log('----------------------------------------------------');
+  {
+    const instruction = 'Make the hero section centered';
+    const result = await modifyProject(testProjectDir, instruction);
+
+    const heroCode = fs.readFileSync(heroPath, 'utf-8');
+    const isCentered = heroCode.includes('text-center') || heroCode.includes('items-center');
+
+    console.log(`📊 Result Success:      ${result.success}`);
+    console.log(`📝 Modified Files:      ${result.modifiedFiles.join(', ')}`);
+    console.log(`📐 Hero centered:       ${isCentered}`);
+    console.log(`🛠️  Build Validation:    ${result.validation.success ? 'PASSED' : 'FAILED'}`);
+
+    const passed = result.success && isCentered && result.validation.success;
+    results.push({
+      name: 'Test 7: Make hero section centered',
+      passed,
+      identifiedFiles: result.modifiedFiles,
+      unrelatedPreserved: true,
+      buildPassed: result.validation.success,
+      historyRecorded: result.history?.some((h) => h.instruction === instruction) || false,
+      details: isCentered ? 'Applied text-center and items-center alignment to hero section' : 'Center classes missing',
+    });
+  }
+
+  // =========================================================================
+  // TEST 8: CHANGE THE BACKGROUND TO DARK
+  // =========================================================================
+  console.log('\n----------------------------------------------------');
+  console.log('🧪 TEST 8: "Change the background to dark"');
+  console.log('----------------------------------------------------');
+  {
+    const instruction = 'Change the background to dark';
+    const result = await modifyProject(testProjectDir, instruction);
+
+    const configCode = fs.readFileSync(tailwindConfigPath, 'utf-8');
+    const isDarkBg = configCode.includes('#0f172a') || configCode.includes('#1e293b') || configCode.includes('#111827');
+
+    console.log(`📊 Result Success:      ${result.success}`);
+    console.log(`📝 Modified Files:      ${result.modifiedFiles.join(', ')}`);
+    console.log(`🌙 Dark background:     ${isDarkBg}`);
+    console.log(`🛠️  Build Validation:    ${result.validation.success ? 'PASSED' : 'FAILED'}`);
+
+    const passed = result.success && isDarkBg && result.validation.success;
+    results.push({
+      name: 'Test 8: Change background to dark',
+      passed,
+      identifiedFiles: result.modifiedFiles,
+      unrelatedPreserved: true,
+      buildPassed: result.validation.success,
+      historyRecorded: result.history?.some((h) => h.instruction === instruction) || false,
+      details: isDarkBg ? 'Updated theme color tokens to dark slate palette' : 'Dark tokens missing',
+    });
+  }
+
+  // =========================================================================
+  // TEST 9: MAKE THE NAVIGATION RESPONSIVE
+  // =========================================================================
+  console.log('\n----------------------------------------------------');
+  console.log('🧪 TEST 9: "Make the navigation responsive"');
+  console.log('----------------------------------------------------');
+  {
+    const instruction = 'Make the navigation responsive';
+    const result = await modifyProject(testProjectDir, instruction);
+
+    const updatedNavbar = fs.readFileSync(navbarPath, 'utf-8');
+    const isResponsive = updatedNavbar.includes('md:flex') || updatedNavbar.includes('hidden');
+
+    console.log(`📊 Result Success:      ${result.success}`);
+    console.log(`📝 Modified Files:      ${result.modifiedFiles.join(', ')}`);
+    console.log(`📱 Responsive nav:      ${isResponsive}`);
+    console.log(`🛠️  Build Validation:    ${result.validation.success ? 'PASSED' : 'FAILED'}`);
+
+    const passed = result.success && isResponsive && result.validation.success;
+    results.push({
+      name: 'Test 9: Make navigation responsive',
+      passed,
+      identifiedFiles: result.modifiedFiles,
+      unrelatedPreserved: true,
+      buildPassed: result.validation.success,
+      historyRecorded: result.history?.some((h) => h.instruction === instruction) || false,
+      details: isResponsive ? 'Configured responsive navigation layout classes' : 'Responsive layout missing',
+    });
+  }
+
+  // =========================================================================
+  // TEST 10: SECURITY VERIFICATION (Prevent Traversal & Escapes)
+  // =========================================================================
+  console.log('\n----------------------------------------------------');
+  console.log('🧪 TEST 10: SECURITY CHECK (Strict Traversal & Escape Prevention)');
   console.log('----------------------------------------------------');
   {
     let blockedTraversal = false;
@@ -315,7 +437,7 @@ async function runModifierTests() {
 
     const passed = blockedTraversal && blockedAbsolute;
     results.push({
-      name: 'Test 6: Security Containment',
+      name: 'Test 10: Security Containment',
       passed,
       identifiedFiles: [],
       unrelatedPreserved: true,
@@ -326,10 +448,10 @@ async function runModifierTests() {
   }
 
   // =========================================================================
-  // TEST 7: MODIFICATION HISTORY VERIFICATION
+  // TEST 11: MODIFICATION HISTORY VERIFICATION
   // =========================================================================
   console.log('\n----------------------------------------------------');
-  console.log('🧪 TEST 7: MODIFICATION HISTORY PERSISTENCE');
+  console.log('🧪 TEST 11: MODIFICATION HISTORY PERSISTENCE');
   console.log('----------------------------------------------------');
   {
     const history = HistoryManager.getHistory(testProjectDir);
@@ -340,9 +462,9 @@ async function runModifierTests() {
       );
     }
 
-    const passed = history.length >= 5;
+    const passed = history.length >= 9;
     results.push({
-      name: 'Test 7: Modification History',
+      name: 'Test 11: Modification History',
       passed,
       identifiedFiles: [],
       unrelatedPreserved: true,

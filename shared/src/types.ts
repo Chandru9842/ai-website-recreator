@@ -256,3 +256,41 @@ export interface ValidationResult {
   healed: boolean;
 }
 
+export interface ProjectVersion {
+  version: number;
+  instruction: string;
+  timestamp: number;
+  modifiedFiles: string[];
+  validation: {
+    success: boolean;
+    diagnosticsCount?: number;
+  };
+  snapshotPath: string;
+}
+
+export interface ProjectMetadata {
+  id: string;
+  name: string;
+  originalUrl: string;
+  projectPath: string;
+  previewUrl: string;
+  createdAt: number;
+  updatedAt: number;
+  currentVersion: number;
+  versions: ProjectVersion[];
+  status: 'passed' | 'failed' | 'generating' | 'healing';
+}
+
+export interface CreateProjectPayload {
+  name: string;
+  originalUrl: string;
+  projectPath?: string;
+  previewUrl?: string;
+}
+
+export interface UpdateProjectPayload {
+  name?: string;
+  status?: 'passed' | 'failed' | 'generating' | 'healing';
+}
+
+

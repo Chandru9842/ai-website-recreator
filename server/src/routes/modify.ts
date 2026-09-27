@@ -2,6 +2,7 @@ import { Router, Request, Response } from 'express';
 import * as path from 'path';
 import * as fs from 'fs';
 import { modifyProject } from '../modifier';
+import { ProjectManager } from '../projects';
 import { Logger } from '../utils/logger';
 
 const router = Router();
@@ -10,7 +11,7 @@ const logger = new Logger('ModifyRoute');
 /**
  * POST /api/modify
  * Request: { projectPath: string, instruction: string }
- * Response: { success: boolean, modifiedFiles: string[], validation: ValidationResult, message: string, history: ModificationRecord[] }
+ * Response: { success: boolean, modifiedFiles: string[], validation: ValidationResult, message: string, history: ModificationRecord[], previewUrl: string, projectVersion?: ProjectVersion }
  */
 router.post('/', async (req: Request, res: Response) => {
   try {
@@ -33,6 +34,15 @@ router.post('/', async (req: Request, res: Response) => {
     }
 
     const resolvedDir = path.resolve(projectPath);
+    const authorizedRoot = path.resolve(__dirname, '../../../output');
+    if (!resolvedDir.startsWith(authorizedRoot)) {
+      res.status(400).json({
+        success: false,
+        error: `Security Error: Project directory must be within authorized output folder: "${resolvedDir}"`,
+      });
+      return;
+    }
+
     if (!fs.existsSync(resolvedDir)) {
       res.status(404).json({
         success: false,
@@ -47,6 +57,33 @@ router.post('/', async (req: Request, res: Response) => {
     const projectName = path.basename(resolvedDir);
     const previewUrl = `/preview/${encodeURIComponent(projectName)}/`;
 
+    let versionInfo = undefined;
+    if (result.success) {
+      try {
+        let project = ProjectManager.getProjectByPath(resolvedDir);
+        if (!project) {
+          project = ProjectManager.createProject({
+            id: projectName,
+            name: projectName,
+            projectPath: resolvedDir,
+            previewUrl,
+            status: 'passed',
+          });
+        }
+        versionInfo = ProjectManager.createVersion(
+          project.id,
+          instruction.trim(),
+          result.modifiedFiles,
+          {
+            success: true,
+            diagnosticsCount: result.validation?.diagnostics?.length || 0,
+          }
+        );
+      } catch (verErr: any) {
+        logger.warn(`Could not create version record in ProjectManager: ${verErr.message}`);
+      }
+    }
+
     res.json({
       success: result.success,
       modifiedFiles: result.modifiedFiles,
@@ -54,6 +91,7 @@ router.post('/', async (req: Request, res: Response) => {
       message: result.message,
       history: result.history,
       previewUrl,
+      projectVersion: versionInfo,
     });
   } catch (error: any) {
     logger.error('Error during project modification', { error: error.message });

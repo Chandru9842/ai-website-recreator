@@ -3,7 +3,7 @@ import { SafeFileModifier } from './safeFileModifier';
 
 export interface FileSelectionResult {
   relevantFiles: string[];
-  intentCategory: 'navbar' | 'theme' | 'remove_section' | 'add_section' | 'hero' | 'general';
+  intentCategory: 'navbar' | 'theme' | 'remove_section' | 'add_section' | 'hero' | 'button' | 'general';
   targetSection?: string;
 }
 
@@ -32,7 +32,8 @@ export function selectRelevantFiles(projectDir: string, instruction: string): Fi
     norm.includes('secondary') ||
     norm.includes('background') ||
     norm.includes('palette') ||
-    norm.includes('theme')
+    norm.includes('theme') ||
+    norm.includes('dark')
   ) {
     const themeFiles = allFiles.filter(
       (f) => f.includes('tailwind.config.js') || f.includes('index.css') || f.includes('App.tsx')
@@ -94,7 +95,20 @@ export function selectRelevantFiles(projectDir: string, instruction: string): Fi
     };
   }
 
-  // 6. General fallback: scan file contents for matching keywords
+  // 6. Button styling (e.g. rounded buttons, pill buttons)
+  if (norm.includes('button') || (norm.includes('round') && !norm.includes('nav'))) {
+    const btnFiles = allFiles.filter(
+      (f) => f.includes('Button.tsx') || f.includes('Button') || f.includes('tailwind.config.js')
+    );
+    if (btnFiles.length > 0) {
+      return {
+        relevantFiles: btnFiles,
+        intentCategory: 'button',
+      };
+    }
+  }
+
+  // 7. General fallback: scan file contents for matching keywords
   const keywords = norm
     .split(/\s+/)
     .filter((w) => w.length > 3 && !['make', 'change', 'update', 'with', 'from', 'this', 'that'].includes(w));

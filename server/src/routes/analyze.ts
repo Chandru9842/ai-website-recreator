@@ -45,13 +45,13 @@ router.post('/', async (req: Request, res: Response) => {
     const { url, clientId } = req.body;
 
     if (!url || typeof url !== 'string') {
-      res.status(400).json({ error: 'Valid URL is required' });
+      res.status(400).json({ success: false, error: 'Valid URL is required' });
       return;
     }
 
     const normalized = normalizeUrl(url);
     if (!isValidHttpUrl(normalized)) {
-      res.status(400).json({ error: 'Invalid HTTP or HTTPS URL provided' });
+      res.status(400).json({ success: false, error: 'Invalid HTTP or HTTPS URL provided' });
       return;
     }
 

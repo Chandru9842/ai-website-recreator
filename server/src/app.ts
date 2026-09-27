@@ -7,10 +7,15 @@ import generateRouter from './routes/generate';
 import validateRouter from './routes/validate';
 import modifyRouter from './routes/modify';
 import previewRouter from './routes/preview';
+import projectsRouter from './routes/projects';
+import { ProjectManager } from './projects';
 
 dotenv.config();
 
 export function createApp() {
+  // Initialize project registry on startup
+  ProjectManager.init();
+
   const app = express();
 
   // Middleware
@@ -33,6 +38,7 @@ export function createApp() {
   app.use('/api/generate', generateRouter);
   app.use('/api/validate', validateRouter);
   app.use('/api/modify', modifyRouter);
+  app.use('/api/projects', projectsRouter);
 
   // Static preview of generated projects
   app.use('/preview', previewRouter);

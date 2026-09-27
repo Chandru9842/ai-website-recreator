@@ -137,11 +137,29 @@ function generateDeterministicPlan(
   const changes: FileChangeInstruction[] = [];
 
   // =========================================================================
-  // 1. STICKY NAVBAR
+  // 1. STICKY NAVBAR & RESPONSIVE NAVIGATION
   // =========================================================================
-  if (selection.intentCategory === 'navbar' || norm.includes('sticky')) {
+  if (selection.intentCategory === 'navbar' || norm.includes('sticky') || norm.includes('responsive')) {
     const navbarFile = selection.relevantFiles[0] || 'src/sections/Navbar.tsx';
     let code = fileContents[navbarFile] || SafeFileModifier.safeReadFile(projectDir, navbarFile);
+
+    if (norm.includes('responsive') || norm.includes('mobile')) {
+      if (!code.includes('hidden md:flex')) {
+        code = code.replace(/(<(?:nav|div)[^>]*className=["'][^"']*?)flex([^"']*?["'])/, '$1hidden md:flex$2');
+      }
+      changes.push({
+        file: navbarFile,
+        operation: 'modify',
+        reason: 'Enhanced navbar responsiveness with hidden md:flex layout and responsive classes',
+        updatedContent: code,
+      });
+
+      return {
+        intent: 'Make navigation responsive',
+        reasoning: 'Configured responsive navigation layout classes for mobile and desktop viewports.',
+        changes,
+      };
+    }
 
     // Add sticky top-0 classes to <header> or <nav>
     if (!code.includes('sticky top-0')) {
@@ -174,11 +192,33 @@ function generateDeterministicPlan(
   }
 
   // =========================================================================
-  // 2. PRIMARY COLOR / THEME
+  // 2. PRIMARY COLOR / THEME / DARK MODE
   // =========================================================================
-  if (selection.intentCategory === 'theme' || norm.includes('color') || norm.includes('primary')) {
+  if (selection.intentCategory === 'theme' || norm.includes('color') || norm.includes('primary') || norm.includes('dark')) {
     const configFile = 'tailwind.config.js';
     let code = fileContents[configFile] || SafeFileModifier.safeReadFile(projectDir, configFile);
+
+    // Dark theme / Dark background
+    if (norm.includes('dark') || norm.includes('black')) {
+      code = code.replace(/(bg:\s*['"])(#[a-fA-F0-9]{3,8}|[a-zA-Z0-9_\-]+)(['"])/, `$1#0f172a$3`);
+      code = code.replace(/(surface:\s*['"])(#[a-fA-F0-9]{3,8}|[a-zA-Z0-9_\-]+)(['"])/, `$1#1e293b$3`);
+      code = code.replace(/(text:\s*['"])(#[a-fA-F0-9]{3,8}|[a-zA-Z0-9_\-]+)(['"])/, `$1#f8fafc$3`);
+      code = code.replace(/(muted:\s*['"])(#[a-fA-F0-9]{3,8}|[a-zA-Z0-9_\-]+)(['"])/, `$1#94a3b8$3`);
+      code = code.replace(/(border:\s*['"])(#[a-fA-F0-9]{3,8}|[a-zA-Z0-9_\-]+)(['"])/, `$1#334155$3`);
+
+      changes.push({
+        file: configFile,
+        operation: 'modify',
+        reason: 'Updated theme tokens to dark mode (#0f172a bg, #1e293b surface, #f8fafc text)',
+        updatedContent: code,
+      });
+
+      return {
+        intent: 'Change background to dark',
+        reasoning: 'Updated theme color tokens to dark slate palette in tailwind.config.js.',
+        changes,
+      };
+    }
 
     // Detect target color
     let newHex = '#2563eb'; // default modern blue
@@ -414,11 +454,18 @@ export const TestimonialsSection: React.FC = () => {
         `$1\n              ${targetHeading}\n            $3`
       );
 
-      // 3. Subtitle / Paragraph replacement
-      code = code.replace(
-        /(<p[^>]*>)([\s\S]*?)(<\/p>)/,
-        `$1\n              ${targetSubtitle}\n            $3`
-      );
+      // 3. Subtitle / Paragraph replacement or insertion
+      if (code.includes('<p')) {
+        code = code.replace(
+          /(<p[^>]*>)([\s\S]*?)(<\/p>)/,
+          `$1\n              ${targetSubtitle}\n            $3`
+        );
+      } else {
+        code = code.replace(
+          /(<\/h1>)/,
+          `$1\n\n            <p className="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mb-8 leading-relaxed">\n              ${targetSubtitle}\n            </p>`
+        );
+      }
 
       // 4. Button / CTA replacement (Primary & Secondary CTA)
       if (code.includes('<div className="flex flex-wrap gap-4')) {
@@ -431,9 +478,12 @@ export const TestimonialsSection: React.FC = () => {
           /(<Button[^>]*>)([\s\S]*?)(<\/Button>)/,
           `<Button variant="primary" isCta={true} href="#order">\n                ${targetPrimaryCta}\n              </Button>\n              <Button variant="secondary" href="#menu">\n                ${targetSecondaryCta}\n              </Button>`
         );
+      } else {
+        const buttonsJsx = `\n\n            <div className="flex flex-wrap gap-4 mt-6">\n              <Button variant="primary" isCta={true} href="#order">\n                ${targetPrimaryCta}\n              </Button>\n              <Button variant="secondary" href="#menu">\n                ${targetSecondaryCta}\n              </Button>\n            </div>`;
+        code = code.replace(/(<\/p>)/, `$1${buttonsJsx}`);
       }
 
-      // 5. MediaAsset or img replacement
+      // 5. MediaAsset or img replacement or insertion
       if (code.includes('<MediaAsset')) {
         code = code.replace(
           /(<MediaAsset[^>]*?url=["'])([^"']*?)(["'])/,
@@ -452,6 +502,9 @@ export const TestimonialsSection: React.FC = () => {
           /(<img[^>]*?alt=["'])([^"']*?)(["'])/,
           `$1Freshly Baked Artisanal Bakery Delights$3`
         );
+      } else {
+        const imageJsx = `\n          <div className="mt-8 rounded-2xl overflow-hidden shadow-2xl max-w-4xl mx-auto">\n            <img src="${targetImage}" alt="Freshly Baked Artisanal Bakery Delights" className="w-full h-80 object-cover" />\n          </div>\n`;
+        code = code.replace(/(<\/section>)/, `${imageJsx}        $1`);
       }
 
       changes.push({
@@ -466,6 +519,35 @@ export const TestimonialsSection: React.FC = () => {
         intent: 'Replace hero with a bakery hero',
         reasoning:
           'Updated the hero section with the requested artisanal bakery heading, subtitle, badge, CTA button, and high-quality bakery photography.',
+        changes,
+      };
+    }
+
+    // Centered Hero Section
+    if (norm.includes('center')) {
+      code = code.replace(
+        /(<section[^>]*className=["'])([^"']*)(["'])/,
+        (_match, prefix, classes, suffix) => {
+          const newClasses = classes.includes('text-center') ? classes : `${classes} text-center`.trim();
+          return `${prefix}${newClasses}${suffix}`;
+        }
+      );
+      code = code.replace(/items-start/g, 'items-center justify-center');
+      code = code.replace(/text-left/g, 'text-center');
+      if (code.includes('flex flex-wrap gap-4') && !code.includes('justify-center')) {
+        code = code.replace('flex flex-wrap gap-4', 'flex flex-wrap gap-4 justify-center');
+      }
+
+      changes.push({
+        file: heroFile,
+        operation: 'modify',
+        reason: 'Centered hero section content and alignment',
+        updatedContent: code,
+      });
+
+      return {
+        intent: 'Make hero section centered',
+        reasoning: 'Applied center alignment and justify-center to hero section and action buttons.',
         changes,
       };
     }
@@ -488,6 +570,52 @@ export const TestimonialsSection: React.FC = () => {
       reasoning: 'Updated h1 heading size utility classes in HeroSection to display scale.',
       changes,
     };
+  }
+
+  // =========================================================================
+  // 6. BUTTON STYLING (e.g. Rounded buttons / pill buttons)
+  // =========================================================================
+  if (
+    selection.intentCategory === 'button' ||
+    norm.includes('button') ||
+    (norm.includes('round') && !norm.includes('nav'))
+  ) {
+    const btnFile = selection.relevantFiles.find((f) => f.includes('Button.tsx')) || 'src/components/Button.tsx';
+    if (SafeFileModifier.safeFileExists(projectDir, btnFile)) {
+      let code = fileContents[btnFile] || SafeFileModifier.safeReadFile(projectDir, btnFile);
+      code = code.replace(/rounded-(?:site-button|md|lg|sm|xl)/g, 'rounded-full');
+      if (!code.includes('rounded-full')) {
+        code = code.replace(/(className=[{`'"][^`'"]*?)rounded[a-zA-Z0-9_\-]*/g, '$1rounded-full');
+      }
+      changes.push({
+        file: btnFile,
+        operation: 'modify',
+        reason: 'Updated button border radius to rounded-full (pill style)',
+        updatedContent: code,
+      });
+    }
+
+    const configFile = 'tailwind.config.js';
+    if (SafeFileModifier.safeFileExists(projectDir, configFile)) {
+      let configCode = fileContents[configFile] || SafeFileModifier.safeReadFile(projectDir, configFile);
+      if (configCode.includes('button:')) {
+        configCode = configCode.replace(/(button:\s*['"])([^'"]+)(['"])/, '$19999px$3');
+        changes.push({
+          file: configFile,
+          operation: 'modify',
+          reason: 'Updated button border radius token to 9999px in tailwind.config.js',
+          updatedContent: configCode,
+        });
+      }
+    }
+
+    if (changes.length > 0) {
+      return {
+        intent: 'Make buttons rounded',
+        reasoning: 'Updated button component styling and tailwind tokens to rounded-full / 9999px pill shape.',
+        changes,
+      };
+    }
   }
 
   // Fallback: return empty plan if unrecognized

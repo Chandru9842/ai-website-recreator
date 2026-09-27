@@ -32,6 +32,14 @@ router.post('/', async (req: Request, res: Response) => {
     }
 
     const resolvedPath = path.resolve(rawPath);
+    const authorizedRoot = path.resolve(__dirname, '../../../output');
+    if (!resolvedPath.startsWith(authorizedRoot)) {
+      res.status(400).json({
+        success: false,
+        error: `Security Error: Project directory must be within authorized output folder: "${resolvedPath}"`,
+      });
+      return;
+    }
 
     if (!fs.existsSync(resolvedPath)) {
       res.status(404).json({

@@ -4,6 +4,8 @@ import { generateReactProject } from '../generator';
 import { UISpecification } from '@ai-website-recreator/shared';
 import { Logger } from '../utils/logger';
 
+import { ProjectManager } from '../projects';
+
 const router = Router();
 const logger = new Logger('GenerateRoute');
 
@@ -25,14 +27,13 @@ router.post('/', async (req: Request, res: Response) => {
 
     logger.info(`Received React generation request for "${spec.metadata.title}"`);
 
-    // Default output directory if not explicitly provided
-    const targetDir =
-      outputDir ||
-      path.resolve(
-        __dirname,
-        '../../../output/generated_projects',
-        spec.metadata.title.toLowerCase().replace(/[^a-z0-9]+/g, '_')
-      );
+    // Safe output directory: derive or validate confinement within generated_projects
+    const defaultDir = path.resolve(
+      __dirname,
+      '../../../output/generated_projects',
+      (spec.metadata.title || 'project').toLowerCase().replace(/[^a-z0-9]+/g, '_')
+    );
+    const targetDir = outputDir ? ProjectManager.resolveSafePath(outputDir) : defaultDir;
 
     const project = await generateReactProject(spec as UISpecification, {
       outputDir: targetDir,
@@ -41,6 +42,23 @@ router.post('/', async (req: Request, res: Response) => {
 
     const projectName = path.basename(project.projectDir || targetDir);
     project.previewUrl = `/preview/${encodeURIComponent(projectName)}/`;
+    project.id = projectName;
+
+    // Automatically register project in Project Registry
+    try {
+      const meta = ProjectManager.createProject({
+        id: projectName,
+        name: spec.metadata.title || projectName,
+        originalUrl: spec.metadata.url || '',
+        projectPath: project.projectDir || targetDir,
+        previewUrl: project.previewUrl,
+        status: project.validation?.success ? 'passed' : 'failed',
+        files: project.files,
+      });
+      (project as any).metadata = meta;
+    } catch (regErr: any) {
+      logger.warn(`Project registration notice: ${regErr.message}`);
+    }
 
     res.json({
       success: true,
