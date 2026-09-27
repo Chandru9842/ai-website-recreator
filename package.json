@@ -1,0 +1,31 @@
+{
+  "name": "ai-website-recreator",
+  "version": "1.0.0",
+  "description": "Production-grade AI agent that analyzes public websites via Playwright and recreates them as clean, responsive React + Tailwind applications.",
+  "private": true,
+  "workspaces": [
+    "shared",
+    "server",
+    "client"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev --workspace=server\" \"npm run dev --workspace=client\"",
+    "dev:server": "npm run dev --workspace=server",
+    "dev:client": "npm run dev --workspace=client",
+    "build": "npm run build --workspaces",
+    "test:analyzer": "npm run test:analyzer --workspace=server"
+  },
+  "keywords": [
+    "ai",
+    "playwright",
+    "website-recreation",
+    "react",
+    "tailwind",
+    "llm-agent"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
