@@ -9,6 +9,7 @@
     "start": "node dist/index.js",
     "test:analyzer": "tsx src/analyzer/cli.ts",
     "test:spec": "tsx src/ai/spec.test.ts",
+    "test:generator": "tsx src/generator/generator.test.ts",
     "playwright:install": "playwright install chromium"
   },
   "dependencies": {

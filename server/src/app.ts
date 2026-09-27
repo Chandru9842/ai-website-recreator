@@ -3,6 +3,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import analyzeRouter from './routes/analyze';
 import specRouter from './routes/spec';
+import generateRouter from './routes/generate';
 
 dotenv.config();
 
@@ -26,6 +27,7 @@ export function createApp() {
   // API Routes
   app.use('/api/analyze', analyzeRouter);
   app.use('/api/spec', specRouter);
+  app.use('/api/generate', generateRouter);
 
   // Fallback 404
   app.use((req, res) => {
