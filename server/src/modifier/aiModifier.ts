@@ -398,11 +398,26 @@ export const TestimonialsSection: React.FC = () => {
   // =========================================================================
   // 5. HERO MODIFICATIONS (Bakery hero replacement or Heading size scaling)
   // =========================================================================
-  if (selection.intentCategory === 'hero' || norm.includes('hero') || norm.includes('heading') || norm.includes('bakery')) {
+  // 5. HERO / VISUAL ASSET / COPY MODIFICATIONS
+  // =========================================================================
+  if (
+    selection.intentCategory === 'hero' ||
+    norm.includes('hero') ||
+    norm.includes('heading') ||
+    norm.includes('title') ||
+    norm.includes('bakery') ||
+    norm.includes('image') ||
+    norm.includes('photo') ||
+    norm.includes('picture') ||
+    norm.includes('robot') ||
+    norm.includes('graphic')
+  ) {
     const heroFile = selection.relevantFiles[0] || 'src/sections/Section1HeroSection.tsx';
     let code = fileContents[heroFile] || SafeFileModifier.safeReadFile(projectDir, heroFile);
 
-    // Thematic Replacement: Bakery Hero
+    // -----------------------------------------------------------------------
+    // 5A. Thematic Replacement: Bakery Hero
+    // -----------------------------------------------------------------------
     const isBakeryTrigger =
       norm.includes('replace the hero section with a bakery hero') ||
       norm.includes('replace the hero with a bakery hero') ||
@@ -441,7 +456,6 @@ export const TestimonialsSection: React.FC = () => {
           `$1\n              ${targetBadge}\n            $3`
         );
       } else {
-        // Insert badge right before <h1
         const badgeJsx = `<span className="inline-block px-3 py-1 text-xs font-semibold rounded-full bg-site-primary/10 text-site-primary mb-4 tracking-wide uppercase">
               ${targetBadge}
             </span>\n\n            `;
@@ -467,7 +481,7 @@ export const TestimonialsSection: React.FC = () => {
         );
       }
 
-      // 4. Button / CTA replacement (Primary & Secondary CTA)
+      // 4. Button / CTA replacement
       if (code.includes('<div className="flex flex-wrap gap-4')) {
         code = code.replace(
           /(<div className="flex flex-wrap gap-4[^>]*>)([\s\S]*?)(<\/div>)/,
@@ -478,30 +492,15 @@ export const TestimonialsSection: React.FC = () => {
           /(<Button[^>]*>)([\s\S]*?)(<\/Button>)/,
           `<Button variant="primary" isCta={true} href="#order">\n                ${targetPrimaryCta}\n              </Button>\n              <Button variant="secondary" href="#menu">\n                ${targetSecondaryCta}\n              </Button>`
         );
-      } else {
-        const buttonsJsx = `\n\n            <div className="flex flex-wrap gap-4 mt-6">\n              <Button variant="primary" isCta={true} href="#order">\n                ${targetPrimaryCta}\n              </Button>\n              <Button variant="secondary" href="#menu">\n                ${targetSecondaryCta}\n              </Button>\n            </div>`;
-        code = code.replace(/(<\/p>)/, `$1${buttonsJsx}`);
       }
 
       // 5. MediaAsset or img replacement or insertion
       if (code.includes('<MediaAsset')) {
-        code = code.replace(
-          /(<MediaAsset[^>]*?url=["'])([^"']*?)(["'])/,
-          `$1${targetImage}$3`
-        );
-        code = code.replace(
-          /(<MediaAsset[^>]*?alt=["'])([^"']*?)(["'])/,
-          `$1Freshly Baked Artisanal Bakery Delights$3`
-        );
+        code = code.replace(/(<MediaAsset[^>]*?url=["'])([^"']*?)(["'])/, `$1${targetImage}$3`);
+        code = code.replace(/(<MediaAsset[^>]*?alt=["'])([^"']*?)(["'])/, `$1Freshly Baked Artisanal Bakery Delights$3`);
       } else if (code.includes('<img')) {
-        code = code.replace(
-          /(<img[^>]*?src=["'])([^"']*?)(["'])/,
-          `$1${targetImage}$3`
-        );
-        code = code.replace(
-          /(<img[^>]*?alt=["'])([^"']*?)(["'])/,
-          `$1Freshly Baked Artisanal Bakery Delights$3`
-        );
+        code = code.replace(/(<img[^>]*?src=["'])([^"']*?)(["'])/, `$1${targetImage}$3`);
+        code = code.replace(/(<img[^>]*?alt=["'])([^"']*?)(["'])/, `$1Freshly Baked Artisanal Bakery Delights$3`);
       } else {
         const imageJsx = `\n          <div className="mt-8 rounded-2xl overflow-hidden shadow-2xl max-w-4xl mx-auto">\n            <img src="${targetImage}" alt="Freshly Baked Artisanal Bakery Delights" className="w-full h-80 object-cover" />\n          </div>\n`;
         code = code.replace(/(<\/section>)/, `${imageJsx}        $1`);
@@ -510,8 +509,7 @@ export const TestimonialsSection: React.FC = () => {
       changes.push({
         file: heroFile,
         operation: 'modify',
-        reason:
-          'Transformed hero section into an artisanal bakery hero (heading, subtitle, badge, CTA, and image)',
+        reason: 'Transformed hero section into an artisanal bakery hero (heading, subtitle, badge, CTA, and image)',
         updatedContent: code,
       });
 
@@ -523,7 +521,139 @@ export const TestimonialsSection: React.FC = () => {
       };
     }
 
-    // Centered Hero Section
+    // -----------------------------------------------------------------------
+    // 5B. Image / Visual Asset Replacement (Robot, Tech, Car, Nature, etc.)
+    // -----------------------------------------------------------------------
+    const isImageTrigger =
+      norm.includes('image') ||
+      norm.includes('photo') ||
+      norm.includes('picture') ||
+      norm.includes('robot') ||
+      norm.includes('img') ||
+      norm.includes('graphic');
+
+    if (isImageTrigger) {
+      let targetImage = 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=1200&q=80';
+      let targetAlt = 'Futuristic AI Robot Assistant';
+      let topicName = 'robot';
+
+      if (norm.includes('robot') || norm.includes('cyborg') || norm.includes('bot') || norm.includes('ai')) {
+        targetImage = 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=1200&q=80';
+        targetAlt = 'Futuristic AI Robot Assistant';
+        topicName = 'robot';
+      } else if (norm.includes('code') || norm.includes('developer') || norm.includes('laptop') || norm.includes('software') || norm.includes('tech')) {
+        targetImage = 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1200&q=80';
+        targetAlt = 'Modern Software Engineering Setup';
+        topicName = 'developer tech';
+      } else if (norm.includes('car') || norm.includes('automotive') || norm.includes('vehicle')) {
+        targetImage = 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=80';
+        targetAlt = 'High-Performance Sports Car';
+        topicName = 'sports car';
+      } else if (norm.includes('nature') || norm.includes('mountain') || norm.includes('forest') || norm.includes('landscape')) {
+        targetImage = 'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=1200&q=80';
+        targetAlt = 'Scenic Mountain Wilderness';
+        topicName = 'nature landscape';
+      } else if (norm.includes('coffee') || norm.includes('cafe')) {
+        targetImage = 'https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1200&q=80';
+        targetAlt = 'Artisanal Coffee & Roastery';
+        topicName = 'coffee';
+      } else if (norm.includes('office') || norm.includes('business') || norm.includes('team')) {
+        targetImage = 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80';
+        targetAlt = 'Collaborative Team Workspace';
+        topicName = 'office team';
+      } else if (norm.includes('city') || norm.includes('skyline')) {
+        targetImage = 'https://images.unsplash.com/photo-1477959858617-67f30bc75b82?auto=format&fit=crop&w=1200&q=80';
+        targetAlt = 'Metropolitan City Skyline';
+        topicName = 'city skyline';
+      }
+
+      // Check if user provided an explicit image URL in the instruction
+      const urlMatch = instruction.match(/https?:\/\/[^\s"'<>]+/);
+      if (urlMatch) {
+        targetImage = urlMatch[0];
+        targetAlt = 'Custom User Visual Asset';
+        topicName = 'custom image';
+      }
+
+      // Replace in <MediaAsset ... />
+      if (code.includes('<MediaAsset')) {
+        code = code.replace(/(<MediaAsset[^>]*?url=["'])([^"']*?)(["'])/, `$1${targetImage}$3`);
+        code = code.replace(/(<MediaAsset[^>]*?alt=["'])([^"']*?)(["'])/, `$1${targetAlt}$3`);
+      } else if (code.includes('<img')) {
+        code = code.replace(/(<img[^>]*?src=["'])([^"']*?)(["'])/, `$1${targetImage}$3`);
+        code = code.replace(/(<img[^>]*?alt=["'])([^"']*?)(["'])/, `$1${targetAlt}$3`);
+      } else {
+        const imageJsx = `\n          <div className="mt-8 rounded-2xl overflow-hidden shadow-2xl max-w-4xl mx-auto">\n            <img src="${targetImage}" alt="${targetAlt}" className="w-full h-80 object-cover" />\n          </div>\n`;
+        code = code.replace(/(<\/section>)/, `${imageJsx}        $1`);
+      }
+
+      changes.push({
+        file: heroFile,
+        operation: 'modify',
+        reason: `Updated visual media asset with ${topicName} imagery (${targetAlt})`,
+        updatedContent: code,
+      });
+
+      return {
+        intent: `Change image to ${topicName}`,
+        reasoning: `Updated visual asset URL to high-resolution ${topicName} photography and updated alt text to "${targetAlt}".`,
+        changes,
+      };
+    }
+
+    // -----------------------------------------------------------------------
+    // 5C. Custom Heading / Title Text Replacement
+    // -----------------------------------------------------------------------
+    const headingMatch = instruction.match(/(?:change|set|make|update)\s+(?:the\s+)?(?:heading|title|headline)\s+(?:to\s+|into\s+|:\s*|\s*["'])([^"'\n]+)/i);
+    if (headingMatch) {
+      const customHeading = headingMatch[1].replace(/["']/g, '').trim();
+      if (customHeading && !norm.includes('larger') && !norm.includes('bigger') && !norm.includes('size')) {
+        code = code.replace(/(<h1[^>]*>)([\s\S]*?)(<\/h1>)/, `$1\n              ${customHeading}\n            $3`);
+
+        changes.push({
+          file: heroFile,
+          operation: 'modify',
+          reason: `Updated hero heading to "${customHeading}"`,
+          updatedContent: code,
+        });
+
+        return {
+          intent: `Change hero heading to "${customHeading}"`,
+          reasoning: `Updated primary h1 heading text in ${heroFile}.`,
+          changes,
+        };
+      }
+    }
+
+    // -----------------------------------------------------------------------
+    // 5D. Custom Subtitle / Description Text Replacement
+    // -----------------------------------------------------------------------
+    const subtitleMatch = instruction.match(/(?:change|set|make|update)\s+(?:the\s+)?(?:subtitle|description|paragraph|text)\s+(?:to\s+|into\s+|:\s*|\s*["'])([^"'\n]+)/i);
+    if (subtitleMatch) {
+      const customSubtitle = subtitleMatch[1].replace(/["']/g, '').trim();
+      if (customSubtitle) {
+        if (code.includes('<p')) {
+          code = code.replace(/(<p[^>]*>)([\s\S]*?)(<\/p>)/, `$1\n              ${customSubtitle}\n            $3`);
+        }
+
+        changes.push({
+          file: heroFile,
+          operation: 'modify',
+          reason: `Updated hero description to "${customSubtitle}"`,
+          updatedContent: code,
+        });
+
+        return {
+          intent: `Change hero description to "${customSubtitle}"`,
+          reasoning: `Updated hero description paragraph text in ${heroFile}.`,
+          changes,
+        };
+      }
+    }
+
+    // -----------------------------------------------------------------------
+    // 5E. Centered Hero Section
+    // -----------------------------------------------------------------------
     if (norm.includes('center')) {
       code = code.replace(
         /(<section[^>]*className=["'])([^"']*)(["'])/,
@@ -552,7 +682,9 @@ export const TestimonialsSection: React.FC = () => {
       };
     }
 
-    // Replace h1 size classes with extra large display typography
+    // -----------------------------------------------------------------------
+    // 5F. Hero Heading Size (Larger / Display)
+    // -----------------------------------------------------------------------
     code = code.replace(
       /(<h1[^>]*className=["'][^"']*?)(text-[2345]xl[^"']*)(["'])/,
       '$1text-6xl sm:text-7xl lg:text-8xl font-black$3'

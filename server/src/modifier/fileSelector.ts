@@ -62,11 +62,55 @@ export function selectRelevantFiles(projectDir: string, instruction: string): Fi
     };
   }
 
-  // 4. Hero section modifications (heading size, copy, bakery hero, layout)
+  // 4. Image / Visual asset modifications (e.g. "change it into the robot the image", "change image to robot", "make image tech")
+  if (
+    norm.includes('image') ||
+    norm.includes('img') ||
+    norm.includes('photo') ||
+    norm.includes('picture') ||
+    norm.includes('robot') ||
+    norm.includes('graphic') ||
+    norm.includes('illustration') ||
+    norm.includes('banner') ||
+    norm.includes('media')
+  ) {
+    const sectionImageFiles = allFiles.filter((f) => {
+      if (!f.endsWith('.tsx') || !f.startsWith('src/sections/')) return false;
+      const content = SafeFileModifier.safeReadFile(projectDir, f);
+      return content.includes('<img') || content.includes('<MediaAsset') || content.includes('src=');
+    });
+
+    const heroFile = allFiles.find(
+      (f) =>
+        f.includes('HeroSection') ||
+        f.toLowerCase().includes('hero') ||
+        (f.startsWith('src/sections/') && f.includes('Section1'))
+    );
+
+    const targetFile =
+      sectionImageFiles.find((f) => f.includes('Hero') || f.includes('Section1')) ||
+      heroFile ||
+      sectionImageFiles[0] ||
+      allFiles.find((f) => f.includes('HeroSection'));
+
+    if (targetFile) {
+      return {
+        relevantFiles: [targetFile],
+        intentCategory: 'hero',
+      };
+    }
+  }
+
+  // 5. Hero section / Text / Copy modifications (heading size, copy, bakery hero, layout)
   if (
     norm.includes('hero') ||
     norm.includes('heading') ||
     norm.includes('title') ||
+    norm.includes('headline') ||
+    norm.includes('subtitle') ||
+    norm.includes('description') ||
+    norm.includes('copy') ||
+    norm.includes('text') ||
     norm.includes('bakery')
   ) {
     const heroFile = allFiles.find(
