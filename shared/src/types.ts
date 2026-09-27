@@ -212,8 +212,27 @@ export interface GeneratedProject {
 }
 
 export interface ModifyRequest {
-  projectId: string;
+  projectPath: string;
   instruction: string;
+  projectId?: string;
+}
+
+export interface ModificationRecord {
+  id: string;
+  instruction: string;
+  timestamp: string;
+  modifiedFiles: string[];
+  validation: ValidationResult;
+  success: boolean;
+  message?: string;
+}
+
+export interface ModifyResponse {
+  success: boolean;
+  modifiedFiles: string[];
+  validation: ValidationResult;
+  message: string;
+  history?: ModificationRecord[];
 }
 
 export type DiagnosticErrorType = 'syntax' | 'import' | 'type' | 'build' | 'unknown';
