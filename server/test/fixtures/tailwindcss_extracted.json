@@ -1,0 +1,959 @@
+{
+  "metadata": {
+    "url": "https://tailwindcss.com/",
+    "title": "Tailwind CSS - Rapidly build modern websites without ever leaving your HTML.",
+    "description": "Tailwind CSS is a utility-first CSS framework for rapidly building modern websites without ever leaving your HTML.",
+    "favicon": "https://tailwindcss.com/favicons/favicon-32x32.png?v=4",
+    "ogImage": "https://tailwindcss.com/opengraph-image.jpg?opengraph-image.0jwfhnd690..4.jpg",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "timestamp": "2026-09-27T08:40:55.811Z"
+  },
+  "colors": {
+    "palette": [
+      {
+        "hex": "#ffffff",
+        "rgb": "rgb(255, 255, 255)",
+        "role": "background",
+        "frequency": 38,
+        "sampleElements": [
+          "div",
+          "svg",
+          "footer"
+        ]
+      },
+      {
+        "hex": "#000000",
+        "rgb": "rgb(0, 0, 0)",
+        "role": "text",
+        "frequency": 2,
+        "sampleElements": [
+          "a"
+        ]
+      }
+    ],
+    "background": "#ffffff",
+    "textPrimary": "#000000",
+    "primary": "#3b82f6",
+    "surface": "#ffffff"
+  },
+  "typography": {
+    "headingFont": "inter",
+    "bodyFont": "inter",
+    "googleFontsToLoad": [],
+    "scale": [
+      {
+        "fontFamily": "inter",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "lineHeight": "24px",
+        "tag": "a",
+        "sampleText": ""
+      },
+      {
+        "fontFamily": "inter",
+        "fontSize": "12px",
+        "fontWeight": "500",
+        "lineHeight": "20px",
+        "tag": "button",
+        "sampleText": "v4.3"
+      },
+      {
+        "fontFamily": "inter",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "lineHeight": "24px",
+        "tag": "button",
+        "sampleText": "⌘KCtrl K"
+      },
+      {
+        "fontFamily": "inter",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "lineHeight": "24px",
+        "tag": "a",
+        "sampleText": "Docs"
+      },
+      {
+        "fontFamily": "inter",
+        "fontSize": "96px",
+        "fontWeight": "400",
+        "lineHeight": "96px",
+        "tag": "h1",
+        "sampleText": "Rapidly build modern websites without ev"
+      },
+      {
+        "fontFamily": "inter",
+        "fontSize": "18px",
+        "fontWeight": "500",
+        "lineHeight": "28px",
+        "tag": "p",
+        "sampleText": "A utility-first CSS framework packed wit"
+      },
+      {
+        "fontFamily": "inter",
+        "fontSize": "14px",
+        "fontWeight": "600",
+        "lineHeight": "24px",
+        "tag": "a",
+        "sampleText": "Get started"
+      },
+      {
+        "fontFamily": "inter",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "lineHeight": "24px",
+        "tag": "button",
+        "sampleText": "Quick search⌘KCtrl K"
+      },
+      {
+        "fontFamily": "plexMono",
+        "fontSize": "12px",
+        "fontWeight": "600",
+        "lineHeight": "16px",
+        "tag": "p",
+        "sampleText": "Sponsors"
+      },
+      {
+        "fontFamily": "inter",
+        "fontSize": "40px",
+        "fontWeight": "500",
+        "lineHeight": "40px",
+        "tag": "h2",
+        "sampleText": "Supported by the best."
+      },
+      {
+        "fontFamily": "inter",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "lineHeight": "28px",
+        "tag": "p",
+        "sampleText": "Tailwind is supported by incredible part"
+      },
+      {
+        "fontFamily": "inter",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "lineHeight": "28px",
+        "tag": "p",
+        "sampleText": "Okay, it’s not exactly cutting edge, but"
+      },
+      {
+        "fontFamily": "inter",
+        "fontSize": "14px",
+        "fontWeight": "700",
+        "lineHeight": "24px",
+        "tag": "button",
+        "sampleText": "Check availability"
+      },
+      {
+        "fontFamily": "inter",
+        "fontSize": "16px",
+        "fontWeight": "600",
+        "lineHeight": "24px",
+        "tag": "h3",
+        "sampleText": "Browse properties"
+      },
+      {
+        "fontFamily": "plexMono",
+        "fontSize": "12px",
+        "fontWeight": "400",
+        "lineHeight": "16px",
+        "tag": "p",
+        "sampleText": "transition duration-750linear"
+      }
+    ]
+  },
+  "navigation": {
+    "brand": {},
+    "links": [],
+    "ctaButtons": [],
+    "isSticky": false,
+    "hasMobileMenu": false
+  },
+  "sections": [
+    {
+      "id": "section-1-hero",
+      "type": "hero",
+      "name": "HERO: Rapidly build modern websites ",
+      "heading": "Rapidly build modern websites without ever leaving your HTML.",
+      "description": "A utility-first CSS framework packed with classes like flex, pt-4, text-center and rotate-90 that can be composed to build any design, directly in your markup.",
+      "layout": {
+        "type": "split-hero",
+        "columns": 1,
+        "gap": "normal"
+      },
+      "items": [],
+      "buttons": [
+        {
+          "text": "v4.3",
+          "variant": "primary"
+        },
+        {
+          "text": "⌘KCtrl K",
+          "variant": "secondary"
+        }
+      ],
+      "styling": {
+        "textColor": "#000000",
+        "isDark": false,
+        "padding": "0px 0px 0px 0px"
+      },
+      "rawTextSample": [
+        "text-4xl",
+        "text-5xl",
+        "text-6xl",
+        "text-8xl",
+        "text-gray-950",
+        "text-white",
+        "text-balance",
+        "Rapidly build modern websites without ever leaving your HTML."
+      ],
+      "assets": [
+        {
+          "url": "https://tailwindcss.com/_next/static/media/cover.0g8-x6e87bh6a.png",
+          "type": "image",
+          "context": "hero-asset"
+        },
+        {
+          "url": "https://tailwindcss.com/_next/static/media/responsive-1.10chodfonif1e.png",
+          "type": "image",
+          "context": "hero-asset"
+        },
+        {
+          "url": "https://tailwindcss.com/_next/static/media/responsive-2.0cdenvbjn04n3.png",
+          "type": "image",
+          "context": "hero-asset"
+        },
+        {
+          "url": "https://tailwindcss.com/_next/static/media/responsive-3.00654hu_8u-c4.png",
+          "type": "image",
+          "context": "hero-asset"
+        },
+        {
+          "url": "https://tailwindcss.com/_next/static/media/responsive-1.10chodfonif1e.png",
+          "type": "image",
+          "context": "hero-asset"
+        },
+        {
+          "url": "https://tailwindcss.com/_next/static/media/responsive-2.0cdenvbjn04n3.png",
+          "type": "image",
+          "context": "hero-asset"
+        }
+      ]
+    },
+    {
+      "id": "section-2-content",
+      "type": "content",
+      "name": "CONTENT Section",
+      "layout": {
+        "type": "single-column",
+        "columns": 1,
+        "gap": "normal"
+      },
+      "items": [],
+      "buttons": [],
+      "styling": {
+        "isDark": false,
+        "padding": "0px 0px 0px 0px"
+      },
+      "rawTextSample": [],
+      "assets": []
+    },
+    {
+      "id": "section-3-footer",
+      "type": "footer",
+      "name": "FOOTER: Tailwind CSS",
+      "heading": "Tailwind CSS",
+      "layout": {
+        "type": "single-column",
+        "columns": 1,
+        "gap": "normal"
+      },
+      "items": [
+        {
+          "title": "Tailwind CSS"
+        },
+        {
+          "title": "Community"
+        },
+        {
+          "title": "Tailwind CSS"
+        }
+      ],
+      "buttons": [],
+      "styling": {
+        "backgroundColor": "#ffffff",
+        "isDark": false,
+        "padding": "0px 0px 0px 0px"
+      },
+      "rawTextSample": [
+        "Tailwind CSS",
+        "Resources",
+        "Community",
+        "Tailwind CSS",
+        "Resources",
+        "Community"
+      ],
+      "assets": []
+    }
+  ],
+  "assets": [
+    {
+      "url": "https://tailwindcss.com/_next/static/media/cover.0g8-x6e87bh6a.png",
+      "type": "image",
+      "dimensions": {
+        "width": 190,
+        "height": 192
+      },
+      "context": "content-image"
+    },
+    {
+      "url": "https://tailwindcss.com/_next/static/media/responsive-1.10chodfonif1e.png",
+      "type": "image",
+      "dimensions": {
+        "width": 372,
+        "height": 160
+      },
+      "context": "content-image"
+    },
+    {
+      "url": "https://tailwindcss.com/_next/static/media/responsive-2.0cdenvbjn04n3.png",
+      "type": "image",
+      "dimensions": {
+        "width": 182,
+        "height": 160
+      },
+      "context": "content-image"
+    },
+    {
+      "url": "https://tailwindcss.com/_next/static/media/responsive-3.00654hu_8u-c4.png",
+      "type": "image",
+      "dimensions": {
+        "width": 182,
+        "height": 160
+      },
+      "context": "content-image"
+    },
+    {
+      "url": "https://tailwindcss.com/_next/static/media/responsive-4.0tgrujz.2n-61.png",
+      "type": "image",
+      "dimensions": {
+        "width": 300,
+        "height": 300
+      },
+      "context": "content-image"
+    },
+    {
+      "url": "https://tailwindcss.com/_next/static/media/responsive-5.0o6kz.kakewtv.png",
+      "type": "image",
+      "dimensions": {
+        "width": 300,
+        "height": 300
+      },
+      "context": "content-image"
+    },
+    {
+      "url": "https://tailwindcss.com/_next/static/media/filters.17z4w2mm8xht2.png",
+      "type": "image",
+      "dimensions": {
+        "width": 256,
+        "height": 256
+      },
+      "context": "content-image"
+    },
+    {
+      "url": "https://tailwindcss.com/_next/static/media/dark-mode.light.0tx34lu8jwt_1.png",
+      "type": "image",
+      "dimensions": {
+        "width": 375,
+        "height": 621
+      },
+      "context": "content-image"
+    },
+    {
+      "url": "https://tailwindcss.com/_next/static/media/dark-mode.dark.11szx9d7s4zjz.png",
+      "type": "image",
+      "dimensions": {
+        "width": 375,
+        "height": 621
+      },
+      "context": "content-image"
+    },
+    {
+      "url": "https://tailwindcss.com/_next/static/media/css-grid-1.0c8bc8q87-upx.png",
+      "type": "image",
+      "dimensions": {
+        "width": 192,
+        "height": 392
+      },
+      "context": "content-image"
+    },
+    {
+      "url": "https://tailwindcss.com/_next/static/media/css-grid-1.mobile.0oommaznlmjjx.png",
+      "type": "image",
+      "dimensions": {
+        "width": 784,
+        "height": 384
+      },
+      "context": "content-image"
+    },
+    {
+      "url": "https://tailwindcss.com/_next/static/media/css-grid-2.15b-x2ty8.g~z.png",
+      "type": "image",
+      "dimensions": {
+        "width": 192,
+        "height": 192
+      },
+      "context": "content-image"
+    },
+    {
+      "url": "https://tailwindcss.com/_next/static/media/css-grid-3.08b3dk7gkiatg.png",
+      "type": "image",
+      "dimensions": {
+        "width": 192,
+        "height": 192
+      },
+      "context": "content-image"
+    },
+    {
+      "url": "https://tailwindcss.com/_next/static/media/css-grid-4.0iikpmqc8shsg.png",
+      "type": "image",
+      "dimensions": {
+        "width": 392,
+        "height": 196
+      },
+      "context": "content-image"
+    },
+    {
+      "url": "https://tailwindcss.com/_next/static/media/avatar-4.147155nkju-ki.png",
+      "type": "image",
+      "dimensions": {
+        "width": 48,
+        "height": 48
+      },
+      "context": "icon"
+    },
+    {
+      "url": "https://tailwindcss.com/_next/static/media/avatar-5.0hg2xy51~_xab.png",
+      "type": "image",
+      "dimensions": {
+        "width": 48,
+        "height": 48
+      },
+      "context": "icon"
+    },
+    {
+      "url": "https://tailwindcss.com/_next/static/media/avatar-6.03.hh~61qqypr.png",
+      "type": "image",
+      "dimensions": {
+        "width": 48,
+        "height": 48
+      },
+      "context": "icon"
+    },
+    {
+      "url": "https://tailwindcss.com/_next/static/media/avatar-7.0og44ub0nz8ek.png",
+      "type": "image",
+      "dimensions": {
+        "width": 48,
+        "height": 48
+      },
+      "context": "icon"
+    },
+    {
+      "url": "https://tailwindcss.com/_next/static/media/avatar-1.15~cxxh-ptz0r.png",
+      "type": "image",
+      "dimensions": {
+        "width": 48,
+        "height": 48
+      },
+      "context": "icon"
+    },
+    {
+      "url": "https://tailwindcss.com/_next/static/media/avatar-2.12imlx8.m5il..png",
+      "type": "image",
+      "dimensions": {
+        "width": 48,
+        "height": 48
+      },
+      "context": "icon"
+    },
+    {
+      "url": "https://tailwindcss.com/_next/static/media/avatar-3.0co4yvnojd00m.png",
+      "type": "image",
+      "dimensions": {
+        "width": 48,
+        "height": 48
+      },
+      "context": "icon"
+    },
+    {
+      "url": "https://tailwindcss.com/_next/static/media/3d-transforms.02bsrv~jiqeb9.jpeg",
+      "type": "image",
+      "dimensions": {
+        "width": 328,
+        "height": 328
+      },
+      "context": "content-image"
+    },
+    {
+      "url": "https://tailwindcss.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fopenai.0e5et8v5h.soe.png&w=384&q=75",
+      "type": "image",
+      "alt": "OpenAI",
+      "dimensions": {
+        "width": 266,
+        "height": 225
+      },
+      "context": "content-image"
+    },
+    {
+      "url": "https://tailwindcss.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fopal.17bsj~5nn-bhl.png&w=384&q=75",
+      "type": "image",
+      "alt": "Opal",
+      "dimensions": {
+        "width": 266,
+        "height": 373
+      },
+      "context": "content-image"
+    },
+    {
+      "url": "https://tailwindcss.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Ffeastables.0t-7e0p.xdo0z.png&w=384&q=75",
+      "type": "image",
+      "alt": "Feastables",
+      "dimensions": {
+        "width": 266,
+        "height": 365
+      },
+      "context": "content-image"
+    },
+    {
+      "url": "https://tailwindcss.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fgumroad.02mqjvoidm9od.png&w=256&q=75",
+      "type": "image",
+      "alt": "Gumroad",
+      "dimensions": {
+        "width": 175,
+        "height": 354
+      },
+      "context": "content-image"
+    },
+    {
+      "url": "https://tailwindcss.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fskims.17-pjntproup-.png&w=256&q=75",
+      "type": "image",
+      "alt": "Skims",
+      "dimensions": {
+        "width": 175,
+        "height": 344
+      },
+      "context": "content-image"
+    },
+    {
+      "url": "https://tailwindcss.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Freddit.0j_xuv2uowcvq.png&w=256&q=75",
+      "type": "image",
+      "alt": "Reddit",
+      "dimensions": {
+        "width": 175,
+        "height": 266
+      },
+      "context": "content-image"
+    },
+    {
+      "url": "https://tailwindcss.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Frivian.0dac8q_85hv7i.png&w=640&q=75",
+      "type": "image",
+      "alt": "Rivian",
+      "dimensions": {
+        "width": 439,
+        "height": 271
+      },
+      "context": "content-image"
+    },
+    {
+      "url": "https://tailwindcss.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fshopify.0--7_f_9g4gy7.png&w=640&q=75",
+      "type": "image",
+      "alt": "Shopify",
+      "dimensions": {
+        "width": 439,
+        "height": 408
+      },
+      "context": "content-image"
+    },
+    {
+      "url": "https://tailwindcss.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fclerk.0c3y~b1gec0dx.png&w=640&q=75",
+      "type": "image",
+      "alt": "Clerk",
+      "dimensions": {
+        "width": 439,
+        "height": 285
+      },
+      "context": "content-image"
+    },
+    {
+      "url": "https://tailwindcss.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fverge.07-a9z7tfaczw.png&w=256&q=75",
+      "type": "image",
+      "alt": "The Verge",
+      "dimensions": {
+        "width": 175,
+        "height": 358
+      },
+      "context": "content-image"
+    },
+    {
+      "url": "https://tailwindcss.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fgoogleio.0vxfs_7d-fn74.png&w=256&q=75",
+      "type": "image",
+      "alt": "Google IO",
+      "dimensions": {
+        "width": 175,
+        "height": 367
+      },
+      "context": "content-image"
+    },
+    {
+      "url": "https://tailwindcss.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fted.0ikpe7d7m~~3n.png&w=256&q=75",
+      "type": "image",
+      "alt": "TED Talks",
+      "dimensions": {
+        "width": 175,
+        "height": 239
+      },
+      "context": "content-image"
+    },
+    {
+      "url": "https://tailwindcss.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fpoolside.13~g4ne7r787g.png&w=384&q=75",
+      "type": "image",
+      "alt": "Poolside",
+      "dimensions": {
+        "width": 257,
+        "height": 217
+      },
+      "context": "content-image"
+    },
+    {
+      "url": "https://tailwindcss.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fmidjourney.0-hew7ka2ltkt.png&w=384&q=75",
+      "type": "image",
+      "alt": "Midjourney",
+      "dimensions": {
+        "width": 257,
+        "height": 437
+      },
+      "context": "content-image"
+    },
+    {
+      "url": "https://tailwindcss.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fnasa.0rhlq.ak47fm..png&w=384&q=75",
+      "type": "image",
+      "alt": "NASA/JPL",
+      "dimensions": {
+        "width": 257,
+        "height": 311
+      },
+      "context": "content-image"
+    },
+    {
+      "url": "data:image/svg+xml;utf8,%3Csvg%20viewBox%3D%220%200%20167%2021%22%20fill%3D%22none%22%20class%3D%22h-5%20text-black%20dark%3Atext-white%22%3E%3Cpath%20class%3D%22fill-sky-400%22%20d%3D%22M17.183%200C12.6%200%209.737%202.291%208.59%206.873c1.719-2.29%203.723-3.15%206.014-2.577%201.307.326%202.242%201.274%203.275%202.324%201.685%201.71%203.635%203.689%207.894%203.689%204.582%200%207.445-2.291%208.591-6.872-1.718%202.29-3.723%203.15-6.013%202.576-1.308-.326-2.243-1.274-3.276-2.324C23.39%201.98%2021.44%200%2017.183%200ZM8.59%2010.309C4.01%2010.309%201.145%2012.6%200%2017.182c1.718-2.291%203.723-3.15%206.013-2.577%201.308.326%202.243%201.274%203.276%202.324%201.685%201.71%203.635%203.689%207.894%203.689%204.582%200%207.445-2.29%208.59-6.872-1.718%202.29-3.722%203.15-6.013%202.577-1.307-.327-2.242-1.276-3.276-2.325-1.684-1.71-3.634-3.689-7.893-3.689Z%22%3E%3C%2Fpath%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M51.547%208.688h-3v5.803c0%201.548%201.016%201.524%203%201.427v2.346c-4.015.483-5.611-.629-5.611-3.773V8.688H43.71V6.172h2.225V2.925l2.612-.774v4.021h2.998v2.516Zm11.43-2.516h2.61v12.092h-2.61v-1.741c-.92%201.28-2.346%202.055-4.233%202.055-3.288%200-6.021-2.78-6.021-6.36%200-3.603%202.733-6.36%206.021-6.36%201.886%200%203.313.774%204.233%202.032V6.172Zm-3.821%209.915c2.176%200%203.82-1.62%203.82-3.87%200-2.248-1.644-3.868-3.82-3.868-2.177%200-3.821%201.62-3.821%203.869s1.644%203.87%203.82%203.87ZM69.94%204.36a1.687%201.687%200%200%201-1.668-1.669c.002-.443.179-.868.491-1.18a1.662%201.662%200%200%201%202.354%200c.312.312.49.737.491%201.18%200%20.895-.75%201.669-1.668%201.669Zm-1.306%2013.905V6.172h2.612v12.092h-2.612Zm5.635%200V.609h2.611v17.654H74.27ZM93.834%206.172h2.757l-3.797%2012.092h-2.563l-2.516-8.15-2.539%208.15h-2.563L78.816%206.172h2.757l2.346%208.343%202.54-8.343h2.49l2.514%208.343%202.37-8.343ZM99.83%204.36c-.92%200-1.669-.774-1.669-1.669.002-.443.18-.868.492-1.18a1.661%201.661%200%200%201%202.354%200c.313.312.49.737.492%201.18%200%20.895-.75%201.669-1.669%201.669Zm-1.306%2013.905V6.172h2.612v12.092h-2.612ZM110.52%205.858c2.708%200%204.643%201.838%204.643%204.982v7.423h-2.612v-7.158c0-1.838-1.064-2.804-2.708-2.804-1.717%200-3.071%201.015-3.071%203.482v6.48h-2.612V6.174h2.612V7.72c.798-1.257%202.103-1.862%203.748-1.862Zm17.024-4.522h2.612v16.927h-2.612v-1.741c-.918%201.282-2.345%202.055-4.231%202.055-3.289%200-6.022-2.78-6.022-6.36%200-3.603%202.733-6.36%206.022-6.36%201.886%200%203.313.774%204.231%202.032V1.336Zm-3.821%2014.751c2.177%200%203.821-1.62%203.821-3.87%200-2.248-1.644-3.868-3.821-3.868-2.176%200-3.82%201.62-3.82%203.869s1.644%203.87%203.82%203.87Zm15.187%202.49c-3.651%200-6.384-2.78-6.384-6.36%200-3.602%202.733-6.359%206.384-6.359%202.37%200%204.426%201.233%205.393%203.12l-2.249%201.306c-.532-1.137-1.717-1.863-3.168-1.863-2.128%200-3.748%201.62-3.748%203.797%200%202.176%201.62%203.797%203.748%203.797%201.451%200%202.636-.75%203.216-1.863l2.249%201.282c-1.015%201.91-3.071%203.144-5.441%203.144Zm9.746-9.068c0%202.201%206.505.87%206.505%205.345%200%202.419-2.104%203.724-4.716%203.724-2.418%200-4.159-1.089-4.933-2.83l2.249-1.305c.387%201.088%201.355%201.74%202.684%201.74%201.161%200%202.056-.386%202.056-1.354%200-2.151-6.505-.942-6.505-5.27%200-2.274%201.959-3.701%204.425-3.701%201.983%200%203.628.92%204.474%202.515l-2.2%201.233c-.436-.943-1.283-1.378-2.274-1.378-.943%200-1.765.41-1.765%201.281Zm11.148%200c0%202.201%206.505.87%206.505%205.345%200%202.419-2.104%203.724-4.716%203.724-2.418%200-4.158-1.089-4.933-2.83l2.249-1.305c.387%201.088%201.354%201.74%202.684%201.74%201.161%200%202.056-.386%202.056-1.354%200-2.151-6.505-.942-6.505-5.27%200-2.274%201.959-3.701%204.426-3.701%201.982%200%203.627.92%204.473%202.515l-2.2%201.233c-.435-.943-1.282-1.378-2.273-1.378-.944%200-1.766.41-1.766%201.281Z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E",
+      "type": "svg",
+      "dimensions": {
+        "width": 159,
+        "height": 20
+      },
+      "context": "icon"
+    },
+    {
+      "url": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22currentColor%22%20aria-hidden%3D%22true%22%20data-slot%3D%22icon%22%20class%3D%22size-4%20fill-gray-400%22%3E%3Cpath%20fill-rule%3D%22evenodd%22%20d%3D%22M4.22%206.22a.75.75%200%200%201%201.06%200L8%208.94l2.72-2.72a.75.75%200%201%201%201.06%201.06l-3.25%203.25a.75.75%200%200%201-1.06%200L4.22%207.28a.75.75%200%200%201%200-1.06Z%22%20clip-rule%3D%22evenodd%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E",
+      "type": "svg",
+      "dimensions": {
+        "width": 16,
+        "height": 16
+      },
+      "context": "icon"
+    },
+    {
+      "url": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2016%2016%22%20class%3D%22-ml-0.5%20size-4%20fill-gray-600%20dark%3Afill-gray-500%22%3E%3Cpath%20fill-rule%3D%22evenodd%22%20d%3D%22M9.965%2011.026a5%205%200%201%201%201.06-1.06l2.755%202.754a.75.75%200%201%201-1.06%201.06l-2.755-2.754ZM10.5%207a3.5%203.5%200%201%201-7%200%203.5%203.5%200%200%201%207%200Z%22%20clip-rule%3D%22evenodd%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E",
+      "type": "svg",
+      "dimensions": {
+        "width": 16,
+        "height": 16
+      },
+      "context": "icon"
+    },
+    {
+      "url": "data:image/svg+xml;utf8,%3Csvg%20width%3D%225%22%20height%3D%225%22%20viewBox%3D%220%200%205%205%22%20class%3D%22absolute%20top-%5B-2px%5D%20left-%5B-2px%5D%20fill-sky-300%20dark%3Afill-sky-300%2F50%22%3E%3Cpath%20d%3D%22M2%200h1v2h2v1h-2v2h-1v-2h-2v-1h2z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E",
+      "type": "svg",
+      "dimensions": {
+        "width": 5,
+        "height": 5
+      },
+      "context": "icon"
+    },
+    {
+      "url": "data:image/svg+xml;utf8,%3Csvg%20width%3D%225%22%20height%3D%225%22%20viewBox%3D%220%200%205%205%22%20class%3D%22absolute%20top-%5B-2px%5D%20right-%5B-2px%5D%20fill-sky-300%20dark%3Afill-sky-300%2F50%22%3E%3Cpath%20d%3D%22M2%200h1v2h2v1h-2v2h-1v-2h-2v-1h2z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E",
+      "type": "svg",
+      "dimensions": {
+        "width": 5,
+        "height": 5
+      },
+      "context": "icon"
+    },
+    {
+      "url": "data:image/svg+xml;utf8,%3Csvg%20width%3D%225%22%20height%3D%225%22%20viewBox%3D%220%200%205%205%22%20class%3D%22absolute%20bottom-%5B-2px%5D%20left-%5B-2px%5D%20fill-sky-300%20dark%3Afill-sky-300%2F50%22%3E%3Cpath%20d%3D%22M2%200h1v2h2v1h-2v2h-1v-2h-2v-1h2z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E",
+      "type": "svg",
+      "dimensions": {
+        "width": 5,
+        "height": 5
+      },
+      "context": "icon"
+    },
+    {
+      "url": "data:image/svg+xml;utf8,%3Csvg%20width%3D%225%22%20height%3D%225%22%20viewBox%3D%220%200%205%205%22%20class%3D%22absolute%20right-%5B-2px%5D%20bottom-%5B-2px%5D%20fill-sky-300%20dark%3Afill-sky-300%2F50%22%3E%3Cpath%20d%3D%22M2%200h1v2h2v1h-2v2h-1v-2h-2v-1h2z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E",
+      "type": "svg",
+      "dimensions": {
+        "width": 5,
+        "height": 5
+      },
+      "context": "icon"
+    },
+    {
+      "url": "data:image/svg+xml;utf8,%3Csvg%20viewBox%3D%220%200%2020%2020%22%20class%3D%22size-5%20fill-black%2F40%20dark%3Afill-gray-400%22%3E%3Cpath%20d%3D%22M10%200C4.475%200%200%204.475%200%2010a9.994%209.994%200%20006.838%209.488c.5.087.687-.213.687-.476%200-.237-.013-1.024-.013-1.862-2.512.463-3.162-.612-3.362-1.175-.113-.287-.6-1.175-1.025-1.412-.35-.188-.85-.65-.013-.663.788-.013%201.35.725%201.538%201.025.9%201.512%202.337%201.087%202.912.825.088-.65.35-1.088.638-1.338-2.225-.25-4.55-1.112-4.55-4.937%200-1.088.387-1.987%201.025-2.688-.1-.25-.45-1.274.1-2.65%200%200%20.837-.262%202.75%201.026a9.28%209.28%200%20012.5-.338c.85%200%201.7.112%202.5.337%201.912-1.3%202.75-1.024%202.75-1.024.55%201.375.2%202.4.1%202.65.637.7%201.025%201.587%201.025%202.687%200%203.838-2.337%204.688-4.562%204.938.362.312.675.912.675%201.85%200%201.337-.013%202.412-.013%202.75%200%20.262.188.574.688.474A10.016%2010.016%200%200020%2010c0-5.525-4.475-10-10-10z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E",
+      "type": "svg",
+      "dimensions": {
+        "width": 20,
+        "height": 20
+      },
+      "context": "icon"
+    },
+    {
+      "url": "data:image/svg+xml;utf8,%3Csvg%20fill%3D%22currentColor%22%20aria-hidden%3D%22true%22%20viewBox%3D%220%200%2010%2010%22%20class%3D%22-mr-0.5%20w-2.5%22%3E%3Cpath%20d%3D%22M4.85355%200.146423L9.70711%204.99998L4.85355%209.85353L4.14645%209.14642L7.79289%205.49998H0V4.49998H7.79289L4.14645%200.85353L4.85355%200.146423Z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E",
+      "type": "svg",
+      "dimensions": {
+        "width": 10,
+        "height": 10
+      },
+      "context": "icon"
+    },
+    {
+      "url": "data:image/svg+xml;utf8,%3Csvg%20fill%3D%22currentColor%22%20viewBox%3D%220%200%20320%2096%22%20class%3D%22w-full%20max-w-80%22%20aria-label%3D%22Supabase%20logo%22%3E%3Cpath%20d%3D%22M97.75%2053.131c.269%202.528%202.549%206.862%209.165%206.862%205.767%200%208.54-3.702%208.54-7.313%200-3.25-2.191-5.914-6.528-6.817l-3.129-.677c-1.207-.226-2.012-.903-2.012-1.986%200-1.265%201.252-2.212%202.817-2.212%202.503%200%203.442%201.67%203.621%202.98l4.962-1.13c-.268-2.392-2.369-6.41-8.628-6.41-4.739%200-8.226%203.296-8.226%207.268%200%203.115%201.922%205.688%206.169%206.636l2.906.677c1.699.361%202.37%201.174%202.37%202.167%200%201.174-.939%202.212-2.906%202.212-2.593%200-3.89-1.625-4.024-3.386l-5.096%201.129ZM134.457%2059.316h5.678a36.705%2036.705%200%200%201-.224-4.018V37.105h-5.946v12.911c0%202.573-1.52%204.379-4.158%204.379-2.771%200-4.024-1.986-4.024-4.47v-12.82h-5.946v14.04c0%204.83%203.04%208.757%208.361%208.757%202.324%200%204.873-.903%206.08-2.98%200%20.904.089%201.942.179%202.394ZM152.202%2067.893V57.149c1.073%201.49%203.309%202.708%206.349%202.708%206.214%200%2010.371-4.966%2010.371-11.692%200-6.59-3.71-11.556-10.148-11.556-3.308%200-5.767%201.49-6.75%203.205v-2.709h-5.767v30.788h5.945Zm10.864-19.683c0%203.973-2.414%206.275-5.454%206.275-3.04%200-5.499-2.347-5.499-6.275%200-3.927%202.459-6.23%205.499-6.23%203.04%200%205.454%202.303%205.454%206.23ZM172.291%2053.266c0%203.477%202.86%206.682%207.555%206.682%203.263%200%205.364-1.535%206.482-3.296%200%20.858.089%202.077.224%202.664h5.454c-.134-.768-.268-2.348-.268-3.522V44.87c0-4.47-2.593-8.442-9.567-8.442-5.902%200-9.076%203.837-9.433%207.313l5.275%201.129c.179-1.941%201.609-3.611%204.202-3.611%202.504%200%203.711%201.309%203.711%202.889%200%20.767-.402%201.4-1.654%201.58l-5.409.812c-3.666.542-6.572%202.754-6.572%206.726Zm8.806%202.212c-1.922%200-2.861-1.264-2.861-2.573%200-1.715%201.207-2.573%202.728-2.799l4.962-.767v.993c0%203.928-2.325%205.146-4.829%205.146ZM203.498%2059.316v-2.71c1.162%201.897%203.486%203.251%206.527%203.251%206.259%200%2010.372-5.01%2010.372-11.737%200-6.59-3.711-11.602-10.148-11.602-3.265%200-5.678%201.445-6.662%203.025v-12.91h-5.857v32.683h5.768Zm10.953-11.15c0%204.062-2.414%206.32-5.455%206.32-2.995%200-5.498-2.303-5.498-6.32%200-4.064%202.503-6.276%205.498-6.276%203.041%200%205.455%202.212%205.455%206.275ZM223.765%2053.266c0%203.477%202.861%206.682%207.555%206.682%203.263%200%205.365-1.535%206.482-3.296%200%20.858.09%202.077.224%202.664h5.454c-.133-.768-.268-2.348-.268-3.522V44.87c0-4.47-2.593-8.442-9.567-8.442-5.902%200-9.076%203.837-9.433%207.313l5.274%201.129c.18-1.941%201.611-3.611%204.203-3.611%202.504%200%203.711%201.309%203.711%202.889%200%20.767-.402%201.4-1.654%201.58l-5.409.812c-3.666.542-6.572%202.754-6.572%206.726Zm8.807%202.212c-1.922%200-2.862-1.264-2.862-2.573%200-1.715%201.207-2.573%202.728-2.799l4.962-.767v.993c0%203.928-2.325%205.146-4.828%205.146ZM247.328%2053.131c.268%202.528%202.548%206.862%209.165%206.862%205.767%200%208.538-3.702%208.538-7.313%200-3.25-2.19-5.914-6.526-6.817l-3.13-.677c-1.207-.226-2.011-.903-2.011-1.986%200-1.265%201.251-2.212%202.816-2.212%202.504%200%203.442%201.67%203.622%202.98l4.962-1.13c-.269-2.392-2.37-6.41-8.629-6.41-4.739%200-8.226%203.296-8.226%207.268%200%203.115%201.922%205.688%206.17%206.636l2.906.677c1.699.361%202.369%201.174%202.369%202.167%200%201.174-.939%202.212-2.906%202.212-2.593%200-3.889-1.625-4.023-3.386l-5.097%201.129ZM274.062%2045.682c.134-2.031%201.833-4.378%204.918-4.378%203.398%200%204.829%202.166%204.918%204.378h-9.836Zm10.417%205.779c-.715%201.986-2.235%203.385-5.007%203.385-2.951%200-5.41-2.121-5.543-5.055h15.736c0-.09.089-.994.089-1.851%200-7.133-4.068-11.512-10.863-11.512-5.633%200-10.82%204.605-10.82%2011.692%200%207.494%205.32%2011.873%2011.356%2011.873%205.41%200%208.897-3.205%2010.015-7.043l-4.963-1.49Z%22%3E%3C%2Fpath%3E%3Cpath%20fill%3D%22url(%23c)%22%20d%3D%22M58.51%2072.774c-1.28%201.625-3.875.735-3.906-1.34l-.45-30.353h20.235c3.666%200%205.71%204.27%203.43%207.165L58.51%2072.774Z%22%3E%3C%2Fpath%3E%3Cpath%20fill%3D%22url(%23d)%22%20d%3D%22M50.28%2023.935c1.279-1.626%203.873-.735%203.904%201.34l.198%2030.352H34.399c-3.665%200-5.71-4.27-3.43-7.164l19.31-24.528Z%22%3E%3C%2Fpath%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22c%22%20x1%3D%2254.153%22%20x2%3D%2272.184%22%20y1%3D%2247.811%22%20y2%3D%2255.309%22%20gradientUnits%3D%22userSpaceOnUse%22%3E%3Cstop%20stop-color%3D%22%23CDCDCD%22%3E%3C%2Fstop%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22currentColor%22%3E%3C%2Fstop%3E%3C%2FlinearGradient%3E%3ClinearGradient%20id%3D%22d%22%20x1%3D%2230.011%22%20x2%3D%2247.91%22%20y1%3D%2229.825%22%20y2%3D%2237.192%22%20gradientUnits%3D%22userSpaceOnUse%22%3E%3Cstop%20stop-color%3D%22%23949494%22%3E%3C%2Fstop%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22currentColor%22%3E%3C%2Fstop%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3C%2Fsvg%3E",
+      "type": "svg",
+      "dimensions": {
+        "width": 294,
+        "height": 88
+      },
+      "context": "icon"
+    },
+    {
+      "url": "data:image/svg+xml;utf8,%3Csvg%20fill%3D%22currentColor%22%20viewBox%3D%220%200%20320%2096%22%20class%3D%22w-full%20max-w-80%22%20aria-label%3D%22ImageKit%20logo%22%3E%3Cpath%20d%3D%22M45.427%2030.109c-.724-.784-1.085-1.687-1.085-2.892.06-1.145.422-2.048%201.206-2.892.844-.783%201.748-1.204%202.954-1.204%201.206%200%202.05.421%202.834%201.204.845.844%201.267%201.747%201.267%202.892%200%201.205-.483%202.108-1.267%202.892-.844.783-1.808%201.144-2.954%201.144-1.146%200-2.171-.361-2.955-1.144ZM57.186%2050.77c-4.1%2011.145-19.658%2014.157-16.764-.301l3.377-16.325h7.115c-1.628%208.735-2.834%2014.036-4.04%2020.12-1.206%206.205%206.513%201.627%208.261-3.434l2.05-.06Z%22%3E%3C%2Fpath%3E%3Cpath%20d%3D%22M96.14%2051.133c-4.1%2011.084-18.452%2012.65-16.28%201.144.723-3.976%201.567-8.072%202.351-12.59C83.477%2033.783%2077.87%2038.18%2076%2042.94c-.06.12-.12.18-.18.422-.302%201.626-2.714%2015.24-2.956%2016.566h-6.693c1.447-8.072%202.532-14.458%203.558-20.06.965-5.482-4.222-2.23-6.332%202.108-.06.06-.06.12-.12.18l-3.558%2017.712h-7.116l5.186-25.784h7.115l-.663%203.494c4.1-4.94%2011.578-5.542%2012%201.506%205.427-7.349%2014.714-7.891%2012.241%204.217l-.844%204.579c-.422%202.229-.482%202.35-1.266%206.566-.905%204.096%206.03%201.566%207.718-3.374h2.05v.06Z%22%3E%3C%2Fpath%3E%3Cpath%20d%3D%22M110.733%2038.843c-3.135-5.722-9.226-.18-11.035%208.193-1.99%209.338%201.447%2014.157%208.563%204.579l2.472-12.772Zm13.99%2012.23c-3.558%209.517-15.919%2012.83-16.643%203.975-5.487%208.133-17.246%206.627-16.281-4.036.723-8.313%204.824-16.626%2014.05-16.928h13.085l-.422%201.988c-1.628%207.892-2.713%2012.47-3.859%2018.434-1.146%205.904%206.392%201.446%208.08-3.373l1.99-.06Z%22%3E%3C%2Fpath%3E%3Cpath%20d%3D%22M139.739%2038.422c-3.136-5.844-9.408-.181-11.277%208.313-2.05%209.578%201.568%2014.458%208.684%204.759-.061-.06%202.593-13.072%202.593-13.072Zm8.201-4.579-3.98%2019.458c-2.171%2011.988-5.669%2022.771-20.985%2018.434l4.764-4.94c2.592%201.988%204.462%202.229%205.909%201.386l.181-.844%202.352-11.446c-5.729%207.17-16.764%205.362-15.92-5.12%201.025-11.867%207.9-16.566%2013.086-16.807.964-.06%201.929-.12%203.015-.12h11.578Zm7.055%2013.554c8.14.241%209.105-9.518%207.779-10.542-1.025-.783-3.317.181-5.186%203.133-1.086%201.626-1.99%203.976-2.593%206.867.06.181%200%20.422%200%20.543Zm15.497%203.615c-4.04%207.41-8.261%209.337-14.171%209.157-9.768-.302-9.889-12.651-5.125-20.241%203.919-6.085%2010.613-7.35%2013.568-4.88%202.653%202.108%202.713%206.024%201.145%209.096-2.351%204.278-6.633%205.904-11.095%205.723.06%202.47.965%205.362%203.196%206.446%203.98%201.868%208.141-1.265%2010.613-5.24%200-.061%201.869-.061%201.869-.061Z%22%3E%3C%2Fpath%3E%3Cpath%20d%3D%22M184.543%2037.398c-2.412%201.265-5.608%206.024-7.417%208.313l-.543%202.47c.543-.18%201.025-.422%201.447-.603%208.322-3.433%2010.553-12.41%206.513-10.18Zm4.583%2022.53h-7.357l-5.729-8.856-1.628%208.856h-7.236l7.176-36.084h6.995c-1.206%206.445-2.292%2011.385-3.498%2017.83%201.749-2.409%204.282-5.42%206.754-6.867%207.357-4.458%209.528%208.434-2.834%2013.675l7.357%2011.446Zm7.417-29.82c-.724-.783-1.086-1.686-1.086-2.891.06-1.145.422-2.048%201.206-2.892.844-.783%201.749-1.204%202.955-1.204s2.05.421%202.834%201.204c.844.844%201.266%201.747%201.266%202.892%200%201.205-.482%202.108-1.266%202.892-.844.783-1.809%201.144-2.955%201.144-1.206%200-2.17-.361-2.954-1.144Zm11.698%2020.663c-4.1%2011.145-19.658%2014.157-16.764-.301l3.377-16.325h7.116c-1.628%208.735-2.834%2014.036-4.04%2020.12-1.206%206.205%206.512%201.627%208.261-3.434l2.05-.06Z%22%3E%3C%2Fpath%3E%3Cpath%20d%3D%22M222.533%2050.892c-4.101%2011.024-19.357%2013.976-16.463-.181l2.714-13.434h-3.076l1.267-3.132h2.472l1.387-6.687%207.357-1.446-1.628%208.133h4.16l-1.507%203.132h-3.256l-3.438%2017.109c-1.206%206.024%206.151%201.566%207.9-3.494h2.111Zm1.929%202.229c.844-.784%201.809-1.205%202.955-1.205%201.146%200%202.11.422%203.015%201.205.784.903%201.206%201.867%201.206%203.012%200%201.144-.422%202.108-1.206%202.951-.905.784-1.869%201.205-3.015%201.205-1.146%200-2.111-.421-2.955-1.205-.784-.843-1.206-1.807-1.206-2.951%200-1.205.422-2.169%201.206-3.012Zm18.03-23.012c-.723-.784-1.085-1.687-1.085-2.892.06-1.145.422-2.048%201.206-2.892.844-.783%201.749-1.204%202.955-1.204s2.05.421%202.834%201.204c.844.844%201.266%201.747%201.266%202.892%200%201.205-.482%202.108-1.266%202.892-.844.783-1.809%201.144-2.955%201.144-1.206%200-2.171-.361-2.955-1.144Zm11.699%2020.662c-4.101%2011.145-19.658%2014.157-16.764-.301l3.377-16.325h7.115c-1.628%208.735-2.834%2014.036-4.04%2020.12-1.206%206.205%206.513%201.627%208.262-3.434l2.05-.06Z%22%3E%3C%2Fpath%3E%3Cpath%20d%3D%22M267.698%2046.675c-1.628-.302-3.196-1.024-4.945-2.35l2.714-3.675a7.25%207.25%200%200%200%202.231%201.386c-.844-3.795-4.1-7.229-6.995-3.133-2.593%203.736-4.884%2015-.301%2017.59%202.472%201.447%206.03-1.083%207.356-9.577v-.241h-.06ZM280%2041.434c-2.051%201.867-4.101%203.313-6.151%204.217-1.508%2011.746-11.096%2016.325-17.186%2013.975-4.824-1.747-6.573-6.204-6.03-10.903.542-5%203.558-10.18%208.382-12.952%204.824-2.771%2012-3.012%2014.472%202.952.422.964.663%202.229.663%203.614%202.051-.542%204.101-1.506%205.729-2.65l.121%201.747Z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E",
+      "type": "svg",
+      "dimensions": {
+        "width": 294,
+        "height": 88
+      },
+      "context": "icon"
+    },
+    {
+      "url": "data:image/svg+xml;utf8,%3Csvg%20fill%3D%22currentColor%22%20viewBox%3D%220%200%20320%2096%22%20class%3D%22w-full%20max-w-80%22%20aria-label%3D%22Vercel%20logo%22%3E%3Cpath%20d%3D%22M91.517%2072.959%2062.76%2023.023%2034%2072.96h57.517Zm29.008-2.273%2024.034-45.393h-10.396L117.584%2058.26l-16.579-32.966H90.609l24.034%2045.393h5.882Zm163.791-45.393v45.393h-8.606V25.293h8.606Zm-47.906%2028.45c0-3.537.739-6.649%202.218-9.334%201.479-2.685%203.541-4.752%206.186-6.201%202.644-1.45%205.737-2.174%209.279-2.174%203.137%200%205.961.682%208.472%202.046%202.51%201.364%204.504%203.388%205.983%206.073%201.479%202.686%202.242%205.967%202.286%209.846v1.982h-25.347c.178%202.813%201.008%205.03%202.487%206.649%201.524%201.577%203.564%202.365%206.119%202.365a8.12%208.12%200%200%200%204.437-1.278%207.98%207.98%200%200%200%203.026-3.453l8.808.64c-1.076%203.196-3.093%205.754-6.051%207.672-2.959%201.918-6.365%202.877-10.22%202.877-3.542%200-6.635-.725-9.279-2.174-2.645-1.45-4.707-3.516-6.186-6.201-1.479-2.686-2.218-5.797-2.218-9.335Zm25.549-3.196c-.314-2.77-1.187-4.795-2.622-6.074-1.435-1.321-3.182-1.982-5.244-1.982-2.376%200-4.303.703-5.782%202.11-1.481%201.406-2.398%203.388-2.758%205.946h16.406Zm-40.071-6.074c1.434%201.15%202.33%202.75%202.689%204.795l8.875-.448c-.314-2.6-1.232-4.858-2.757-6.776-1.524-1.918-3.495-3.389-5.917-4.412-2.375-1.065-4.997-1.598-7.866-1.598-3.542%200-6.634.724-9.279%202.174-2.645%201.449-4.707%203.516-6.186%206.201-1.479%202.685-2.218%205.797-2.218%209.334%200%203.538.739%206.65%202.218%209.334%201.479%202.686%203.541%204.753%206.186%206.202%202.645%201.45%205.737%202.174%209.279%202.174%202.958%200%205.647-.533%208.068-1.599%202.421-1.108%204.393-2.663%205.917-4.667%201.525-2.003%202.443-4.347%202.756-7.032l-8.941-.384c-.314%202.259-1.189%204.007-2.623%205.242-1.434%201.194-3.161%201.79-5.177%201.79-2.779%200-4.931-.958-6.455-2.876s-2.285-4.646-2.285-8.184c0-3.537.761-6.265%202.285-8.183%201.524-1.918%203.676-2.877%206.455-2.877%201.928%200%203.585.597%204.976%201.79ZM178.229%2036.8h8.01l.231%206.521c.568-1.846%201.358-3.28%202.371-4.3%201.468-1.481%203.515-2.221%206.14-2.221h3.271v6.98h-3.337c-1.87%200-3.404.254-4.606.761a5.557%205.557%200%200%200-2.669%202.412c-.578%201.1-.867%202.496-.867%204.188v19.545h-8.544V36.799Zm-36.941%207.61c-1.479%202.684-2.219%205.796-2.219%209.333%200%203.538.74%206.65%202.219%209.334%201.479%202.686%203.541%204.753%206.186%206.202%202.644%201.45%205.737%202.174%209.278%202.174%203.855%200%207.262-.96%2010.22-2.877%202.959-1.918%204.976-4.476%206.051-7.672l-8.807-.64a7.98%207.98%200%200%201-3.026%203.453%208.124%208.124%200%200%201-4.438%201.278c-2.555%200-4.594-.788-6.118-2.365-1.48-1.62-2.309-3.836-2.488-6.65h25.349V54c-.046-3.879-.808-7.16-2.287-9.846-1.479-2.685-3.473-4.71-5.983-6.073-2.511-1.364-5.335-2.046-8.473-2.046-3.541%200-6.634.724-9.278%202.174-2.645%201.449-4.707%203.516-6.186%206.201Zm20.709.063c1.434%201.279%202.308%203.303%202.622%206.074h-16.406c.359-2.558%201.278-4.54%202.757-5.946%201.479-1.407%203.407-2.11%205.782-2.11%202.062%200%203.81.66%205.245%201.982Z%22%20clip-rule%3D%22evenodd%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E",
+      "type": "svg",
+      "dimensions": {
+        "width": 294,
+        "height": 88
+      },
+      "context": "icon"
+    },
+    {
+      "url": "data:image/svg+xml;utf8,%3Csvg%20fill%3D%22currentColor%22%20viewBox%3D%220%200%20320%2096%22%20class%3D%22w-full%20max-w-80%22%20aria-label%3D%22Railway%20logo%22%3E%3Cpath%20d%3D%22M51.525%2044.409a25.234%2025.234%200%200%200-.232%202.508h37.94a4.528%204.528%200%200%200-.49-.719c-6.486-8.356-9.975-7.631-14.966-7.844-1.664-.068-2.793-.095-9.416-.095-3.545%200-7.4.009-11.153.019-.485%201.307-.954%202.575-1.182%203.606h19.442v2.525H51.525Zm38.007%205.035h-38.22c.04.674.104%201.339.195%201.995h35.286c1.572%200%202.453-.89%202.739-1.995Zm-36.043%208.883s5.85%2014.323%2022.752%2014.577c10.103%200%2018.784-5.983%2022.727-14.577h-45.48Z%22%3E%3C%2Fpath%3E%3Cpath%20d%3D%22M76.24%2023.096c-9.34%200-17.469%205.115-21.761%2012.676%203.354-.007%209.887-.01%209.887-.01h.002v-.003c7.722%200%208.009.034%209.517.097l.934.034c3.254.108%207.253.457%2010.4%202.83%201.708%201.288%204.174%204.13%205.644%206.155%201.359%201.873%201.75%204.025.826%206.088-.85%201.895-2.68%203.026-4.897%203.026H52.107s.206.873.516%201.836h47.346c.841-2.52%201.271-5.158%201.273-7.814.001-13.76-11.193-24.915-25.001-24.915ZM126.369%2058.4h5.892v-9.85h4.299l5.279%209.85h6.504l-5.919-10.8c3.17-1.356%204.925-4.11%204.925-7.909%200-5.522-3.659-9.076-9.986-9.076h-10.994V58.4Zm5.892-14.57v-8.413h3.972c3.402%200%205.048%201.506%205.048%204.274%200%202.754-1.646%204.138-5.021%204.138h-3.999Zm25.102%2014.964c3.089%200%205.088-1.343%206.109-3.283h.163v2.89h5.497V44.344c0-4.966-4.218-7.055-8.871-7.055-5.007%200-8.299%202.388-9.102%206.186l5.361.435c.394-1.384%201.632-2.402%203.714-2.402%201.972%200%203.102.99%203.102%202.7v.081c0%201.344-1.429%201.52-5.062%201.873-4.135.38-7.85%201.764-7.85%206.417%200%204.125%202.953%206.214%206.939%206.214Zm1.66-3.989c-1.782%200-3.062-.828-3.062-2.415%200-1.628%201.348-2.428%203.388-2.713%201.266-.177%203.334-.475%204.027-.937v2.212c0%202.184-1.809%203.853-4.353%203.853Zm14.606%203.595h5.796V37.561h-5.796v20.84Zm2.911-23.525c1.728%200%203.143-1.316%203.143-2.93%200-1.602-1.415-2.918-3.143-2.918-1.714%200-3.129%201.316-3.129%202.917%200%201.615%201.415%202.93%203.129%202.93Zm13.324-4.26h-5.796V58.4h5.796V30.615Zm8.765%2027.785h6.122l3.593-13.105h.258l3.592%2013.105h6.136l5.673-20.839h-5.85l-3.184%2013.92h-.177l-3.428-13.92h-5.755l-3.375%2014.002h-.19l-3.238-14.002h-5.864l5.687%2020.84Zm34.426.394c3.088%200%205.088-1.343%206.108-3.283h.164v2.89h5.497V44.344c0-4.966-4.218-7.055-8.871-7.055-5.007%200-8.3%202.388-9.102%206.186l5.36.435c.394-1.384%201.633-2.402%203.714-2.402%201.973%200%203.103.99%203.103%202.7v.081c0%201.344-1.429%201.52-5.062%201.873-4.136.38-7.85%201.764-7.85%206.417%200%204.125%202.953%206.214%206.939%206.214Zm1.66-3.989c-1.783%200-3.062-.828-3.062-2.415%200-1.628%201.348-2.428%203.388-2.713%201.265-.177%203.333-.475%204.027-.937v2.212c0%202.184-1.809%203.853-4.353%203.853Zm17.435%2011.41c4.313%200%206.599-2.198%207.783-5.562l8.122-23.065-6.136-.027-4.367%2015.304h-.218l-4.327-15.304h-6.095l7.497%2021.436-.34.882c-.762%201.954-2.218%202.049-4.259%201.425l-1.306%204.314c.83.353%202.177.597%203.646.597Z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E",
+      "type": "svg",
+      "dimensions": {
+        "width": 294,
+        "height": 88
+      },
+      "context": "icon"
+    },
+    {
+      "url": "data:image/svg+xml;utf8,%3Csvg%20fill%3D%22currentColor%22%20viewBox%3D%220%200%20320%2096%22%20class%3D%22w-full%20max-w-80%22%20aria-label%3D%22Nutrient%20logo%22%3E%3Cpath%20d%3D%22M54.394%2052.497C51.949%2052.497%2050%2050.47%2050%2048c0-2.47%201.98-4.497%204.394-4.497%202.413%200%204.394%202.027%204.394%204.497%200%202.47-1.98%204.497-4.394%204.497Zm44.062-8.994c-2.445%200-4.394%202.027-4.394%204.497%200%202.47%201.98%204.497%204.394%204.497%202.413%200%204.394-2.027%204.394-4.497%200-2.47-1.981-4.497-4.394-4.497ZM56.714%2059.052c-1.856%201.615-2.104%204.433-.556%206.365%201.578%201.9%204.331%202.153%206.219.57%201.857-1.615%202.104-4.434.557-6.365-1.578-1.9-4.332-2.154-6.22-.57Zm39.421-22.104c1.857-1.615%202.104-4.433.557-6.365-1.578-1.9-4.332-2.153-6.22-.57-1.856%201.615-2.103%204.434-.556%206.365%201.578%201.9%204.332%202.154%206.219.57Zm-33.758-6.903c-1.857-1.615-4.641-1.362-6.22.57-1.577%201.9-1.33%204.75.558%206.365%201.856%201.615%204.64%201.362%206.219-.57%201.578-1.9%201.33-4.75-.557-6.365Zm33.758%2029.007c-1.857-1.615-4.641-1.362-6.22.57-1.577%201.9-1.33%204.75.558%206.365%201.856%201.615%204.64%201.361%206.219-.57%201.578-1.9%201.33-4.75-.557-6.365Zm-11.263-9.69c-1.856-1.615-4.641-1.362-6.22.57-1.578%201.9-1.33%204.75.558%206.365%201.856%201.615%204.64%201.361%206.219-.57%201.578-1.9%201.33-4.75-.557-6.365ZM73.64%2039.703c-1.857-1.615-4.641-1.361-6.22.57-1.578%201.9-1.33%204.75.558%206.365%201.856%201.615%204.64%201.362%206.219-.57%201.578-1.9%201.33-4.75-.557-6.365ZM138.309%2032.8h3.775v30.495h-4.332L127.541%2044.96c-.556-1.013-1.701-3.293-3.434-6.84h-.031c.062%201.298.093%202.723.155%204.275.062%201.552.062%202.692.062%203.452v17.448h-3.775V32.8h4.239l10.211%2018.113c.526.919%201.454%202.692%202.784%205.352l.743%201.457h.031c-.062-1.172-.093-2.502-.155-4.022-.062-1.52-.062-2.723-.062-3.642V32.8Zm22.279%2020.963c0%204.529-1.826%206.809-5.477%206.809-3.651%200-1.547-.064-2.135-.222-.619-.158-1.176-.507-1.733-1.045-.402-.38-.68-.855-.866-1.362a5.273%205.273%200%200%201-.309-1.52%2034.19%2034.19%200%200%201-.062-2.121V41.508h-3.961v13.015c0%201.014.031%201.9.093%202.66.062.76.216%201.489.464%202.249a5.19%205.19%200%200%200%201.145%201.963c.773.823%201.671%201.457%202.692%201.837%201.021.38%202.228.601%203.62.601s2.847-.316%203.992-.981c1.144-.665%201.98-1.584%202.568-2.819v3.262h3.837V41.508h-3.837v12.224l-.031.031Zm15.316-18.303h-3.775v6.048h-4.455v3.262h4.455v13.142c0%201.963.526%203.388%201.548%204.275%201.052.886%202.722%201.298%205.012%201.298%202.29%200%201.176%200%201.733-.095a9.966%209.966%200%200%200%201.423-.253l-.093-3.579c-1.083.254-1.98.38-2.753.38-.774%200-1.424-.063-1.857-.19-.433-.126-.743-.348-.959-.665-.186-.316-.31-.76-.31-1.33V44.738h6.034v-3.261h-6.034v-6.08l.031.063Zm17.019%207.093c-1.362.824-2.228%201.837-2.63%203.072V41.54h-3.837v21.787h3.837v-9.975c0-2.28.34-4.054.99-5.352.649-1.267%201.578-2.153%202.692-2.628%201.145-.475%202.506-.697%204.146-.697%201.64%200%201.083%200%201.33.063l.093-3.736c-.928%200-1.485%200-1.732.031-1.888.19-3.528.697-4.889%201.52Zm37.718%206.08c.31%201.299.464%202.629.464%204.022v.918h-16.151c.031%202.407.557%204.18%201.547%205.352.99%201.172%202.506%201.742%204.486%201.742%201.981%200%203.187-.412%204.208-1.204.991-.791%201.64-2.026%201.888-3.673l3.682.285c-.464%202.533-1.547%204.465-3.187%205.763-1.64%201.299-3.837%201.964-6.56%201.964-2.723%200-5.817-1.077-7.642-3.199-1.733-1.995-2.6-4.75-2.6-8.265%200-3.515.217-3.135.681-4.528.464-1.393%201.114-2.565%202.011-3.578a9.001%209.001%200%200%201%203.311-2.439c1.269-.57%202.692-.823%204.208-.823%201.517%200%203.311.38%204.796%201.108a8.229%208.229%200%200%201%203.497%203.199c.557.95%201.021%202.058%201.33%203.325l.031.031Zm-3.465%201.774c0-.634-.124-1.299-.341-2.027-.216-.728-.464-1.33-.804-1.837-.557-.823-1.207-1.425-2.042-1.805-.805-.38-1.795-.57-2.971-.57-1.176%200-2.166.222-3.063.634-.866.411-1.516%201.013-1.949%201.741a6.282%206.282%200%200%200-.774%201.9c-.155.697-.247%201.33-.247%201.964h12.191Zm25.094-5.004c-.248-.76-.619-1.425-1.114-1.963-.773-.823-1.671-1.457-2.692-1.837-1.021-.38-2.228-.601-3.651-.601-3.249%200-5.446%201.298-6.56%203.863V41.54h-3.837v21.787h3.837V51.293c0-2.723.588-4.591%201.733-5.573%201.145-.982%202.413-1.457%203.837-1.457%201.423%200%201.485.064%202.073.222.588.158%201.176.507%201.702%201.045.402.38.68.855.866%201.362.186.506.31%201.013.34%201.551.031.507.062%201.235.062%202.154v12.73h3.961v-12.92c0-1.045%200-1.932-.093-2.692a9.934%209.934%200%200%200-.464-2.28v-.032Zm17.699-.601V41.54h-6.034v-6.048h-3.775v6.048h-4.455v3.262h4.455v13.141c0%201.964.526%203.389%201.547%204.275%201.052.887%202.723%201.299%205.013%201.299s1.176%200%201.733-.095a9.953%209.953%200%200%200%201.423-.254l-.093-3.578c-1.083.253-1.98.38-2.753.38-.774%200-1.424-.063-1.857-.19-.433-.127-.743-.348-.959-.665-.186-.317-.31-.76-.31-1.33V44.77h6.034l.031.032ZM203.35%2063.327h3.837V41.572h-3.837v21.786-.031Zm1.919-31.16c-1.547%200-2.785%201.266-2.785%202.85%200%201.583%201.238%202.85%202.785%202.85%201.547%200%202.784-1.267%202.784-2.85%200-1.584-1.237-2.85-2.784-2.85Z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E",
+      "type": "svg",
+      "dimensions": {
+        "width": 294,
+        "height": 88
+      },
+      "context": "icon"
+    },
+    {
+      "url": "data:image/svg+xml;utf8,%3Csvg%20fill%3D%22currentColor%22%20viewBox%3D%220%200%20320%2096%22%20class%3D%22w-full%20max-w-80%22%20aria-label%3D%22Bolt%20logo%22%3E%3Cpath%20d%3D%22M124.605%2066.976c-10.568%200-15.945-6.177-15.945-13.897%200-9.141%207.293-17.418%2017.861-17.418%2010.569%200%2015.946%206.177%2015.946%2013.897%200%209.141-7.293%2017.418-17.862%2017.418Zm.433-9.82c3.708%200%206.057-3.336%206.057-7.042%200-2.964-1.916-4.632-5.006-4.632-3.709%200-6.057%203.335-6.057%207.041%200%202.964%201.916%204.632%205.006%204.632ZM153.724%2066.235H142.6l9.085-41.197h11.125l-9.086%2041.197Z%22%3E%3C%2Fpath%3E%3Cpath%20fill-rule%3D%22evenodd%22%20d%3D%22M91.805%2066.976c-3.399%200-6.737-1.235-8.652-3.891l-.676%203.132L70%2072.841l1.347-6.624%209.086-41.179h11.125l-3.214%2014.515c2.596-2.842%205.006-3.892%208.097-3.892%206.675%200%2011.124%204.386%2011.124%2012.415%200%208.276-5.129%2018.9-15.76%2018.9Zm4.265-16.553c0%203.83-2.72%206.732-6.242%206.732-1.978%200-3.77-.74-4.945-2.038l1.73-7.597c1.299-1.297%202.782-2.038%204.512-2.038%202.658%200%204.945%201.976%204.945%204.941Z%22%20clip-rule%3D%22evenodd%22%3E%3C%2Fpath%3E%3Cpath%20d%3D%22M174.384%2066.976c-6.427%200-11.001-2.347-11.001-7.535%200-.433.062-1.483.247-2.348l2.411-11.055h-4.945l2.163-9.635h4.945l1.792-8.153%2012.454-5.142-1.329%205.154-1.792%208.14h6.056l-2.163%209.636h-6.057l-1.606%207.288a8.039%208.039%200%200%200-.186%201.42c0%201.421.865%202.41%202.781%202.41.557%200%201.36-.186%201.545-.31v8.895c-1.174.802-3.275%201.235-5.315%201.235Z%22%3E%3C%2Fpath%3E%3Cpath%20d%3D%22M188.096%2067.645c-1.509%200-2.711-1.257-2.711-2.765%200-1.76%201.509-3.24%203.27-3.24%201.509%200%202.71%201.257%202.71%202.765%200%201.76-1.508%203.24-3.269%203.24ZM207.048%2067.282h-5.03l1.565-7.093c.056-.252.167-.699.167-1.034%200-.921-.81-1.257-1.621-1.257-1.089%200-1.844.56-2.375%201.034l-1.844%208.35h-5.03l2.99-13.488h5.03l-.364%201.536c.979-.894%202.208-1.871%204.248-1.871%202.822%200%204.443%201.535%204.443%203.546%200%20.223-.084.838-.14%201.09l-2.039%209.187ZM217.483%2067.617c-4.36%200-7.378-2.178-7.378-6.144%200-4.3%203.298-8.014%208.02-8.014%203.354%200%206.316%202.038%206.316%206.143%200%20.922-.168%201.983-.308%202.486h-9.053v.027c0%20.196.81%201.676%202.766%201.676%201.062%200%202.319-.252%202.934-.67l1.537%203.267c-1.369.866-3.214%201.229-4.834%201.229Zm-1.928-8.713h4.443v-.084c0-.39-.475-1.536-2.068-1.536-1.341%200-2.208%201.033-2.375%201.62ZM241.989%2067.282h-5.477l-.559-7.54-3.828%207.54h-5.477l-.922-13.488h5.029l.14%207.428%204.024-7.428h4.499l.699%207.428%203.437-7.428h5.337l-6.902%2013.488Z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E",
+      "type": "svg",
+      "dimensions": {
+        "width": 294,
+        "height": 88
+      },
+      "context": "icon"
+    },
+    {
+      "url": "data:image/svg+xml;utf8,%3Csvg%20fill%3D%22currentColor%22%20viewBox%3D%220%200%20320%2096%22%20class%3D%22w-full%20max-w-80%22%20aria-label%3D%22Lovable%20logo%22%3E%3Cpath%20fill-rule%3D%22evenodd%22%20d%3D%22M42.8%2026.805c7.069%200%2012.8%205.721%2012.8%2012.78v4.856h4.259c7.069%200%2012.8%205.722%2012.8%2012.78%200%207.057-5.731%2012.779-12.8%2012.779H30V39.584c0-7.058%205.73-12.78%2012.8-12.78Z%22%20clip-rule%3D%22evenodd%22%3E%3C%2Fpath%3E%3Cpath%20d%3D%22M134.138%2036.526c3.164%200%205.935.682%208.313%202.045%202.378%201.364%204.212%203.309%205.502%205.835%201.31%202.506%201.964%205.454%201.964%208.842%200%203.389-.654%206.346-1.964%208.872-1.29%202.527-3.124%204.471-5.502%205.835-2.378%201.363-5.149%202.045-8.313%202.045-3.164%200-5.945-.682-8.343-2.045-2.378-1.364-4.222-3.308-5.532-5.835-1.29-2.526-1.935-5.483-1.935-8.872%200-3.388.645-6.336%201.935-8.842%201.31-2.526%203.154-4.471%205.532-5.834%202.398-1.364%205.179-2.046%208.343-2.046Zm60.918%200c3.003%200%205.542.492%207.618%201.474%202.076.962%203.638%202.346%204.685%204.15%201.068%201.805%201.603%203.96%201.603%206.467V61.85c0%201.423.1%202.746.302%203.97.222%201.203.534%201.964.937%202.285v1.023h-9.522a21.204%2021.204%200%200%201-.514-2.917c-.04-.358-.074-.723-.103-1.094-.226.332-.473.657-.743.973-1.008%201.183-2.308%202.135-3.9%202.857-1.572.702-3.366%201.053-5.381%201.053-1.995%200-3.789-.391-5.381-1.173-1.572-.782-2.811-1.895-3.718-3.338-.887-1.464-1.33-3.168-1.33-5.113%200-2.967.877-5.233%202.63-6.797%201.753-1.584%204.283-2.617%207.588-3.098l5.531-.782c1.109-.16%201.986-.36%202.63-.601.645-.24%201.119-.562%201.421-.962.302-.422.454-.953.454-1.595%200-.661-.182-1.263-.544-1.804-.343-.562-.867-1.003-1.572-1.323-.686-.341-1.522-.512-2.509-.512-1.572%200-2.832.411-3.779%201.233-.947.802-1.461%201.905-1.542%203.309h-9.462c.081-2.126.726-4.01%201.935-5.655%201.229-1.664%202.932-2.957%205.109-3.88%202.176-.922%204.696-1.383%207.557-1.383Zm27.134%205.482c.318-.61.68-1.175%201.088-1.692a9.56%209.56%200%200%201%203.537-2.797c1.39-.662%202.952-.993%204.685-.993%202.6%200%204.857.672%206.771%202.015%201.915%201.344%203.386%203.279%204.414%205.805%201.028%202.506%201.542%205.484%201.542%208.932%200%203.429-.524%206.406-1.572%208.933-1.048%202.506-2.55%204.43-4.504%205.774-1.935%201.343-4.202%202.015-6.802%202.015-1.733%200-3.285-.3-4.655-.902-1.351-.602-2.499-1.504-3.447-2.707-.433-.56-.816-1.18-1.148-1.858v4.595h-9.069V26h9.16v16.008Zm52.635-5.482c2.962%200%205.592.642%207.89%201.925%202.297%201.283%204.081%203.148%205.35%205.594%201.29%202.446%201.935%205.374%201.935%208.782%200%201.223-.01%202.196-.03%202.917h-22.067c.087%201.407.359%202.63.816%203.67.564%201.283%201.37%202.255%202.418%202.917%201.048.641%202.288.962%203.718.962%201.572%200%202.872-.4%203.9-1.203%201.027-.822%201.672-1.975%201.934-3.458h9.16c-.282%202.326-1.079%204.34-2.388%206.045-1.29%201.704-3.013%203.017-5.169%203.94-2.157.922-4.666%201.383-7.528%201.383-3.224%200-6.025-.611-8.404-1.835-2.377-1.243-4.231-3.108-5.561-5.594-1.31-2.486-1.966-5.564-1.966-9.233%200-3.488.686-6.496%202.056-9.022%201.371-2.547%203.265-4.482%205.683-5.805%202.419-1.323%205.17-1.985%208.253-1.985ZM101.05%2060.452h11.095c8.081%200%206.983%208.66%206.982%208.676h-27.57V26h9.493v34.453Zm64.016-.698%206.605-22.355h9.461l-11.034%2031.729h-10.187l-11.457-31.73h9.734l6.878%2022.356Zm91.029%209.374h-9.16V26h9.16v43.128Zm-56.172-15.472a4.828%204.828%200%200%201-1.058.675c-.705.34-1.663.631-2.872.872l-2.327.451c-1.552.3-2.721.762-3.507%201.384-.766.621-1.149%201.494-1.149%202.616%200%201.123.413%202.015%201.24%202.677.826.661%201.884.992%203.174.992s2.428-.28%203.416-.842a5.818%205.818%200%200%200%202.267-2.406c.544-1.022.816-2.185.816-3.489v-2.93Zm28.584-10.182c-1.35%200-2.509.41-3.476%201.233-.947.802-1.663%201.945-2.146%203.428-.484%201.464-.726%203.178-.726%205.143%200%201.985.242%203.71.726%205.173.483%201.464%201.199%202.597%202.146%203.398.967.803%202.126%201.204%203.476%201.204%201.371%200%202.519-.401%203.447-1.203.947-.802%201.652-1.935%202.116-3.399.483-1.464.725-3.188.725-5.173%200-1.985-.242-3.709-.725-5.173-.464-1.463-1.169-2.596-2.116-3.398-.928-.822-2.076-1.233-3.447-1.233Zm-94.369.03c-1.33%200-2.479.37-3.446%201.113-.947.721-1.673%201.814-2.177%203.278-.503%201.443-.755%203.228-.755%205.353%200%202.126.252%203.92.755%205.384.504%201.463%201.23%202.566%202.177%203.308.967.722%202.116%201.083%203.446%201.083s2.469-.361%203.416-1.083c.947-.742%201.673-1.835%202.177-3.278.503-1.464.755-3.268.755-5.414%200-3.188-.554-5.604-1.663-7.248-1.108-1.664-2.67-2.496-4.685-2.496Zm140.475-.391c-1.35%200-2.539.33-3.567.992-1.007.642-1.793%201.604-2.358%202.888-.308.728-.529%201.54-.663%202.436h12.62c-.09-1.136-.317-2.119-.681-2.948-.464-1.123-1.149-1.965-2.056-2.526-.907-.561-2.005-.842-3.295-.842Z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E",
+      "type": "svg",
+      "dimensions": {
+        "width": 294,
+        "height": 88
+      },
+      "context": "icon"
+    },
+    {
+      "url": "data:image/svg+xml;utf8,%3Csvg%20fill%3D%22currentColor%22%20viewBox%3D%220%200%20320%2096%22%20class%3D%22w-full%20max-w-80%22%20aria-label%3D%22Unblocked%20logo%22%3E%3Cpath%20d%3D%22M67.82%2041.428v31.466c-.292%200-.584-.052-.862-.158l-.008-.004-21.413-8.283c-.003%200-.005-.002-.008-.003A2.404%202.404%200%200%201%2044%2062.208v-28.51c0-.54.181-1.051.497-1.462l23.324%209.192Zm-17.039%2015.82%202.478.957%201.239.478%203.716%204.65v-3.216l2.478.956V47.861l-9.911-3.825v13.213Z%22%3E%3C%2Fpath%3E%3Cpath%20fill-opacity%3D%22.6%22%20fill-rule%3D%22evenodd%22%20d%3D%22M68.681%2072.734c-.276.106-.568.16-.86.16V41.428l23.153-9.192c.312.408.492.913.494%201.45V62.22a2.404%202.404%200%200%201-1.532%202.23l-21.245%208.28c-.004%200-.007.002-.01.003Z%22%20clip-rule%3D%22evenodd%22%3E%3C%2Fpath%3E%3Cpath%20fill-opacity%3D%22.8%22%20fill-rule%3D%22evenodd%22%20d%3D%22M68.676%2023.327a2.404%202.404%200%200%200-1.712-.002l-21.413%208.127a2.4%202.4%200%200%200-1.054.784l23.324%209.192%2023.153-9.192a2.401%202.401%200%200%200-1.052-.787l-21.246-8.122Z%22%20clip-rule%3D%22evenodd%22%3E%3C%2Fpath%3E%3Cpath%20fill-opacity%3D%22.16%22%20d%3D%22m50.781%2057.249%209.911-3.825v7.65l-2.478-.957v3.216l-3.715-4.65-3.718-1.434Z%22%3E%3C%2Fpath%3E%3Cpath%20d%3D%22M105.923%2051.94V33.96h5.606v17.619c0%203.79%202.419%205.322%205%205.322s5.041-1.532%205.041-5.322V33.959h5.605v17.982c0%206.37-4.96%2010.281-10.646%2010.281-5.686%200-10.606-3.91-10.606-10.281ZM147.661%2051.417v10.322h-5.283v-10.04c0-2.943-1.775-4.274-3.59-4.274s-4.233%201.009-4.233%204.435v9.879h-5.284v-18.83h5.284v3.186c.806-2.54%203.79-3.67%205.645-3.67%204.92%200%207.5%203.346%207.46%208.992h.001ZM170.284%2052.304c0%206.048-4.396%209.918-9.235%209.918-2.137%200-4.718-.887-6.049-2.822v2.339h-5.283V32.668H155v12.499c1.331-1.896%203.912-2.742%206.049-2.742%204.84%200%209.235%203.83%209.235%209.879Zm-5.404%200c0-2.783-2.178-4.96-4.839-4.96-2.46%200-4.88%202.057-4.88%204.96%200%202.902%202.299%205%204.88%205s4.839-2.259%204.839-5ZM171.453%2032.668h5.283v29.07h-5.283v-29.07ZM177.864%2052.345c0-5.968%204.758-9.918%2010.121-9.918%205.364%200%2010.122%203.952%2010.122%209.918%200%205.966-4.758%209.879-10.122%209.879-5.363%200-10.121-3.952-10.121-9.879Zm14.88%200c0-2.944-2.137-5-4.758-5-2.62%200-4.757%202.056-4.757%205s2.137%204.96%204.757%204.96c2.621%200%204.758-2.057%204.758-4.96ZM199.276%2052.264c0-5.967%204.84-9.837%2010.324-9.837%203.427%200%206.17%201.572%207.944%204.032l-3.992%202.783c-.846-1.17-2.42-1.896-3.911-1.896-2.985%200-5.001%202.178-5.001%204.92%200%202.741%202.016%205.04%205.001%205.04%201.491%200%203.065-.727%203.911-1.896l3.992%202.782c-1.774%202.46-4.516%204.033-7.944%204.033-5.484%200-10.324-3.992-10.324-9.96ZM230.61%2061.739l-6.614-8.144v8.144h-5.283V32.668h5.283v16.007l4.758-5.765h6.775l-7.339%208.306%208.993%2010.524h-6.573v-.001Z%22%3E%3C%2Fpath%3E%3Cpath%20d%3D%22M254.159%2054.038h-14.154c.565%202.218%202.339%203.509%204.84%203.509%201.935%200%203.79-.887%204.959-2.218l3.066%203.105c-1.775%202.379-5.041%203.79-8.348%203.79-5.807%200-10.041-4.072-10.041-9.879%200-5.806%204.638-9.918%2010-9.918%205.363%200%209.8%203.83%209.8%209.596%200%20.524-.041%201.17-.122%202.015Zm-5.201-3.426c-.161-2.218-1.976-3.629-4.355-3.629-2.178%200-4.033%201.09-4.597%203.629h8.952ZM275.976%2032.668v29.07h-5.283V59.4c-1.331%201.935-3.953%202.822-6.049%202.822-4.84%200-9.234-3.87-9.234-9.918%200-6.048%204.396-9.879%209.234-9.879%202.178%200%204.718.846%206.049%202.783v-12.54h5.283Zm-5.444%2019.636c0-2.903-2.42-4.96-4.879-4.96-2.662%200-4.88%202.178-4.88%204.96%200%202.781%202.218%205%204.88%205%202.661%200%204.879-2.137%204.879-5Z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E",
+      "type": "svg",
+      "dimensions": {
+        "width": 294,
+        "height": 88
+      },
+      "context": "icon"
+    },
+    {
+      "url": "data:image/svg+xml;utf8,%3Csvg%20fill%3D%22currentColor%22%20viewBox%3D%220%200%20320%2096%22%20class%3D%22w-full%20max-w-80%22%20aria-label%3D%22Profound%20logo%22%3E%3Cpath%20d%3D%22M31.196%2054.947v-11.6c0-1.705.82-3.307%202.202-4.303l14.958-10.778a5.645%205.645%200%200%201%203.3-1.066h.047c1.23%200%202.42.384%203.41%201.098l14.915%2010.746a5.304%205.304%200%200%201%202.201%204.304v9.304c0%201.706-.82%203.308-2.202%204.303L55.083%2067.713a5.769%205.769%200%200%201-3.37%201.087%205.795%205.795%200%200%201-3.383-1.09c-1.956-1.405-5.101-3.67-5.101-3.67V49.721a.23.23%200%200%201%20.365-.187l7.984%205.752a.23.23%200%200%200%20.27%200l9.853-7.1a.232.232%200%200%200%200-.375l-9.854-7.099a.23.23%200%200%200-.269%200L31.561%2055.135a.23.23%200%200%201-.365-.188ZM122.321%2066.531V40.234h6.031v4.358h.075c.48-1.51%201.233-2.657%202.258-3.437%201.043-.78%202.408-1.17%204.096-1.17.43%200%20.811.008%201.142.025.347.016.645.041.893.075v5.578a21.435%2021.435%200%200%200-1.166-.125%2020.316%2020.316%200%200%200-1.787-.075c-.977%200-1.87.233-2.681.698-.794.448-1.431%201.129-1.911%202.042-.464.913-.695%202.058-.695%203.436v14.892h-6.255ZM150.333%2067.129c-2.565%200-4.824-.573-6.776-1.718-1.936-1.163-3.45-2.773-4.542-4.832-1.076-2.058-1.614-4.449-1.614-7.172%200-2.722.538-5.113%201.614-7.172%201.092-2.075%202.606-3.694%204.542-4.856%201.952-1.162%204.211-1.743%206.776-1.743%202.581%200%204.84.581%206.776%201.743%201.936%201.163%203.442%202.781%204.517%204.856%201.093%202.059%201.639%204.45%201.639%207.172%200%202.723-.546%205.114-1.639%207.172-1.075%202.059-2.581%203.67-4.517%204.832-1.936%201.145-4.195%201.718-6.776%201.718Zm0-5.255c1.34%200%202.499-.34%203.475-1.02.993-.681%201.754-1.652%202.283-2.914.546-1.279.82-2.79.82-4.533%200-1.76-.274-3.27-.82-4.532-.529-1.278-1.29-2.258-2.283-2.938-.976-.698-2.135-1.046-3.475-1.046-1.34%200-2.507.348-3.5%201.046-.993.68-1.762%201.66-2.308%202.938-.53%201.262-.794%202.773-.794%204.532%200%201.76.264%203.271.794%204.533.546%201.262%201.315%202.233%202.308%202.913.993.681%202.16%201.021%203.5%201.021ZM193.549%2067.129c-2.565%200-4.824-.573-6.775-1.718-1.937-1.163-3.451-2.773-4.543-4.832-1.076-2.058-1.614-4.449-1.614-7.172%200-2.722.538-5.113%201.614-7.172%201.092-2.075%202.606-3.694%204.543-4.856%201.951-1.162%204.21-1.743%206.775-1.743%202.581%200%204.84.581%206.776%201.743%201.936%201.163%203.443%202.781%204.517%204.856%201.093%202.059%201.638%204.45%201.638%207.172%200%202.723-.545%205.114-1.638%207.172-1.074%202.059-2.581%203.67-4.517%204.832-1.936%201.145-4.195%201.718-6.776%201.718Zm0-5.255c1.341%200%202.498-.34%203.474-1.02.993-.681%201.754-1.652%202.284-2.914.546-1.279.819-2.79.819-4.533%200-1.76-.273-3.27-.819-4.532-.53-1.278-1.291-2.258-2.284-2.938-.976-.698-2.133-1.046-3.474-1.046-1.341%200-2.507.348-3.5%201.046-.993.68-1.762%201.66-2.308%202.938-.529%201.262-.795%202.773-.795%204.532%200%201.76.266%203.271.795%204.533.546%201.262%201.315%202.233%202.308%202.913.993.681%202.159%201.021%203.5%201.021ZM274.655%2067.054c-2.266%200-4.26-.573-5.981-1.718-1.704-1.146-3.028-2.748-3.971-4.806-.927-2.059-1.391-4.45-1.391-7.172%200-2.69.472-5.064%201.416-7.123.943-2.058%202.267-3.66%203.971-4.806%201.704-1.145%203.673-1.718%205.908-1.718%201.142%200%202.2.158%203.176.473a7.954%207.954%200%200%201%202.682%201.395c.794.63%201.472%201.427%202.034%202.39h.05V29.426h6.254v37.105h-6.155v-4.01h-.049c-.546%201.013-1.224%201.86-2.036%202.54a8.143%208.143%200%200%201-2.705%201.495%2010.04%2010.04%200%200%201-3.203.498Zm1.465-5.254c1.373%200%202.565-.34%203.574-1.021%201.01-.698%201.797-1.677%202.359-2.939.562-1.278.844-2.772.844-4.483%200-1.71-.282-3.195-.844-4.457s-1.349-2.241-2.359-2.938c-1.009-.698-2.201-1.047-3.574-1.047-1.274%200-2.4.333-3.375.997-.976.647-1.737%201.602-2.284%202.863-.545%201.246-.819%202.773-.819%204.583s.274%203.345.819%204.607c.547%201.261%201.308%202.216%202.284%202.863.975.648%202.101.972%203.375.972Z%22%3E%3C%2Fpath%3E%3Cpath%20fill-rule%3D%22evenodd%22%20d%3D%22M92.67%2066.531V29.426h14.124c2.714%200%205.055.482%207.024%201.444%201.986.963%203.508%202.333%204.567%204.11%201.076%201.776%201.614%203.876%201.614%206.3%200%202.44-.546%204.549-1.639%206.325-1.092%201.776-2.639%203.154-4.641%204.134-1.986.963-4.335%201.444-7.049%201.444h-7.446v13.348H92.67Zm17.549-19.723c-1.059.498-2.325.747-3.797.747h-7.198v-12.5h7.198c1.472%200%202.738.256%203.797.771%201.076.498%201.895%201.212%202.457%202.142.58.913.869%202.017.869%203.312s-.289%202.415-.869%203.362c-.562.93-1.381%201.651-2.457%202.166Z%22%20clip-rule%3D%22evenodd%22%3E%3C%2Fpath%3E%3Cpath%20d%3D%22M180.058%2040.234v5.055h-5.337v21.242h-6.28V45.29h-4.715v-5.055h4.715v-3.835c0-1.511.307-2.781.919-3.81.612-1.046%201.506-1.835%202.681-2.366%201.191-.531%202.647-.797%204.368-.797h3.649v5.055H177.65c-1.059%200-1.812.224-2.259.673-.446.448-.67%201.212-.67%202.29v2.79h5.337ZM218.632%2067.054c-1.82%200-3.434-.39-4.84-1.17-1.407-.797-2.506-1.968-3.302-3.512-.794-1.56-1.19-3.461-1.19-5.702V40.234h6.254v15.44c0%201.925.464%203.386%201.391%204.383.943.996%202.241%201.494%203.897%201.494%201.109%200%202.092-.224%202.954-.673.859-.448%201.538-1.145%202.034-2.092.497-.962.744-2.191.744-3.685V40.234h6.281V66.53h-6.156v-4.09c-.665%201.113-1.451%202.037-2.358%202.77-1.523%201.229-3.426%201.843-5.709%201.843ZM243.169%2051.664v14.867h-6.254V40.234h6.155v4.072c.659-1.11%201.439-2.032%202.334-2.752%201.538-1.229%203.441-1.843%205.707-1.843%201.837%200%203.458.398%204.865%201.195%201.406.78%202.508%201.943%203.302%203.487s1.192%203.444%201.192%205.702v16.436h-6.281v-15.44c0-1.925-.462-3.386-1.389-4.382-.91-.997-2.209-1.495-3.897-1.495-1.092%200-2.069.225-2.929.673-.86.448-1.548%201.145-2.06%202.092-.496.946-.745%202.175-.745%203.685Z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E",
+      "type": "svg",
+      "dimensions": {
+        "width": 294,
+        "height": 88
+      },
+      "context": "icon"
+    },
+    {
+      "url": "data:image/svg+xml;utf8,%3Csvg%20fill%3D%22currentColor%22%20viewBox%3D%220%200%20320%2096%22%20class%3D%22w-full%20max-w-80%22%20aria-label%3D%22Namespace%20logo%22%3E%3Cpath%20d%3D%22M112.266%2039.002h3.507v2.538c1.269-1.97%203.206-2.938%205.509-2.938%203.842%200%206.043%202.505%206.043%206.844v10.25h-3.673V46.08c0-2.637-1.27-4.073-3.64-4.073-2.705%200-4.141%202.004-4.141%205.81v7.88h-3.605V39.001ZM137.538%2038.6c4.675%200%206.978%202.169%206.978%206.509v10.584h-3.607v-2.305c-1.134%201.703-3.005%202.705-5.308%202.705-3.372%200-5.644-2.17-5.644-5.243%200-2.87%202.038-4.875%205.343-5.176l4.641-.467c.701-.067.968-.3.968-.768v-.369c0-1.401-1.202-2.237-3.304-2.237-2.303%200-3.84.968-4.239%202.606l-2.905-1.835c.867-2.606%203.338-4.008%207.079-4.008l-.002.003Zm-1.436%209.981c-1.537.166-2.407.968-2.407%202.17%200%201.334%201.036%202.17%202.739%202.17%202.539%200%204.475-1.77%204.475-3.974v-.968l-4.807.6v.002ZM167.583%2038.6c4.006%200%206.379%202.47%206.379%207.212v9.881h-3.64v-9.616c0-2.671-1.202-4.072-3.473-4.072-2.905%200-4.307%202.003-4.307%205.808v7.88h-3.605v-9.616c0-2.671-1.237-4.072-3.508-4.072-2.874%200-4.275%202.003-4.275%205.808v7.88h-3.607V39.002h3.508v2.603c1.036-1.937%202.77-3.006%205.244-3.006%202.474%200%204.374%201.07%205.343%203.206%201.303-2.103%203.239-3.206%205.944-3.206h-.003ZM184.637%2038.6c5.174%200%208.113%203.672%208.113%208.813v1.036h-12.825v.034c.335%202.84%202.604%204.24%205.01%204.24%202.204%200%203.84-.967%205.008-2.169l1.703%202.904c-1.368%201.337-3.541%202.638-6.679%202.638-5.343%200-8.715-3.538-8.715-8.682%200-5.145%203.239-8.815%208.383-8.815h.002Zm-.068%203.205c-2.637%200-4.174%201.469-4.608%203.906h8.85c-.233-2.305-1.635-3.906-4.242-3.906ZM201.191%2038.6c3.007%200%205.177%201.068%206.612%203.072l-2.437%202.303c-.901-1.368-2.57-2.07-4.442-2.07-1.669%200-2.705.603-2.705%201.67%200%201.134%201.103%201.401%203.941%202.068%203.341.802%205.677%201.77%205.677%205.142%200%203.372-2.471%205.308-6.777%205.308-3.407%200-6.112-1.236-7.415-3.372l2.471-2.37c.968%201.503%202.706%202.472%205.207%202.472%201.771%200%202.841-.6%202.841-1.836%200-1.235-1.036-1.502-3.707-2.102-2.871-.633-5.911-1.635-5.911-5.175%200-3.172%202.538-5.108%206.643-5.108l.002-.003ZM209.867%2039.002h3.606v2.37c1.334-1.805%203.338-2.773%205.745-2.773%204.608%200%207.814%203.572%207.814%208.747%200%205.176-3.206%208.747-7.78%208.747-2.37%200-4.341-.968-5.777-2.803v10.509h-3.605V39.002h-.003Zm13.458%208.347c0-3.172-2.004-5.308-5.008-5.308-3.003%200-5.007%202.102-5.007%205.308%200%203.205%202.004%205.307%205.007%205.307%203.004%200%205.008-2.136%205.008-5.307ZM236.009%2038.6c4.675%200%206.978%202.169%206.978%206.509v10.584h-3.606v-2.305c-1.134%201.703-3.006%202.705-5.309%202.705-3.372%200-5.643-2.17-5.643-5.243%200-2.87%202.038-4.875%205.343-5.176l4.642-.467c.7-.067.967-.3.967-.768v-.369c0-1.401-1.201-2.237-3.305-2.237-2.302%200-3.839.968-4.239%202.606l-2.904-1.835c.866-2.606%203.338-4.008%207.079-4.008l-.003.003Zm-1.435%209.981c-1.537.166-2.407.968-2.407%202.17%200%201.334%201.036%202.17%202.739%202.17%202.539%200%204.475-1.77%204.475-3.974v-.968l-4.807.6v.002ZM253.701%2038.6c2.468%200%204.574.835%206.176%202.436l-2.171%202.837c-1.269-1.168-2.604-1.77-4.106-1.77-3.006%200-5.042%202.136-5.042%205.243s2.072%205.243%205.008%205.243c1.57%200%203.039-.633%204.31-1.835l2.071%202.87c-1.604%201.602-3.842%202.471-6.379%202.471-5.173%200-8.714-3.537-8.714-8.713%200-5.175%203.639-8.78%208.85-8.78l-.003-.003ZM268.888%2038.6c5.173%200%208.112%203.672%208.112%208.813v1.036h-12.824v.034c.335%202.84%202.604%204.24%205.01%204.24%202.204%200%203.84-.967%205.008-2.169l1.702%202.904c-1.367%201.337-3.541%202.638-6.679%202.638-5.343%200-8.715-3.538-8.715-8.682%200-5.145%203.24-8.815%208.383-8.815h.003Zm-.068%203.205c-2.637%200-4.174%201.469-4.608%203.906h8.85c-.234-2.305-1.636-3.906-4.242-3.906ZM70.799%2020c15.352%200%2027.798%2012.41%2027.798%2027.72%200%2015.308-12.446%2027.718-27.798%2027.719C55.446%2075.439%2043%2063.029%2043%2047.719%2043%2032.412%2055.446%2020%2070.799%2020Zm.523%2043.09h13.955v-4.154H71.322v4.154ZM57.367%2035.259v20.718h4.165V42.173l9.816%2013.804h3.417V35.259H70.6v13.094L61.433%2035.26h-4.066Z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E",
+      "type": "svg",
+      "dimensions": {
+        "width": 294,
+        "height": 88
+      },
+      "context": "icon"
+    },
+    {
+      "url": "data:image/svg+xml;utf8,%3Csvg%20fill%3D%22currentColor%22%20viewBox%3D%220%200%20320%2096%22%20class%3D%22w-full%20max-w-80%22%20aria-label%3D%22Base%20UI%20logo%22%3E%3Cpath%20d%3D%22M78.374%2037.031c-.618-.038-1.122.467-1.122%201.084v34.668c9.913%200%2017.95-8.01%2017.95-17.893%200-9.506-7.437-17.281-16.828-17.859Z%22%3E%3C%2Fpath%3E%3Cpath%20fill-rule%3D%22evenodd%22%20d%3D%22M75.008%2043.26V72.783c-9.913%200-17.95-8.812-17.95-19.682V23.577c9.914%200%2017.95%208.812%2017.95%2019.683Z%22%20clip-rule%3D%22evenodd%22%3E%3C%2Fpath%3E%3Cpath%20d%3D%22M137.491%2056.34c0%209.253-5.003%2014.905-12.062%2014.905-3.558%200-6.782-1.496-8.839-4.322v3.768h-6.225V30.463h6.67v14.96c2.112-2.825%205.17-3.878%208.505-3.878%207.337%200%2011.951%205.652%2011.951%2014.795Zm-6.837%200c0-5.985-2.613-9.697-6.948-9.697-4.169%200-6.838%203.934-6.838%209.697%200%205.818%202.724%209.752%206.949%209.752%204.224%200%206.837-3.768%206.837-9.752Zm27.279%2014.351c-.167-1.108-.222-2.272-.278-3.712-2.39%202.881-5.114%204.266-9.616%204.266-6.337%200-9.95-3.158-9.95-8.478%200-9.142%2011.506-9.253%2018.788-10.084v-1.22c0-3.49-1.723-5.43-5.225-5.43-3.613%200-5.615%201.773-5.67%204.821h-6.837c.222-5.984%205.058-9.53%2012.507-9.53%209.116%200%2011.728%204.765%2011.728%2012.411v7.98c0%203.158.112%205.929.612%208.976h-6.059Zm-1.056-13.465c-5.003.665-11.896.554-11.896%205.43%200%202.439%201.723%203.99%204.781%203.99%204.113%200%207.115-1.995%207.115-8.2v-1.22Zm15.109%204.322c0%203.436%202.112%205.154%206.114%205.154%203.168%200%205.225-1.33%205.225-3.547%200-2.826-3.224-3.601-6.893-4.488-4.891-1.164-10.672-2.438-10.672-8.7%200-5.208%204.669-8.644%2011.951-8.644%207.615%200%2011.895%203.27%2011.895%209.531h-6.614c-.112-3.38-1.89-4.765-5.503-4.765-2.947%200-4.836%201.274-4.836%203.324%200%203.103%204.224%203.768%208.504%204.877%204.503%201.163%209.061%202.825%209.061%208.311s-4.725%208.866-12.174%208.866c-8.115%200-12.784-3.436-12.896-9.919h6.838Zm18.658-5.264c0-8.644%205.448-14.96%2014.064-14.96%205.281%200%208.949%202.382%2010.95%205.873%201.724%202.992%202.279%206.705%202.279%2011.137h-20.4c.111%204.821%202.557%208.257%207.226%208.257%203.058%200%205.17-1.552%206.059-4.433h7.06c-1.557%206.206-6.226%209.309-13.174%209.309-9.228%200-14.064-5.818-14.064-15.183Zm20.512-2.826c-.334-4.82-3.169-7.314-6.782-7.314-3.668%200-6.559%202.494-6.948%207.314h13.73Zm34.555%2013.52c-2.223%202.993-5.781%204.267-9.06%204.267-3.725%200-6.337-1.44-8.116-3.879-1.39-1.939-1.668-4.931-1.668-9.032V42.1h6.615v16.014c0%204.211.667%208.09%205.281%208.09%202.001%200%203.613-.72%204.725-2.217%201.111-1.496%201.778-3.878%201.778-7.37V42.1h6.671v28.592h-6.226V66.98ZM255.717%2042.1h6.671v28.592h-6.671V42.1Zm0-11.636h6.671v6.704h-6.671v-6.704Z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E",
+      "type": "svg",
+      "dimensions": {
+        "width": 294,
+        "height": 88
+      },
+      "context": "icon"
+    },
+    {
+      "url": "data:image/svg+xml;utf8,%3Csvg%20fill%3D%22currentColor%22%20viewBox%3D%220%200%20320%2096%22%20class%3D%22w-full%20max-w-80%22%20aria-label%3D%22Resend%20logo%22%3E%3Cpath%20d%3D%22M117.236%2039.269c8.585%200%2014.832%205.914%2014.389%2016.663h-20.907c.781%202.987%202.867%205.554%207.042%205.554%202.338%200%204.474-.639%206.086-2.637h7.215l-.121.64C129.69%2064.963%20123.403%2068%20117.76%2068c-8.948%200-14.954-5.994-14.954-14.346%200-8.351%206.006-14.385%2014.43-14.385Zm60.498%200c8.626%200%2014.833%205.914%2014.43%2016.663h-20.913c.771%202.987%202.842%205.554%207.048%205.554%202.338%200%204.473-.639%206.046-2.637h7.255l-.121.64c-1.25%205.474-7.538%208.511-13.18%208.511-8.948%200-14.953-5.994-14.953-14.346%200-8.351%206.005-14.385%2014.388-14.385ZM255%2067.2h-7.819l.402-3.876c-1.088%202.317-4.594%204.595-8.988%204.595-7.255%200-13.139-5.514-13.139-14.226%200-8.711%205.804-14.225%2013.139-14.225%203.991%200%206.45%201.278%208.626%203.476V28H255v39.2ZM146.981%2039.109c6.369%200%2011.971%202.278%2013.583%207.872l.162.6h-7.941c-1.693-2.078-3.95-2.358-5.804-2.358-1.733%200-4.473.44-4.473%202.118%200%201.558%201.813%202.078%203.385%202.277l4.595.48c7.295.64%2010.52%203.477%2010.52%209.031%200%206.393-6.409%208.791-12.737%208.791s-12.898-2.797-14.147-8.471l-.121-.6h8.142c1.128%203.197%206.328%202.957%206.126%202.957%203.063%200%204.958-.919%204.958-2.397%200-.96-.323-2.078-3.467-2.478l-4.796-.48c-6.328-.439-10.157-3.756-10.157-8.71%200-6.075%205.804-8.632%2012.172-8.632ZM89.183%2028c7.658%200%2012.213%204.516%2012.213%2010.51s-4.555%2010.509-12.213%2010.509h-3.869l19.226%2018.182H90.957L76.326%2053.415c-1.048-.96-1.532-2.078-1.532-3.037%200-1.359.968-2.558%202.822-3.077l7.537-1.998c2.861-.76%204.836-2.957%204.836-5.834%200-3.517-2.902-5.555-6.489-5.555H65V28h24.183Zm121.884%2011.309c6.852%200%2011.648%204.955%2011.648%2012.028V67.2h-7.819V52.655c0-3.996-2.136-6.393-5.925-6.393-3.789%200-6.247%202.477-6.247%206.393v14.546h-7.659V39.868h7.78l-.363%204.356c1.129-2.198%204.635-4.915%208.585-4.915Zm29.382%206.953c-4.715%200-7.214%203.476-7.214%207.432%200%204.236%202.822%207.473%207.214%207.473%204.233%200%206.973-3.277%206.973-7.473%200-4.195-2.66-7.432-6.973-7.432Zm-123.213-.8c-3.81%200-5.987%202.256-6.663%205.275h13.188c-.081-.348-.184-.72-.318-1.119-.968-2.717-3.225-4.156-6.207-4.156Zm60.498%200c-3.777%200-5.948%202.256-6.622%205.275h13.187c-.08-.348-.183-.72-.317-1.119-.968-2.717-3.225-4.156-6.248-4.156Z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E",
+      "type": "svg",
+      "dimensions": {
+        "width": 294,
+        "height": 88
+      },
+      "context": "icon"
+    },
+    {
+      "url": "data:image/svg+xml;utf8,%3Csvg%20fill%3D%22currentColor%22%20viewBox%3D%220%200%20320%2096%22%20class%3D%22w-full%20max-w-80%22%20aria-label%3D%22Clerk%20logo%22%3E%3Cpath%20d%3D%22M139.122%2038.9833C143.649%2038.9833%20148.414%2040.7826%20151.366%2044.264C151.386%2044.2869%20151.383%2044.3211%20151.36%2044.3407L146.917%2048.1917C146.894%2048.2114%20146.859%2048.209%20146.839%2048.1863C145.937%2047.1583%20144.816%2046.3353%20143.555%2045.7747C142.277%2045.2068%20140.887%2044.9222%20139.484%2044.9415C134.254%2044.9415%20130.767%2048.532%20130.767%2053.7813C130.767%2056.4036%20131.634%2058.6036%20133.141%2060.1442C133.971%2060.9582%20134.961%2061.597%20136.052%2062.0215C137.143%2062.4458%20138.311%2062.6469%20139.484%2062.6118C140.873%2062.6243%20142.251%2062.359%20143.532%2061.8322C144.797%2061.3122%20145.942%2060.5481%20146.899%2059.5854C146.92%2059.5649%20146.953%2059.5635%20146.974%2059.5823L151.516%2063.5071C151.54%2063.527%20151.542%2063.5622%20151.521%2063.5852C148.987%2066.3879%20144.501%2068.611%20138.886%2068.611C134.541%2068.611%20130.776%2067.0836%20128.133%2064.484C125.49%2061.8846%20123.923%2058.2033%20123.923%2053.8313C123.923%2044.9918%20130.229%2038.9834%20139.122%2038.9833ZM180.202%2038.986C188.809%2038.9861%20194.374%2045.0486%20194.374%2053.4193C194.362%2054.2889%20194.302%2055.1573%20194.196%2056.0206C194.192%2056.048%20194.169%2056.0686%20194.141%2056.0686H172.978C172.944%2056.0686%20172.917%2056.1015%20172.925%2056.1358C173.831%2060.154%20176.931%2062.6032%20181.217%2062.6032C182.613%2062.6325%20183.996%2062.3454%20185.261%2061.7628C186.509%2061.1882%20187.607%2060.3418%20188.474%2059.2882C188.493%2059.2646%20188.528%2059.2614%20188.551%2059.281L188.726%2059.4267L193.079%2063.2231C193.102%2063.2422%20193.105%2063.2762%20193.086%2063.2989C190.623%2066.359%20186.531%2068.611%20180.857%2068.611C172.366%2068.611%20165.96%2062.7215%20165.96%2053.7737C165.96%2049.3839%20167.469%2045.7026%20169.985%2043.1032C171.312%2041.7667%20172.903%2040.7119%20174.661%2040.0038C176.418%2039.2957%20178.304%2038.9493%20180.202%2038.986ZM162.013%2027.6781C162.043%2027.6781%20162.068%2027.7027%20162.068%2027.7331V68.1661C162.068%2068.1965%20162.043%2068.2211%20162.013%2068.2211H155.506C155.475%2068.2211%20155.451%2068.1965%20155.451%2068.1661V27.7331C155.451%2027.7027%20155.475%2027.6782%20155.506%2027.6781H162.013ZM214.948%2038.9841C214.979%2038.9838%20215.004%2039.0085%20215.004%2039.039V46.2858C215.004%2046.3177%20214.976%2046.3431%20214.945%2046.3408C214.187%2046.2833%20213.431%2046.2271%20212.967%2046.2271C207.874%2046.2271%20204.883%2049.817%20204.883%2054.5294V68.1661C204.883%2068.1965%20204.859%2068.2211%20204.828%2068.2211H198.322C198.291%2068.2211%20198.267%2068.1965%20198.267%2068.1661V39.4472C198.267%2039.4169%20198.291%2039.3923%20198.322%2039.3923H204.828C204.859%2039.3923%20204.883%2039.4169%20204.883%2039.4472V43.7193C204.883%2043.7415%20204.902%2043.7594%20204.924%2043.7594C204.936%2043.7594%20204.948%2043.7535%20204.956%2043.7433C207.238%2040.6908%20210.607%2038.9925%20214.166%2038.9925L214.948%2038.9841ZM225.458%2027.6781C225.489%2027.6781%20225.513%2027.7027%20225.513%2027.7331V52.4069C225.513%2052.4569%20225.574%2052.4808%20225.608%2052.4439L237.579%2039.3755C237.589%2039.3642%20237.604%2039.3576%20237.619%2039.3576H245.444C245.492%2039.3576%20245.517%2039.4142%20245.485%2039.4495L235.051%2050.979C235.035%2050.9972%20235.032%2051.0242%20235.045%2051.0451L245.622%2068.1372C245.645%2068.1739%20245.618%2068.2211%20245.576%2068.2211H238.152C238.133%2068.2211%20238.115%2068.2114%20238.105%2068.195L230.604%2056.1201C230.594%2056.1041%20230.577%2056.0942%20230.557%2056.0942H230.487C230.472%2056.0942%20230.457%2056.1006%20230.447%2056.1117L225.528%2061.405C225.518%2061.4151%20225.513%2061.4285%20225.513%2061.4424V68.1661C225.513%2068.1965%20225.489%2068.2211%20225.458%2068.2211H218.951C218.921%2068.2211%20218.896%2068.1965%20218.896%2068.1661V27.7331C218.896%2027.7027%20218.921%2027.6781%20218.951%2027.6781H225.458ZM180.548%2044.9347C179.473%2044.9006%20178.405%2045.0953%20177.414%2045.5053C176.423%2045.9156%20175.534%2046.532%20174.807%2047.3116C173.949%2048.2859%20173.342%2049.4487%20173.037%2050.7021C173.029%2050.7365%20173.055%2050.7696%20173.09%2050.7696H187.535C187.57%2050.7696%20187.596%2050.7362%20187.587%2050.7017C186.747%2047.2626%20184.353%2044.9347%20180.548%2044.9347Z%22%20fill%3D%22currentColor%22%3E%3C%2Fpath%3E%3Cpath%20d%3D%22M98.9616%2055.8125C103.27%2055.8125%20106.762%2052.3147%20106.762%2048C106.762%2043.6853%20103.27%2040.1875%2098.9616%2040.1875C94.6535%2040.1875%2091.1611%2043.6853%2091.1611%2048C91.1611%2052.3147%2094.6535%2055.8125%2098.9616%2055.8125Z%22%3E%3C%2Fpath%3E%3Cpath%20d%3D%22M112.835%2027.2141C113.615%2027.7372%20113.682%2028.8377%20113.018%2029.5023L107.317%2035.2116C106.802%2035.7277%20106.003%2035.8091%20105.355%2035.4764C103.437%2034.4926%20101.264%2033.9375%2098.9615%2033.9375C91.2069%2033.9375%2084.9206%2040.2335%2084.9206%2048C84.9206%2050.3061%2085.4749%2052.4825%2086.4572%2054.4029C86.7894%2055.0524%2086.708%2055.8529%2086.1928%2056.3689L80.4923%2062.0781C79.8287%2062.743%2078.7299%2062.6762%2078.2076%2061.8952C75.55%2057.9214%2074%2053.142%2074%2048C74%2034.1929%2085.1756%2023%2098.9615%2023C104.096%2023%20108.868%2024.5524%20112.835%2027.2141Z%22%20fill-opacity%3D%220.4%22%3E%3C%2Fpath%3E%3Cpath%20d%3D%22M113.018%2066.4977C113.682%2067.1626%20113.615%2068.2629%20112.835%2068.786C108.868%2071.4477%20104.096%2073.0001%2098.9617%2073.0001C93.8276%2073.0001%2089.0555%2071.4477%2085.0879%2068.786C84.3081%2068.2629%2084.2415%2067.1626%2084.9051%2066.4977L90.6056%2060.7884C91.1208%2060.2724%2091.9201%2060.1909%2092.5686%2060.5236C94.486%2061.5075%2096.6591%2062.0626%2098.9617%2062.0626C101.264%2062.0626%20103.437%2061.5075%20105.355%2060.5236C106.003%2060.1909%20106.802%2060.2724%20107.318%2060.7884L113.018%2066.4977Z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E",
+      "type": "svg",
+      "dimensions": {
+        "width": 294,
+        "height": 88
+      },
+      "context": "icon"
+    },
+    {
+      "url": "data:image/svg+xml;utf8,%3Csvg%20fill%3D%22currentColor%22%20viewBox%3D%22-53.5%20-23%20320%2096%22%20class%3D%22w-full%20max-w-80%22%20aria-label%3D%22Cursor%20logo%22%3E%3Cpath%20d%3D%22M43.522%2011.8359L23.255%200.277922C22.9343%200.0957656%2022.5718%200%2022.203%200C21.8342%200%2021.4717%200.0957656%2021.151%200.277922L0.884998%2011.8359C0.616792%2011.9872%200.39355%2012.207%200.238068%2012.4728C0.0825848%2012.7387%200.000432977%2013.041%200%2013.3489V36.6529C0%2037.2769%200.337998%2037.8539%200.884998%2038.1669L21.152%2049.7229C21.802%2050.0939%2022.605%2050.0939%2023.256%2049.7229L43.523%2038.1669C44.07%2037.8549%2044.408%2037.2769%2044.408%2036.6529V13.3489C44.408%2012.7249%2044.07%2012.1469%2043.523%2011.8349L43.522%2011.8359ZM42.249%2014.2829L22.684%2047.7509C22.552%2047.9769%2022.203%2047.8849%2022.203%2047.6239V25.7089C22.203%2025.2709%2021.966%2024.8659%2021.582%2024.6459L2.366%2013.6889C2.138%2013.5589%202.231%2013.2139%202.496%2013.2139H41.625C42.18%2013.2139%2042.528%2013.8089%2042.25%2014.2839M68.736%2012.9759H77.36V17.6679H69.028C64.534%2017.6679%2061.026%2020.2309%2061.026%2025.6439C61.026%2031.0569%2064.534%2033.6199%2069.028%2033.6199H77.36V38.3119H68.371C60.843%2038.3119%2055.508%2033.9449%2055.508%2025.6449C55.508%2017.3449%2061.208%2012.9779%2068.736%2012.9779V12.9759ZM81.745%2012.9759H87.08V28.4579C87.08%2032.3199%2088.87%2034.1249%2093.073%2034.1249C97.276%2034.1249%2099.066%2032.3209%2099.066%2028.4579V12.9759H104.401V29.5409C104.401%2035.1709%20100.784%2038.7439%2093.073%2038.7439C85.362%2038.7439%2081.745%2035.1339%2081.745%2029.5049V12.9759ZM132.281%2020.1569C132.281%2022.9729%20130.637%2025.1369%20128.444%2026.0769V26.1489C130.747%2026.4739%20131.916%2028.0979%20131.952%2030.2989L132.062%2038.3109H126.727L126.617%2031.1659C126.581%2029.5779%20125.631%2028.6029%20123.731%2028.6029H114.851V38.3109H109.516V12.9759H124.243C129.066%2012.9759%20132.281%2015.3939%20132.281%2020.1579M126.909%2020.8809C126.909%2018.7159%20125.74%2017.5239%20123.548%2017.5239H114.851V24.2359H123.62C125.63%2024.2359%20126.909%2023.0469%20126.909%2020.8809ZM152.451%2030.9119C152.451%2029.1079%20151.282%2028.3499%20149.528%2028.2059L143.608%2027.6649C138.493%2027.1949%20135.825%2025.2099%20135.825%2020.4099C135.825%2015.6099%20139.114%2012.9749%20143.827%2012.9749H156.909V17.5229H144.193C142.366%2017.5229%20141.197%2018.4609%20141.197%2020.2649C141.197%2022.0689%20142.402%2022.9359%20144.23%2023.0809L150.259%2023.5859C154.827%2023.9829%20157.823%2026.0409%20157.823%2030.8759C157.823%2035.7119%20154.644%2038.3109%20150.15%2038.3109H136.483V33.7639H149.638C151.355%2033.7639%20152.451%2032.6089%20152.451%2030.9139V30.9119ZM173.427%2012.5429C181.465%2012.5429%20186.545%2017.6309%20186.545%2025.6069C186.545%2033.5839%20181.247%2038.7439%20173.208%2038.7439C165.169%2038.7439%20160.089%2033.5839%20160.089%2025.6069C160.089%2017.6309%20165.388%2012.5429%20173.427%2012.5429ZM181.027%2025.6429C181.027%2020.3019%20177.884%2017.1629%20173.316%2017.1629C168.748%2017.1629%20165.606%2020.3019%20165.606%2025.6429C165.606%2030.9839%20168.748%2034.1229%20173.316%2034.1229C177.884%2034.1229%20181.027%2030.9839%20181.027%2025.6429ZM213%2020.1569C213%2022.9729%20211.356%2025.1369%20209.163%2026.0769V26.1489C211.465%2026.4739%20212.635%2028.0979%20212.671%2030.2989L212.78%2038.3109H207.446L207.336%2031.1659C207.3%2029.5779%20206.349%2028.6029%20204.449%2028.6029H195.57V38.3109H190.235V12.9759H204.961C209.785%2012.9759%20213%2015.3939%20213%2020.1579M207.628%2020.8809C207.628%2018.7159%20206.459%2017.5239%20204.267%2017.5239H195.57V24.2359H204.339C206.349%2024.2359%20207.628%2023.0469%20207.628%2020.8809Z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E",
+      "type": "svg",
+      "dimensions": {
+        "width": 294,
+        "height": 88
+      },
+      "context": "icon"
+    },
+    {
+      "url": "data:image/svg+xml;utf8,%3Csvg%20viewBox%3D%220%200%20320%2096%22%20class%3D%22w-full%20max-w-80%22%20aria-label%3D%22Mintlify%20logo%22%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M259.746%2074h-7.729l5.447-12.237-10.893-24.37h7.78L260.7%2052.67a.651.651%200%200%200%201.202-.002l6.3-15.275h7.834L259.746%2074Z%22%3E%3C%2Fpath%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M235.735%2063.286V43.539H230.5v-6.236h5.235v-3.378c0-3.083.933-5.508%202.799-7.275%201.865-1.766%204.232-2.65%207.1-2.65%201.762%200%203.265.19%204.509.572v6.288c-.83-.312-1.797-.468-2.902-.468-1.555%200-2.678.346-3.368%201.04-.692.657-1.037%201.783-1.037%203.377v2.494h7.307v6.236h-7.307v19.747h-7.101ZM224.225%2033.042c-1.192%200-2.229-.433-3.113-1.3-.885-.9-1.326-1.974-1.326-3.22%200-1.248.441-2.305%201.326-3.17.884-.901%201.921-1.352%203.113-1.352%201.258%200%202.313.45%203.163%201.351.885.866%201.326%201.923%201.326%203.17%200%201.247-.441%202.321-1.326%203.222-.85.866-1.905%201.299-3.163%201.299Zm-3.471%2030.244V37.303h6.992v25.983h-6.992ZM208.179%2063.286V24h7.143v39.286h-7.143ZM199.893%2064.179c-3.034%200-5.527-.807-7.477-2.42-1.914-1.648-2.872-4.015-2.872-7.101V43.874h-5.473v-6.312h5.473V30.25h7.424v7.312h7.639v6.312h-7.639v9.363c0%201.613.361%202.77%201.084%203.472.721.666%201.895%201%203.521%201%201.156%200%202.167-.158%203.034-.474V63.6c-1.3.386-2.871.579-4.714.579ZM157.286%2063.286v-26.21h7.241v1.916c0%20.324.445.468.661.225%201.614-1.811%203.914-2.717%206.897-2.717%203.171%200%205.655%201.048%207.452%203.145%201.832%202.062%202.749%204.823%202.749%208.282v15.359h-7.242V49.133c0-1.922-.405-3.407-1.215-4.456-.811-1.083-1.956-1.625-3.436-1.625-1.761%200-3.188.63-4.28%201.887-1.058%201.258-1.586%203.11-1.586%205.557v12.79h-7.241ZM148.332%2033.042c-1.191%200-2.228-.433-3.113-1.3-.883-.9-1.326-1.974-1.326-3.22%200-1.248.443-2.305%201.326-3.17.885-.901%201.922-1.352%203.113-1.352%201.259%200%202.313.45%203.163%201.351.884.866%201.327%201.923%201.327%203.17%200%201.247-.443%202.321-1.327%203.222-.85.866-1.904%201.299-3.163%201.299Zm-3.469%2030.244V37.303h6.989v25.983h-6.989ZM132.253%2063.286V49.29c0-4.158-1.363-6.238-4.087-6.238-1.571%200-2.828.594-3.771%201.782-.908%201.189-1.397%202.953-1.467%205.295v13.157h-7.177V49.29c0-4.158-1.362-6.238-4.086-6.238-1.606%200-2.881.63-3.824%201.887-.943%201.258-1.414%203.11-1.414%205.557v12.79H99.25v-26.21h7.177v1.935c0%20.322.433.464.644.221%201.586-1.821%203.693-2.732%206.323-2.732%203.455%200%206.058%201.428%207.808%204.283a.364.364%200%200%200%20.615-.004c.756-1.244%201.808-2.234%203.154-2.969%201.537-.873%203.09-1.31%204.662-1.31%203.109%200%205.517%201.03%207.23%203.093%201.711%202.061%202.566%204.892%202.566%208.491v15.202h-7.176Z%22%3E%3C%2Fpath%3E%3Cg%20transform%3D%22translate(41%2C%2022)%20scale(0.96)%22%3E%3Cpath%20fill%3D%22currentColor%22%20opacity%3D%220.4%22%20d%3D%22M48.3342%2019.1813V4.20408C48.3342%202.59689%2047.0303%201.31579%2045.4471%201.31579H30.4768C28.1255%201.31579%2025.7972%201.78163%2023.632%202.66674C21.4668%203.57516%2019.4879%204.87958%2017.8348%206.55663L17.7184%206.67311C15.5299%208.8859%2013.9701%2011.6344%2013.1785%2014.6625C14.5987%2014.2898%2016.0653%2014.1034%2017.5321%2014.0802C21.4435%2014.0336%2025.285%2015.2914%2028.4047%2017.6439C31.2218%2019.7403%2033.3639%2022.6286%2034.5279%2025.9594C35.7387%2029.3368%2035.8782%2033.0171%2034.9703%2036.4876C37.9737%2035.6958%2040.7442%2034.1353%2042.9561%2031.9455L43.0724%2031.8292C44.7255%2030.1755%2046.0524%2028.1955%2046.9605%2026.0293C47.8684%2023.8631%2048.3108%2021.5338%2048.3108%2019.1813H48.3342Z%22%3E%3C%2Fpath%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M12.7314%2018.9289C12.7546%2014.3344%2014.5869%209.92545%2017.8109%206.63034L5.35555%2019.0914C5.30918%2019.1378%205.26276%2019.161%205.21637%2019.2074C2.17793%2022.224%200.345637%2026.2617%200.0441113%2030.5313C-0.234219%2034.5226%200.809497%2038.4674%203.03613%2041.7626C3.24853%2042.0768%203.82482%2042.1803%204.14953%2041.8787L11.7804%2034.2674C14.1694%2031.8774%2014.9117%2028.3268%2013.7751%2025.1478C13.0561%2023.1754%2012.7082%2021.0638%2012.7314%2018.9289Z%22%3E%3C%2Fpath%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M43.0026%2031.8258C40.6137%2034.1695%2037.6216%2035.7937%2034.3745%2036.5132C31.1039%2037.2324%2027.7176%2037.0234%2024.5633%2035.9097C24.5633%2035.9097%2024.5401%2035.9097%2024.5169%2035.9097C21.3393%2034.7726%2017.7906%2035.5153%2015.4016%2037.8821L7.77058%2045.4934C7.44587%2045.8182%207.49226%2046.3518%207.88655%2046.6071C11.1801%2048.8116%2015.1232%2049.8789%2019.1127%2049.6005C23.3804%2049.2989%2027.3929%2047.4658%2030.4313%2044.4258L30.5474%2044.31L43.0026%2031.8489V31.8258Z%22%3E%3C%2Fpath%3E%3C%2Fg%3E%3C%2Fsvg%3E",
+      "type": "svg",
+      "dimensions": {
+        "width": 294,
+        "height": 88
+      },
+      "context": "icon"
+    },
+    {
+      "url": "data:image/svg+xml;utf8,%3Csvg%20fill%3D%22currentColor%22%20viewBox%3D%220%200%20320%2096%22%20class%3D%22w-full%20max-w-80%22%20aria-label%3D%22Webflow%20logo%22%3E%3Cpath%20fill-rule%3D%22evenodd%22%20d%3D%22M99.48%2026.166%2077.31%2069.93H56.484l9.278-18.138h-.416C57.693%2061.826%2046.272%2068.431%2030%2069.93V52.044s10.41-.621%2016.53-7.118H30v-18.76h18.577v15.43l.417-.002%207.592-15.427h14.05v15.331h.416l7.876-15.331H99.48Z%22%20clip-rule%3D%22evenodd%22%3E%3C%2Fpath%3E%3Cpath%20d%3D%22M220.373%2065.099h5.983V30.421h-5.983v34.678Z%22%3E%3C%2Fpath%3E%3Cpath%20fill-rule%3D%22evenodd%22%20d%3D%22M187.39%2064.745c1.3.546%202.622.819%203.967.819%202.22%200%204.207-.546%205.961-1.638%201.753-1.091%203.112-2.596%204.076-4.514.964-1.933%201.446-4.124%201.446-6.573%200-2.449-.496-4.64-1.49-6.572-.993-1.933-2.374-3.43-4.142-4.493-1.768-1.077-3.777-1.608-6.027-1.593a10.4%2010.4%200%200%200-4.12.84c-1.315.561-2.411%201.358-3.288%202.39a9.56%209.56%200%200%200-.197.239V30.443h-6.005V65.1h5.962l-.013-3.237c.155.19.319.377.495.56a10.238%2010.238%200%200%200%203.375%202.323Zm6.136-5.599c-.979.605-2.096.908-3.353.908a6.542%206.542%200%200%201-3.419-.93%206.989%206.989%200%200%201-2.476-2.59c-.599-1.09-.899-2.33-.899-3.717-.015-1.387.278-2.626.877-3.718.613-1.106%201.439-1.962%202.476-2.567%201.038-.62%202.184-.922%203.441-.907%201.257-.015%202.374.28%203.353.885.994.59%201.753%201.438%202.279%202.545.541%201.092.811%202.346.811%203.762s-.27%202.67-.811%203.762c-.526%201.092-1.285%201.948-2.279%202.567Z%22%20clip-rule%3D%22evenodd%22%3E%3C%2Fpath%3E%3Cpath%20d%3D%22M108.147%2032.523h6.838l6.116%2022.557%206.507-22.557h5.699l7.057%2022.104%205.873-22.104h6.268L143.256%2065.1h-5.895l-7.176-21.594-6.587%2021.594h-5.962l-9.489-32.576Z%22%3E%3C%2Fpath%3E%3Cpath%20fill-rule%3D%22evenodd%22%20d%3D%22M162.602%2065.675c-2.381.014-4.529-.517-6.443-1.594-1.899-1.092-3.397-2.604-4.493-4.537-1.081-1.932-1.622-4.138-1.622-6.616%200-2.405.556-4.581%201.666-6.529%201.11-1.947%202.616-3.467%204.515-4.559%201.899-1.092%204.018-1.637%206.356-1.637%202.629%200%204.931.59%206.903%201.77%201.987%201.18%203.47%202.855%204.449%205.024.993%202.154%201.351%204.625%201.074%207.413h-18.773c.053%201.111.327%202.122.824%203.032a5.945%205.945%200%200%200%202.323%202.346c.993.56%202.104.84%203.331.84a7.525%207.525%200%200%200%202.608-.486c.804-.325%201.483-.76%202.038-1.306a4.574%204.574%200%200%200%201.205-1.858h6.269a10.332%2010.332%200%200%201-2.28%204.536c-1.139%201.313-2.571%202.338-4.295%203.076-1.724.738-3.609%201.1-5.655%201.085Zm-5.522-17.35a6.413%206.413%200%200%200-.728%201.991h12.444a5.674%205.674%200%200%200-.824-2.456%205.353%205.353%200%200%200-2.148-2.014c-.906-.487-1.929-.73-3.068-.73-1.213%200-2.316.28-3.309.84a6.207%206.207%200%200%200-2.367%202.368Z%22%20clip-rule%3D%22evenodd%22%3E%3C%2Fpath%3E%3Cpath%20d%3D%22M207.245%2040.712c0-1.978.446-3.733%201.337-5.268.892-1.549%202.141-2.751%203.748-3.607%201.622-.87%203.514-1.32%205.676-1.35v5.378c-1.008.015-1.87.229-2.586.642-.701.398-1.242.98-1.622%201.748-.35.706-.538%201.525-.566%202.456h4.643v5.113h-4.647v19.275h-5.983V45.823h-3.857v-5.111h3.857Z%22%3E%3C%2Fpath%3E%3Cpath%20fill-rule%3D%22evenodd%22%20d%3D%22M241.565%2065.63c-2.439%200-4.624-.538-6.553-1.615a11.911%2011.911%200%200%201-4.514-4.515c-1.081-1.932-1.622-4.123-1.622-6.572%200-2.464.541-4.662%201.622-6.595%201.096-1.948%202.601-3.46%204.514-4.537%201.929-1.077%204.114-1.615%206.553-1.615%202.455%200%204.647.538%206.575%201.615a11.464%2011.464%200%200%201%204.537%204.515c1.081%201.932%201.629%204.138%201.644%206.617-.015%202.449-.563%204.64-1.644%206.572-1.067%201.918-2.572%203.423-4.515%204.515-1.943%201.077-4.142%201.615-6.597%201.615Zm0-5.554c1.286%200%202.426-.295%203.419-.886.994-.604%201.761-1.445%202.301-2.522.541-1.092.811-2.339.811-3.74%200-1.417-.27-2.67-.811-3.762-.54-1.092-1.307-1.933-2.301-2.523-.993-.605-2.133-.908-3.419-.908-1.271%200-2.403.303-3.396.908-.98.59-1.739%201.43-2.28%202.523-.54%201.091-.803%202.345-.789%203.762%200%201.401.27%202.648.811%203.74.555%201.077%201.315%201.918%202.279%202.523.979.59%202.104.885%203.375.885Z%22%20clip-rule%3D%22evenodd%22%3E%3C%2Fpath%3E%3Cpath%20d%3D%22M260.786%2040.711h-6.662l7.21%2024.388h5.83l4.742-15.576%205.12%2015.576h5.742L290%2040.711h-6.026l-4.102%2015.18-4.533-15.18h-5.83l-4.512%2015.515-4.211-15.515Z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E",
+      "type": "svg",
+      "dimensions": {
+        "width": 294,
+        "height": 88
+      },
+      "context": "icon"
+    },
+    {
+      "url": "data:image/svg+xml;utf8,%3Csvg%20fill%3D%22currentColor%22%20viewBox%3D%220%200%20320%2096%22%20class%3D%22w-full%20max-w-80%22%20aria-label%3D%22Shopify%20logo%22%3E%3Cpath%20d%3D%22M132.542%2050.804c-1.49-.824-2.274-1.49-2.274-2.431%200-1.216%201.059-1.961%202.745-1.961%201.96%200%203.686.823%203.686.823l1.372-4.196s-1.255-.98-4.98-.98c-5.176%200-8.783%202.98-8.783%207.137%200%202.353%201.686%204.157%203.921%205.451%201.804%201.02%202.431%201.765%202.431%202.824%200%201.137-.902%202.039-2.588%202.039-2.509%200-4.862-1.294-4.862-1.294l-1.451%204.196s2.196%201.45%205.843%201.45c5.332%200%209.136-2.627%209.136-7.333.078-2.588-1.882-4.392-4.196-5.725M153.795%2041.98c-2.627%200-4.666%201.255-6.274%203.138l-.078-.04%202.274-11.921h-5.96l-5.764%2030.314h5.921l1.96-10.353c.784-3.922%202.784-6.314%204.666-6.314%201.333%200%201.843.902%201.843%202.196%200%20.823-.078%201.804-.274%202.627l-2.235%2011.883h5.921l2.313-12.236c.275-1.294.431-2.823.431-3.882.079-3.412-1.646-5.412-4.744-5.412M172.028%2041.98c-7.136%200-11.881%206.432-11.881%2013.608%200%204.588%202.823%208.314%208.156%208.314%207.019%200%2011.724-6.275%2011.724-13.608.039-4.275-2.431-8.314-7.999-8.314m-2.902%2017.334c-2.039%200-2.862-1.726-2.862-3.883%200-3.412%201.764-8.941%204.98-8.941%202.117%200%202.784%201.804%202.784%203.569%200%203.686-1.765%209.255-4.902%209.255M195.241%2041.98c-3.999%200-6.274%203.53-6.274%203.53h-.078l.353-3.177h-5.254c-.275%202.157-.745%205.412-1.216%207.883l-4.117%2021.647h5.921l1.647-8.785h.117s1.216.785%203.49.785c6.98%200%2011.528-7.138%2011.528-14.353%200-3.961-1.764-7.53-6.117-7.53m-5.646%2017.451c-1.53%200-2.431-.862-2.431-.862l.98-5.53c.706-3.686%202.627-6.157%204.666-6.157%201.804%200%202.353%201.687%202.353%203.255%200%203.804-2.275%209.294-5.568%209.294M209.828%2033.47c-1.882%200-3.411%201.49-3.411%203.451%200%201.765%201.097%202.98%202.784%202.98h.078c1.843%200%203.451-1.254%203.49-3.45.039-1.765-1.137-2.98-2.941-2.98M201.515%2063.47h5.96l4.039-21.02h-5.999zM226.571%2042.412h-4.117l.196-.98c.353-2.04%201.529-3.844%203.529-3.844a5.8%205.8%200%200%201%201.882.314l1.176-4.627s-1.019-.51-3.215-.51c-2.117%200-4.196.588-5.803%201.96-2.039%201.726-2.98%204.197-3.451%206.706l-.157.98h-2.744l-.863%204.471h2.745l-3.137%2016.589h5.921l3.137-16.589h4.078zM240.844%2042.45s-3.725%209.334-5.372%2014.432h-.079c-.117-1.647-1.45-14.431-1.45-14.431h-6.235l3.568%2019.294c.079.431.039.706-.117.98-.706%201.334-1.843%202.628-3.216%203.57-1.098.823-2.352%201.332-3.333%201.685l1.647%205.02c1.216-.275%203.686-1.255%205.803-3.216%202.706-2.549%205.216-6.431%207.764-11.764l7.254-15.57zM101.33%2028.804s-.549.157-1.45.431a11.5%2011.5%200%200%200-.706-1.725c-1.02-1.961-2.55-3.02-4.353-3.02-.118%200-.235%200-.392.04-.04-.079-.118-.118-.157-.197-.784-.862-1.804-1.255-3.02-1.215-2.352.078-4.705%201.764-6.587%204.784-1.333%202.118-2.352%204.784-2.627%206.863-2.705.823-4.588%201.411-4.627%201.45-1.372.432-1.411.471-1.568%201.765-.118.98-3.725%2028.589-3.725%2028.589l29.643%205.137V28.765c-.235%200-.352.039-.431.039m-6.862%202.118c-1.568.47-3.294%201.02-4.98%201.529.47-1.843%201.412-3.686%202.51-4.902.431-.431%201.02-.941%201.686-1.255.666%201.412.823%203.334.784%204.628m-3.215-6.196q.824%200%201.411.352c-.627.314-1.254.824-1.843%201.412-1.49%201.608-2.627%204.118-3.097%206.51-1.412.431-2.823.863-4.117%201.255.862-3.765%204.038-9.451%207.646-9.53m-4.549%2021.568c.157%202.51%206.784%203.059%207.176%208.98.274%204.667-2.47%207.844-6.43%208.079-4.785.314-7.412-2.51-7.412-2.51l1.02-4.314s2.627%202%204.744%201.844c1.373-.079%201.883-1.216%201.843-2-.196-3.295-5.607-3.098-5.96-8.51-.314-4.55%202.667-9.138%209.254-9.569%202.549-.157%203.843.47%203.843.47l-1.49%205.648s-1.686-.785-3.686-.628c-2.902.196-2.94%202.04-2.902%202.51m9.333-15.843c0-1.177-.157-2.863-.706-4.274%201.803.352%202.666%202.352%203.058%203.568q-1.059.294-2.352.706M102.663%2071.628l12.312-3.06s-5.293-35.803-5.332-36.038a.46.46%200%200%200-.432-.393c-.196%200-3.646-.078-3.646-.078s-2.118-2.04-2.902-2.824z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E",
+      "type": "svg",
+      "dimensions": {
+        "width": 294,
+        "height": 88
+      },
+      "context": "icon"
+    },
+    {
+      "url": "data:image/svg+xml;utf8,%3Csvg%20fill%3D%22currentColor%22%20viewBox%3D%220%200%20320%2096%22%20class%3D%22w-full%20max-w-80%22%20aria-label%3D%22v0%20logo%22%3E%3Cpath%20d%3D%22M148.095%2058.342V33.714h9.524v31.4a6.696%206.696%200%200%201-6.696%206.696c-1.766%200-3.509-.681-4.762-1.934L110%2033.714h13.467l24.628%2024.628ZM210%2062.286h-9.524v-21.8l-21.801%2021.8h21.801v9.523h-24.702c-7.397%200-13.393-5.996-13.393-13.392V33.714h9.524V55.59l21.874-21.875h-21.874V24.19h24.702c7.397%200%2013.393%205.997%2013.393%2013.393v24.703Z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E",
+      "type": "svg",
+      "dimensions": {
+        "width": 294,
+        "height": 88
+      },
+      "context": "icon"
+    },
+    {
+      "url": "data:image/svg+xml;utf8,%3Csvg%20fill%3D%22currentColor%22%20viewBox%3D%220%200%20320%2096%22%20class%3D%22w-full%20max-w-80%22%20aria-label%3D%22Greptile%20logo%22%3E%3Cpath%20d%3D%22M252.413%2060.877q-6.318%200-8.982-3.457-2.707-3.458-2.706-9.535-.001-6.357%202.75-9.643%202.727-3.285%208.851-3.286%206.317%200%208.939%203.286%202.598%203.33%202.598%209.6%200%20.88-.106%201.61h-18.543v-3.178h13.407q-.192-4.275-1.59-6.013-1.675-1.911-4.683-1.911-2.943%200-4.77%202.04-1.826%202.018-1.827%207.516.001%205.24%201.784%207.388%201.762%202.19%204.878%202.19zm0-3.393q1.782%200%203.093-.558%201.31-.58%202.02-1.933.71-1.374%201.095-3.092l4.663%201.288q-.387%202.577-1.784%204.317a7.96%207.96%200%200%201-3.545%202.555q-2.127.816-5.542.816zm-18.502%203.178V26.947h5.178v33.717zm-8.458%200v-25.47h5.201v25.47zm0-32.62h5.201v4.187h-5.201zm-8.12%2032.921q-2.987%200-5.027-1.288-2.02-1.31-2.019-4.768V38.822h-5.931v-3.608h5.931v-5.777h5.199v5.777h8.249v3.608h-8.249v14.904q0%202.254.944%202.985.946.73%202.644.73a9.4%209.4%200%200%200%203.072-.515v3.479a20.3%2020.3%200%200%201-4.813.558m-35.205%209.213V35.214h4.039l1.139%204.23v30.732zm13.3-9.363q-4.276%200-7.327-2.083-3.051-2.105-3.051-4.446l2.256-2.577q0%202.212%201.869%203.887%201.891%201.654%204.469%201.654%202.75%200%204.297-1.954%201.547-1.977%201.547-7.388%200-5.39-1.547-7.344-1.546-1.976-4.297-1.976-2.578%200-4.469%201.653-1.869%201.654-1.869%203.823l-2.256-2.513q0-2.362%203.051-4.466%203.05-2.105%207.327-2.105%204.747%200%207.026%203.286%202.277%203.285%202.277%209.62%200%206.315-2.277%209.622-2.28%203.307-7.026%203.307m-26.306.064q-6.316%200-8.981-3.457-2.706-3.458-2.707-9.535%200-6.357%202.75-9.643%202.729-3.285%208.852-3.286%206.318%200%208.938%203.286%202.6%203.33%202.6%209.6a11%2011%200%200%201-.107%201.61h-18.542v-3.178h13.407q-.193-4.275-1.59-6.013-1.677-1.911-4.684-1.911-2.943%200-4.77%202.04-1.826%202.017-1.826%207.516%200%205.24%201.783%207.388%201.762%202.19%204.877%202.19zm0-3.393q1.783%200%203.094-.558%201.31-.58%202.02-1.933.709-1.374%201.096-3.092l4.662%201.288q-.387%202.577-1.783%204.317a7.96%207.96%200%200%201-3.545%202.555q-2.128.816-5.544.816zm-17.563-10.222q0-5.111-1.203-6.872-1.203-1.783-3.502-1.783-2.622%200-4.147%201.783-1.503%201.76-1.504%203.994l-1.998-1.331q0-3.372%202.6-5.713%202.621-2.362%206.961-2.362%204.555%200%206.274%202.963%201.719%202.943%201.719%209.32zm-15.512%2013.4V35.215h4.039l1.139%204.768v20.68zM122.484%2070.67q-4.319%200-7.326-1.933-3.008-1.911-3.373-6.593h5.07q.172%201.869.881%203.007a4.2%204.2%200%200%200%201.998%201.654q1.29.536%202.922.536%202.708%200%204.34-1.417%201.655-1.396%201.655-5.691V40.368l1.353-5.154h3.846V59.74q0%204.188-1.568%206.572-1.548%202.405-3.932%203.371-2.364.988-5.866.988m-1.847-9.857q-4.748%200-7.091-3.264-2.32-3.286-2.32-9.664t2.299-9.643%207.069-3.264q4.275%200%207.283%202.169%203.03%202.148%203.03%204.51l-2.278%202.405q0-2.169-1.847-3.823-1.848-1.653-4.427-1.653-2.728%200-4.318%201.954-1.569%201.933-1.569%207.366t1.569%207.388q1.59%201.953%204.318%201.954%202.579%200%204.427-1.675t1.847-3.866l2.299%202.577q0%202.406-3.008%204.467-2.987%202.062-7.283%202.062M84.599%2028.927l-8.75%207.875-6.046%205.167%207.781%207.275%208.148-6.964-6.31-5.899%206.7-6.03%2013.039%2012.19L77.275%2061.25l-20.9-19.541L78.26%2023zM78.38%2063.04l21.242-18.456v9.93L78.38%2072.968zM56%2043.816l20.584%2019.186v9.929L56%2053.745z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E",
+      "type": "svg",
+      "dimensions": {
+        "width": 294,
+        "height": 88
+      },
+      "context": "icon"
+    },
+    {
+      "url": "data:image/svg+xml;utf8,%3Csvg%20fill%3D%22currentColor%22%20viewBox%3D%220%200%20320%2096%22%20class%3D%22w-full%20max-w-80%22%20aria-label%3D%22Sanity%20logo%22%3E%3Cpath%20d%3D%22m134.498%2040.932-5.282-2.989c-2.642-1.495-4.48-3.486-4.48-5.615%200-2.355%201.933-4.302%204.48-4.302%204.339%200%207.497%203.894%209.525%209.328h1.414V25.31h-11.79c-7.588%200-10.418%205.208-10.418%209.282%200%205.75%204.385%208.331%2011.46%2012.77%203.489%202.173%205.706%204.167%205.706%206.974%200%202.445-2.263%204.935-5.093%204.935-3.347%200-7.781-3.622-10.516-11.14h-1.416v13.856h12.401c7.64%200%2011.741-5.797%2011.741-10.46%200-4.348-2.122-7.427-7.734-10.597l.002.002ZM167.037%2057.688V43.06c0-6.34-4.103-8.015-10.044-8.015h-10.516l.046%2010.325h1.604c1.839-4.393%204.15-7.607%207.404-7.607%202.452%200%203.585%202.038%203.585%204.167v1.991c-3.961%202.264-14.572%204.167-14.572%2011.05%200%203.985%202.877%207.427%207.073%207.427%203.631%200%206.177-2.4%207.45-5.072.236%202.219%201.698%204.665%205.14%204.665h5.423V60c-1.744%200-2.593-1.132-2.593-2.31v-.002Zm-8.064-2.264c-.754%201.041-1.981%202.22-3.395%202.22-1.982%200-3.255-1.45-3.255-4.349%200-3.305%204.669-5.434%206.648-7.02v9.147l.002.002ZM208.487%2032.237c3.017%200%204.904-2.038%204.904-4.665%200-2.627-1.887-4.572-4.904-4.572-3.018%200-4.951%201.947-4.951%204.574s2.028%204.665%204.951%204.665v-.002ZM197.83%2057.688V42.2c0-4.845-2.407-7.698-7.168-7.698-3.961%200-6.461%202.536-8.346%205.208v-4.665h-11.081v1.992c1.981%200%202.781%201.267%202.781%202.354v18.296c0%201.178-.849%202.31-2.592%202.31v1.992h13.393v-1.992c-1.698%200-2.547-1.267-2.547-2.31l.046-15.487c1.133-1.449%202.311-2.718%204.291-2.718%201.979%200%202.971%201.495%202.971%203.352v14.853c0%201.178-.849%202.31-2.593%202.31v1.992h13.393v-1.992c-1.698%200-2.547-1.267-2.547-2.31h-.001ZM254.277%2035.046v1.992c2.972%200%203.821%201.495%202.358%205.525l-3.536%209.193-4.529-11.185c-1.038-2.173-.47-3.533%201.698-3.533v-1.992H228.34V25.99h-2.074c-.613%203.079-4.055%209.057-9.762%209.057v1.992h3.68V55.65c0%203.125%201.084%206.747%207.404%206.747h9.762l.046-10.325h-1.603c-.708%202.4-2.311%207.2-5.47%207.2-1.743%200-1.981-1.856-1.981-3.352V37.898h8.775c.986.037%201.938.26%202.448%201.404l9.573%2022.732c-1.839%204.03-4.999%204.665-10.657%202.989v7.97c2.876%200%205.517.044%206.177-.135%203.725-1.042%205.988-8.061%207.027-10.777l8.11-21.058c.895-2.31%201.652-3.985%203.206-3.985v-1.992h-8.724ZM213.298%2057.688V35.046h-10.752v1.992c1.839%200%202.641%201.087%202.641%202.355v18.295c-.094%201.222-.943%202.31-2.641%202.31v1.992h13.582v-1.992c-1.32%200-2.736-1.132-2.83-2.31Z%22%3E%3C%2Fpath%3E%3Cpath%20d%3D%22m104.39%2050.02-1.815-3.05-8.779%205.166%209.75-11.994%201.473-.836-.327-.572.633-.78-2.006-1.614-.259-.452-.178.1-.635-.508-1.309%201.61-28.494%2016.154%2010.482-12.176%2019.575-10.364-1.86-3.474-10.661%205.645%205.248-6.096-3.007-2.56-11.816%2013.725L68.67%2044.16l8.986-11.474%205.629-2.829-1.787-3.511-16.405%208.248%204.475-5.717-3.123-2.418L57%2038.528l.148.114%201.764%203.47%2010.467-5.264-9.54%2012.18%201.56%201.21.93%201.736%2011.024-5.836-12.136%2014.098%203.006%202.56.604-.703%2029.278-16.599-9.72%2011.959.158.127-.016.01%202.016%203.386L99.47%2053.37l-4.976%207.759%203.336%202.116%207.926-12.356-1.367-.868Z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E",
+      "type": "svg",
+      "dimensions": {
+        "width": 294,
+        "height": 88
+      },
+      "context": "icon"
+    },
+    {
+      "url": "data:image/svg+xml;utf8,%3Csvg%20fill%3D%22currentColor%22%20viewBox%3D%220%200%20320%2096%22%20class%3D%22w-full%20max-w-80%22%20aria-label%3D%22Momentic%20logo%22%3E%3Cpath%20d%3D%22M80.098%2060.045V37.48h5.313v2.746h.3c.986-1.716%203.043-3.303%206.128-3.303s5.399%201.33%206.684%203.432h.343c1.543-2.36%203.771-3.432%206.685-3.432%204.971%200%208.227%203.389%208.227%208.15v14.972h-5.57V47.004c0-3.089-1.414-4.847-4.071-4.847-2.528%200-4.37%201.93-4.37%204.976v12.912h-5.571V46.661c0-2.746-1.629-4.505-4.2-4.505-2.485%200-4.328%202.06-4.328%204.934v12.955h-5.57ZM130.059%2060.603c-7.07%200-11.998-5.105-11.998-11.84%200-6.692%204.885-11.84%2011.998-11.84%207.071%200%2011.998%205.148%2011.998%2011.84s-4.97%2011.84-11.998%2011.84Zm0-5.062c3.685%200%206.342-2.831%206.342-6.778%200-3.904-2.657-6.778-6.342-6.778-3.728%200-6.342%202.874-6.342%206.778%200%203.99%202.657%206.778%206.342%206.778ZM146.968%2060.045V37.48h5.314v2.746h.3c.985-1.716%203.042-3.303%206.127-3.303%203.086%200%205.4%201.33%206.685%203.432h.343c1.543-2.36%203.771-3.432%206.685-3.432%204.97%200%208.227%203.389%208.227%208.15v14.972h-5.571V47.004c0-3.089-1.414-4.847-4.07-4.847-2.529%200-4.371%201.93-4.371%204.976v12.912h-5.571V46.661c0-2.746-1.628-4.505-4.199-4.505-2.486%200-4.328%202.06-4.328%204.934v12.955h-5.571ZM196.287%2060.603c-6.642%200-11.355-4.976-11.355-11.712%200-7.12%204.756-11.968%2011.355-11.968%207.242%200%2011.184%205.362%2011.184%2011.711v1.759h-17.14c.171%203.432%202.528%205.748%206.128%205.748%202.742%200%204.842-1.287%205.613-3.131h5.185c-1.114%204.59-5.142%207.593-10.97%207.593Zm-5.87-14.157h11.741c-.257-3.045-2.614-5.062-5.871-5.062-3.128%200-5.528%202.231-5.87%205.062ZM212.416%2060.045V37.48h5.314v2.746h.299c.9-1.673%203.129-3.303%206.342-3.303%205.057%200%208.142%203.56%208.142%208.365v14.757h-5.571V46.747c0-2.746-1.756-4.59-4.327-4.59-2.7%200-4.628%202.144-4.628%204.976v12.912h-5.571ZM247.963%2060.045c-4.67%200-7.498-2.66-7.498-7.507V41.942h-3.814v-4.419h2.528c.986%200%201.628-.643%201.628-1.716V31.26h5.228v6.22h6.214v4.462h-6.214v10.381c0%201.888.943%203.09%203.085%203.09h3v4.632h-4.157ZM259.768%2034.478c-2.014%200-3.428-1.244-3.428-3.26%200-1.931%201.414-3.218%203.428-3.218%202.014%200%203.428%201.287%203.428%203.217%200%202.017-1.414%203.26-3.428%203.26Zm-2.785%2025.567V37.481h5.57v22.564h-5.57ZM278.609%2060.603c-7.07%200-11.784-5.19-11.784-11.84%200-6.65%204.714-11.84%2011.784-11.84%205.785%200%2010.284%203.56%2011.141%208.88h-5.699c-.685-2.23-2.785-3.818-5.399-3.818-3.771%200-6.17%203.003-6.17%206.778%200%203.904%202.528%206.778%206.213%206.778%202.571%200%204.671-1.459%205.313-3.647h5.7c-.858%205.234-5.314%208.709-11.099%208.709ZM59.079%2032.029H45.392a6.847%206.847%200%200%200-6.844%206.85v1.707h-1.705A6.847%206.847%200%200%200%2030%2047.436v9.86c0%201.385.834%202.635%202.113%203.165a3.42%203.42%200%200%200%203.73-.743l4.122-4.126a6.856%206.856%200%200%200%202.005-4.846v-6.735h8.56a3.424%203.424%200%200%201%203.423%203.426v8.572h-6.73a6.84%206.84%200%200%200-4.84%202.007l-4.12%204.125a3.43%203.43%200%200%200-.743%203.735%203.423%203.423%200%200%200%203.163%202.115h9.847a6.848%206.848%200%200%200%206.845-6.852v-1.705h1.704a6.849%206.849%200%200%200%206.844-6.852V38.88a6.848%206.848%200%200%200-6.844-6.851Zm-20.53%2018.718c0%20.91-.361%201.78-1.003%202.423l-4.124%204.13v-9.863a3.423%203.423%200%200%201%203.422-3.426h1.704v6.736ZM53.952%2061.14a3.425%203.425%200%200%201-3.423%203.426H40.68l4.123-4.127a3.422%203.422%200%200%201%202.42-1.004h6.731v1.705Zm8.548-8.557a3.425%203.425%200%200%201-3.422%203.427h-1.704v-8.572a6.848%206.848%200%200%200-6.845-6.851h-8.56V38.88a3.423%203.423%200%200%201%203.422-3.426h13.687A3.424%203.424%200%200%201%2062.5%2038.88v13.702Z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E",
+      "type": "svg",
+      "dimensions": {
+        "width": 294,
+        "height": 88
+      },
+      "context": "icon"
+    },
+    {
+      "url": "https://tailwindcss.com/opengraph-image.jpg?opengraph-image.0jwfhnd690..4.jpg",
+      "type": "image",
+      "context": "social-preview"
+    },
+    {
+      "url": "https://tailwindcss.com/favicons/favicon-32x32.png?v=4",
+      "type": "icon",
+      "context": "favicon"
+    }
+  ],
+  "responsive": {
+    "mobile": {
+      "hamburgerDetected": false,
+      "hiddenElementsCount": 0,
+      "layoutShifts": [
+        "Multi-column grids collapse into single column stack on mobile"
+      ]
+    },
+    "tablet": {
+      "layoutShifts": [
+        "Tablet breakpoint adapts padding and reduces multi-column grids to 2 columns"
+      ]
+    },
+    "desktop": {
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      }
+    }
+  },
+  "rawDomSummary": {
+    "totalNodes": 2474,
+    "headingsCount": 13,
+    "buttonsCount": 12,
+    "imagesCount": 121
+  }
+}

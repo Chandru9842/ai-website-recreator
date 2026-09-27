@@ -11,7 +11,7 @@ export async function generateReactProject(
   spec: UISpecification,
   extracted: ExtractedWebsiteData
 ): Promise<GeneratedProject> {
-  logger.info(`Generating React project for ${spec.pageTitle}...`);
+  logger.info(`Generating React project for ${spec.metadata.title}...`);
 
   return {
     id: `project-${Date.now()}`,

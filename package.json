@@ -13,7 +13,8 @@
     "dev:server": "npm run dev --workspace=server",
     "dev:client": "npm run dev --workspace=client",
     "build": "npm run build --workspaces",
-    "test:analyzer": "npm run test:analyzer --workspace=server"
+    "test:analyzer": "npm run test:analyzer --workspace=server",
+    "test:spec": "npm run test:spec --workspace=server"
   },
   "keywords": [
     "ai",

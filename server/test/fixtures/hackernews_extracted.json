@@ -1,0 +1,180 @@
+{
+  "metadata": {
+    "url": "https://news.ycombinator.com/",
+    "title": "Hacker News",
+    "description": "A social news website focusing on computer science and entrepreneurship.",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "timestamp": "2026-09-27T08:40:01.000Z"
+  },
+  "colors": {
+    "palette": [
+      {
+        "hex": "#828282",
+        "rgb": "rgb(130, 130, 130)",
+        "role": "text",
+        "frequency": 45,
+        "sampleElements": ["span", "td"]
+      },
+      {
+        "hex": "#ff6600",
+        "rgb": "rgb(255, 102, 0)",
+        "role": "primary",
+        "frequency": 8,
+        "sampleElements": ["table", "td"]
+      },
+      {
+        "hex": "#f6f6ef",
+        "rgb": "rgb(246, 246, 239)",
+        "role": "surface",
+        "frequency": 12,
+        "sampleElements": ["table", "tbody"]
+      },
+      {
+        "hex": "#ffffff",
+        "rgb": "rgb(255, 255, 255)",
+        "role": "background",
+        "frequency": 2,
+        "sampleElements": ["body"]
+      }
+    ],
+    "background": "#ffffff",
+    "textPrimary": "#828282",
+    "primary": "#ff6600",
+    "surface": "#f6f6ef"
+  },
+  "typography": {
+    "headingFont": "Verdana",
+    "bodyFont": "Verdana",
+    "googleFontsToLoad": [],
+    "scale": [
+      {
+        "fontFamily": "Verdana",
+        "fontSize": "10pt",
+        "fontWeight": "400",
+        "lineHeight": "normal",
+        "tag": "a",
+        "sampleText": "Hacker News"
+      },
+      {
+        "fontFamily": "Verdana",
+        "fontSize": "8pt",
+        "fontWeight": "400",
+        "lineHeight": "normal",
+        "tag": "span",
+        "sampleText": "points by author"
+      }
+    ]
+  },
+  "navigation": {
+    "brand": {
+      "text": "Hacker News",
+      "logoUrl": "https://news.ycombinator.com/y18.svg"
+    },
+    "links": [
+      { "text": "new", "href": "newest" },
+      { "text": "past", "href": "front" },
+      { "text": "comments", "href": "newcomments" },
+      { "text": "ask", "href": "ask" },
+      { "text": "show", "href": "show" },
+      { "text": "jobs", "href": "jobs" },
+      { "text": "submit", "href": "submit" }
+    ],
+    "ctaButtons": [
+      { "text": "login", "href": "login", "variant": "primary" }
+    ],
+    "isSticky": false,
+    "hasMobileMenu": false
+  },
+  "sections": [
+    {
+      "id": "section-1-hero",
+      "type": "hero",
+      "name": "HERO: Hacker News Feed",
+      "heading": "Hacker News",
+      "subheading": "Top Stories",
+      "description": "Top stories and technology submissions from founders, developers, and engineers.",
+      "layout": {
+        "type": "single-column",
+        "columns": 1,
+        "gap": "1rem"
+      },
+      "items": [
+        {
+          "title": "Announcing Playwright v1.50",
+          "description": "142 points by user1 3 hours ago | 58 comments"
+        },
+        {
+          "title": "Show HN: AI Website Recreator",
+          "description": "389 points by chandru 5 hours ago | 112 comments"
+        },
+        {
+          "title": "SQLite as a production database",
+          "description": "250 points by dev_guru 6 hours ago | 84 comments"
+        }
+      ],
+      "buttons": [
+        { "text": "More", "href": "/?p=2", "variant": "primary" }
+      ],
+      "styling": {
+        "backgroundColor": "#f6f6ef",
+        "textColor": "#222222",
+        "isDark": false,
+        "padding": "10px 10px 10px 10px"
+      },
+      "rawTextSample": ["Hacker News", "new", "past", "comments", "ask", "show", "jobs", "submit"],
+      "assets": [
+        {
+          "url": "https://news.ycombinator.com/y18.svg",
+          "type": "logo",
+          "context": "logo-vector"
+        }
+      ]
+    },
+    {
+      "id": "section-2-footer",
+      "type": "footer",
+      "name": "FOOTER: Guidelines and Legal",
+      "heading": "Guidelines | FAQ | Lists | API | Security | Legal | Apply to YC | Contact",
+      "layout": {
+        "type": "single-column",
+        "columns": 1,
+        "gap": "0.5rem"
+      },
+      "items": [],
+      "buttons": [],
+      "styling": {
+        "backgroundColor": "#f6f6ef",
+        "textColor": "#828282",
+        "isDark": false,
+        "padding": "16px"
+      },
+      "rawTextSample": ["Guidelines", "FAQ", "Lists", "API", "Security", "Legal", "Contact"],
+      "assets": []
+    }
+  ],
+  "assets": [
+    {
+      "url": "https://news.ycombinator.com/y18.svg",
+      "type": "logo",
+      "context": "logo"
+    },
+    {
+      "url": "https://news.ycombinator.com/favicon.ico",
+      "type": "icon",
+      "context": "favicon"
+    }
+  ],
+  "responsive": {
+    "mobile": {
+      "hamburgerDetected": false,
+      "hiddenElementsCount": 0,
+      "layoutShifts": []
+    },
+    "desktop": {
+      "viewport": { "width": 1440, "height": 900 }
+    }
+  }
+}

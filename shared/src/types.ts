@@ -198,25 +198,7 @@ export interface AnalysisProgressEvent {
   timestamp: string;
 }
 
-export interface UISpecification {
-  pageTitle: string;
-  theme: {
-    colors: Record<string, string>;
-    fonts: {
-      heading: string;
-      body: string;
-      cdnLinks: string[];
-    };
-    borderRadius: string;
-  };
-  components: Array<{
-    name: string;
-    sectionId: string;
-    type: SectionType;
-    props: Record<string, any>;
-    tailwindClasses: string[];
-  }>;
-}
+export * from './schema';
 
 export interface GeneratedProject {
   id: string;
