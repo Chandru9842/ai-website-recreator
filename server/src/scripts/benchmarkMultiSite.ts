@@ -74,7 +74,7 @@ async function runBenchmarkForSite(site: TargetSite, outputBase: string): Promis
     // -------------------------------------------------------------------------
     console.log(`\n[Stage 1/4] Running Playwright Website Analyzer on ${site.url}...`);
     const extractedData = await analyzeWebsite(site.url, {
-      timeout: 45000,
+      timeoutMs: 45000,
       onProgress: (event) => {
         const bar = '='.repeat(Math.floor(event.progress / 5)).padEnd(20, ' ');
         process.stdout.write(`\r  [${bar}] ${event.progress.toString().padStart(3, ' ')}% | ${event.message.slice(0, 50)}...`);
@@ -136,7 +136,7 @@ async function runBenchmarkForSite(site: TargetSite, outputBase: string): Promis
       spec,
     });
 
-    const tsErrors = valResult.diagnostics.filter((d) => d.errorType === 'typescript');
+    const tsErrors = valResult.diagnostics.filter((d) => d.errorType === 'type');
     result.tsValidation = tsErrors.length === 0 || valResult.success;
     result.viteBuildSuccess = valResult.success;
 
