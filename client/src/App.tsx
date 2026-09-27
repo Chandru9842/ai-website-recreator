@@ -24,6 +24,9 @@ import {
   FileCode,
   ShieldCheck,
   Zap,
+  Monitor,
+  Tablet,
+  Eye,
 } from 'lucide-react';
 
 export default function App() {
@@ -38,6 +41,11 @@ export default function App() {
   const [isGenerating, setIsGenerating] = useState(false);
   const [generatedProject, setGeneratedProject] = useState<any | null>(null);
   const [activeCodeFile, setActiveCodeFile] = useState<string>('src/App.tsx');
+
+  // Visual Live Preview state
+  const [projectDisplayMode, setProjectDisplayMode] = useState<'preview' | 'code'>('preview');
+  const [viewportMode, setViewportMode] = useState<'desktop' | 'tablet' | 'mobile'>('desktop');
+  const [previewKey, setPreviewKey] = useState<number>(Date.now());
 
   // Modification state
   const [instruction, setInstruction] = useState('Make the navbar sticky');
@@ -139,6 +147,8 @@ export default function App() {
         const firstFile = Object.keys(genJson.data.files)[0] || 'src/App.tsx';
         setActiveCodeFile(firstFile);
       }
+      setPreviewKey(Date.now());
+      setProjectDisplayMode('preview');
     } catch (err: any) {
       setError(err.message || 'Error generating React recreation project');
     } finally {
@@ -175,9 +185,18 @@ export default function App() {
         setModificationHistory(json.history);
       }
 
+      if (json.updatedFiles) {
+        setGeneratedProject((prev: any) => ({
+          ...prev,
+          files: { ...prev.files, ...json.updatedFiles },
+        }));
+      }
+
       if (json.modifiedFiles && json.modifiedFiles.length > 0) {
         setActiveCodeFile(json.modifiedFiles[0]);
       }
+
+      setPreviewKey(Date.now());
     } catch (err: any) {
       setError(err.message || 'Error modifying project');
     } finally {
@@ -188,10 +207,18 @@ export default function App() {
   const samplePrompts = [
     'Make the navbar sticky',
     'Change the primary color to blue',
+    'Replace the hero section with a bakery hero',
+    'Add a testimonials section',
     'Make the hero heading larger',
     'Remove the footer section',
-    'Add a testimonials section',
   ];
+
+  const currentProjectName = generatedProject?.projectDir
+    ? generatedProject.projectDir.split(/[\\/]/).pop()
+    : generatedProject?.id || '';
+  const currentPreviewUrl =
+    generatedProject?.previewUrl ||
+    (currentProjectName ? `/preview/${encodeURIComponent(currentProjectName)}/` : '');
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col">
@@ -362,31 +389,170 @@ export default function App() {
               </div>
             </div>
 
-            {/* Code / Component Inspector */}
-            <div className="bg-slate-950 rounded-xl border border-slate-800 overflow-hidden flex flex-col">
-              {/* File selector tabs */}
-              <div className="flex items-center gap-1 p-2 bg-slate-900/80 border-b border-slate-800 overflow-x-auto text-xs font-mono">
-                {Object.keys(generatedProject.files || {}).map((file) => (
-                  <button
-                    key={file}
-                    onClick={() => setActiveCodeFile(file)}
-                    className={`px-3 py-1.5 rounded-lg transition whitespace-nowrap flex items-center gap-1.5 ${
-                      activeCodeFile === file
-                        ? 'bg-teal-500/20 text-teal-300 font-semibold border border-teal-500/30'
-                        : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'
-                    }`}
-                  >
-                    <FileCode className="h-3.5 w-3.5" />
-                    {file}
-                  </button>
-                ))}
+            {/* Tab Controls: Visual Live Preview vs Code Inspector */}
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800 pb-4">
+              <div className="flex items-center gap-1.5 p-1 bg-slate-950 rounded-xl border border-slate-800">
+                <button
+                  type="button"
+                  onClick={() => setProjectDisplayMode('preview')}
+                  className={`px-4 py-2 rounded-lg text-xs font-semibold flex items-center gap-2 transition ${
+                    projectDisplayMode === 'preview'
+                      ? 'bg-gradient-to-r from-teal-400 to-cyan-400 text-slate-950 shadow-md font-bold'
+                      : 'text-slate-400 hover:text-white hover:bg-slate-900'
+                  }`}
+                >
+                  <Eye className="h-4 w-4" />
+                  Visual Live Preview
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setProjectDisplayMode('code')}
+                  className={`px-4 py-2 rounded-lg text-xs font-semibold flex items-center gap-2 transition ${
+                    projectDisplayMode === 'code'
+                      ? 'bg-gradient-to-r from-teal-400 to-cyan-400 text-slate-950 shadow-md font-bold'
+                      : 'text-slate-400 hover:text-white hover:bg-slate-900'
+                  }`}
+                >
+                  <FileCode className="h-4 w-4" />
+                  Code Inspector ({Object.keys(generatedProject.files || {}).length} files)
+                </button>
               </div>
 
-              {/* Code viewer */}
-              <pre className="p-4 text-xs font-mono text-slate-300 overflow-x-auto max-h-[350px] leading-relaxed">
-                {generatedProject.files[activeCodeFile] || '// Select a file to inspect'}
-              </pre>
+              {/* Viewport controls & Open in New Window (Visible in Preview mode) */}
+              {projectDisplayMode === 'preview' && (
+                <div className="flex items-center flex-wrap gap-2">
+                  <div className="flex items-center gap-1 bg-slate-950 p-1 rounded-xl border border-slate-800 text-xs">
+                    <button
+                      type="button"
+                      onClick={() => setViewportMode('desktop')}
+                      title="Desktop (100% full width)"
+                      className={`px-3 py-1.5 rounded-lg flex items-center gap-1.5 transition ${
+                        viewportMode === 'desktop'
+                          ? 'bg-slate-800 text-teal-300 font-bold border border-teal-500/30 shadow-sm'
+                          : 'text-slate-400 hover:text-white'
+                      }`}
+                    >
+                      <Monitor className="h-3.5 w-3.5" />
+                      <span>Desktop</span>
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setViewportMode('tablet')}
+                      title="Tablet (768px centered preview)"
+                      className={`px-3 py-1.5 rounded-lg flex items-center gap-1.5 transition ${
+                        viewportMode === 'tablet'
+                          ? 'bg-slate-800 text-teal-300 font-bold border border-teal-500/30 shadow-sm'
+                          : 'text-slate-400 hover:text-white'
+                      }`}
+                    >
+                      <Tablet className="h-3.5 w-3.5" />
+                      <span>Tablet (768px)</span>
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setViewportMode('mobile')}
+                      title="Mobile (375px centered preview)"
+                      className={`px-3 py-1.5 rounded-lg flex items-center gap-1.5 transition ${
+                        viewportMode === 'mobile'
+                          ? 'bg-slate-800 text-teal-300 font-bold border border-teal-500/30 shadow-sm'
+                          : 'text-slate-400 hover:text-white'
+                      }`}
+                    >
+                      <Smartphone className="h-3.5 w-3.5" />
+                      <span>Mobile (375px)</span>
+                    </button>
+                  </div>
+
+                  <a
+                    href={currentPreviewUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-3 py-2 rounded-xl bg-slate-950 border border-slate-800 hover:border-teal-500/40 text-xs text-teal-300 font-semibold flex items-center gap-1.5 transition shadow-sm hover:bg-slate-900"
+                  >
+                    <ExternalLink className="h-3.5 w-3.5" />
+                    <span>Open in New Window</span>
+                  </a>
+
+                  <button
+                    type="button"
+                    onClick={() => setPreviewKey(Date.now())}
+                    title="Reload live preview"
+                    className="p-2 rounded-xl bg-slate-950 border border-slate-800 hover:border-slate-700 text-slate-400 hover:text-teal-300 transition"
+                  >
+                    <RefreshCw className="h-3.5 w-3.5" />
+                  </button>
+                </div>
+              )}
             </div>
+
+            {/* TAB CONTENT: Visual Preview vs Code Inspector */}
+            {projectDisplayMode === 'preview' ? (
+              <div className="bg-slate-950/80 rounded-2xl border border-slate-800/80 p-3 sm:p-6 flex flex-col items-center justify-start overflow-hidden">
+                <div
+                  className={`w-full transition-all duration-300 flex flex-col items-center ${
+                    viewportMode === 'mobile'
+                      ? 'max-w-[375px]'
+                      : viewportMode === 'tablet'
+                      ? 'max-w-[768px]'
+                      : 'w-full'
+                  }`}
+                >
+                  {/* Browser Mock Frame Header */}
+                  <div className="w-full bg-slate-900 border border-slate-800 rounded-t-xl px-4 py-2.5 flex items-center justify-between text-xs text-slate-400 font-mono shadow-md">
+                    <div className="flex items-center gap-2">
+                      <span className="h-2.5 w-2.5 rounded-full bg-rose-500/80 inline-block"></span>
+                      <span className="h-2.5 w-2.5 rounded-full bg-amber-500/80 inline-block"></span>
+                      <span className="h-2.5 w-2.5 rounded-full bg-emerald-500/80 inline-block"></span>
+                      <span className="ml-2 text-slate-300 font-sans font-medium text-[11px]">
+                        {viewportMode === 'mobile'
+                          ? 'Mobile Viewport (375px)'
+                          : viewportMode === 'tablet'
+                          ? 'Tablet Viewport (768px)'
+                          : 'Desktop Viewport (100%)'}
+                      </span>
+                    </div>
+                    <span className="text-teal-400 text-[11px] truncate max-w-[200px]">
+                      {currentPreviewUrl}
+                    </span>
+                  </div>
+
+                  {/* Actual Rendered Live Preview iframe */}
+                  <iframe
+                    key={previewKey}
+                    src={currentPreviewUrl}
+                    title="Generated React Website Visual Preview"
+                    className="w-full h-[650px] bg-white rounded-b-xl border-x border-b border-slate-800 shadow-2xl transition-all"
+                    sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
+                  />
+                </div>
+              </div>
+            ) : (
+              /* Existing Code Inspector */
+              <div className="bg-slate-950 rounded-xl border border-slate-800 overflow-hidden flex flex-col">
+                {/* File selector tabs */}
+                <div className="flex items-center gap-1 p-2 bg-slate-900/80 border-b border-slate-800 overflow-x-auto text-xs font-mono">
+                  {Object.keys(generatedProject.files || {}).map((file) => (
+                    <button
+                      key={file}
+                      onClick={() => setActiveCodeFile(file)}
+                      className={`px-3 py-1.5 rounded-lg transition whitespace-nowrap flex items-center gap-1.5 ${
+                        activeCodeFile === file
+                          ? 'bg-teal-500/20 text-teal-300 font-semibold border border-teal-500/30'
+                          : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'
+                      }`}
+                    >
+                      <FileCode className="h-3.5 w-3.5" />
+                      {file}
+                    </button>
+                  ))}
+                </div>
+
+                {/* Code viewer */}
+                <pre className="p-4 text-xs font-mono text-slate-300 overflow-x-auto max-h-[350px] leading-relaxed">
+                  {generatedProject.files[activeCodeFile] || '// Select a file to inspect'}
+                </pre>
+              </div>
+            )}
 
             {/* AI NATURAL LANGUAGE MODIFICATION (Module 5) */}
             <div className="mt-4 pt-6 border-t border-slate-800/80 flex flex-col gap-5">

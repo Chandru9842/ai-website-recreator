@@ -7,6 +7,7 @@ export interface GeneratedProject {
   createdAt: string;
   files: Record<string, string>;
   projectDir?: string;
+  previewUrl?: string;
   buildStatus: 'untested' | 'passed' | 'failed';
   buildOutput?: string;
   buildErrors?: string[];

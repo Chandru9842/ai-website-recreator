@@ -198,10 +198,72 @@ async function runModifierTests() {
   }
 
   // =========================================================================
-  // TEST 5: SECURITY VERIFICATION (Prevent Traversal & Escapes)
+  // TEST 5: REPLACE HERO WITH A BAKERY HERO
   // =========================================================================
   console.log('\n----------------------------------------------------');
-  console.log('🧪 TEST 5: SECURITY CHECK (Strict Traversal & Escape Prevention)');
+  console.log('🧪 TEST 5: "Replace the hero section with a bakery hero"');
+  console.log('----------------------------------------------------');
+  {
+    const instruction = 'Replace the hero section with a bakery hero';
+    const result = await modifyProject(testProjectDir, instruction);
+
+    const updatedHero = fs.readFileSync(heroPath, 'utf-8');
+
+    // 1. Heading verification
+    const hasHeading = updatedHero.includes('Freshly Baked Artisanal Delights Every Morning');
+    // 2. Subtitle verification
+    const hasSubtitle = updatedHero.includes(
+      'Handcrafted sourdough, golden croissants, and organic pastries baked with passion and tradition.'
+    );
+    // 3. Badge verification
+    const hasBadge = updatedHero.includes('Artisan Bakery & Patisserie');
+    // 4. CTA button verification
+    const hasCta = updatedHero.includes('Order Fresh Bakes');
+    // 5. Image verification
+    const hasBakeryImage = updatedHero.includes('photo-1509440159596-0249088772ff');
+
+    // 6. Isolation: only hero section modified
+    const onlyHeroModified =
+      result.modifiedFiles.length === 1 &&
+      result.modifiedFiles[0].includes('HeroSection');
+
+    console.log(`📊 Result Success:          ${result.success}`);
+    console.log(`📝 Modified Files:          ${result.modifiedFiles.join(', ')}`);
+    console.log(`🍞 Heading Verified:        ${hasHeading}`);
+    console.log(`🥐 Subtitle Verified:       ${hasSubtitle}`);
+    console.log(`🏷️  Badge Verified:          ${hasBadge}`);
+    console.log(`🔘 CTA Button Verified:     ${hasCta}`);
+    console.log(`🖼️  Bakery Image Verified:   ${hasBakeryImage}`);
+    console.log(`🛡️  Only Hero Modified:     ${onlyHeroModified}`);
+    console.log(`🛠️  Build Validation:        ${result.validation.success ? 'PASSED' : 'FAILED'}`);
+
+    const passed =
+      result.success &&
+      onlyHeroModified &&
+      hasHeading &&
+      hasSubtitle &&
+      hasBadge &&
+      hasCta &&
+      hasBakeryImage &&
+      result.validation.success;
+
+    results.push({
+      name: 'Test 5: Replace hero with a bakery hero',
+      passed,
+      identifiedFiles: result.modifiedFiles,
+      unrelatedPreserved: onlyHeroModified,
+      buildPassed: result.validation.success,
+      historyRecorded: result.history?.some((h) => h.instruction === instruction) || false,
+      details:
+        'Transformed hero into artisanal bakery hero with heading, subtitle, badge, CTA, and image',
+    });
+  }
+
+  // =========================================================================
+  // TEST 6: SECURITY VERIFICATION (Prevent Traversal & Escapes)
+  // =========================================================================
+  console.log('\n----------------------------------------------------');
+  console.log('🧪 TEST 6: SECURITY CHECK (Strict Traversal & Escape Prevention)');
   console.log('----------------------------------------------------');
   {
     let blockedTraversal = false;
@@ -228,7 +290,7 @@ async function runModifierTests() {
 
     const passed = blockedTraversal && blockedAbsolute;
     results.push({
-      name: 'Test 5: Security Containment',
+      name: 'Test 6: Security Containment',
       passed,
       identifiedFiles: [],
       unrelatedPreserved: true,
@@ -239,21 +301,23 @@ async function runModifierTests() {
   }
 
   // =========================================================================
-  // TEST 6: MODIFICATION HISTORY VERIFICATION
+  // TEST 7: MODIFICATION HISTORY VERIFICATION
   // =========================================================================
   console.log('\n----------------------------------------------------');
-  console.log('🧪 TEST 6: MODIFICATION HISTORY PERSISTENCE');
+  console.log('🧪 TEST 7: MODIFICATION HISTORY PERSISTENCE');
   console.log('----------------------------------------------------');
   {
     const history = HistoryManager.getHistory(testProjectDir);
     console.log(`📜 Total History Entries: ${history.length}`);
     for (const h of history) {
-      console.log(`   - [${h.timestamp.slice(11, 19)}] "${h.instruction}": modified [${h.modifiedFiles.join(', ')}] (valid: ${h.validation.success})`);
+      console.log(
+        `   - [${h.timestamp.slice(11, 19)}] "${h.instruction}": modified [${h.modifiedFiles.join(', ')}] (valid: ${h.validation.success})`
+      );
     }
 
-    const passed = history.length >= 4;
+    const passed = history.length >= 5;
     results.push({
-      name: 'Test 6: Modification History',
+      name: 'Test 7: Modification History',
       passed,
       identifiedFiles: [],
       unrelatedPreserved: true,

@@ -44,6 +44,8 @@ router.post('/', async (req: Request, res: Response) => {
     logger.info(`Processing natural language modification for ${resolvedDir}: "${instruction}"`);
 
     const result = await modifyProject(resolvedDir, instruction.trim());
+    const projectName = path.basename(resolvedDir);
+    const previewUrl = `/preview/${encodeURIComponent(projectName)}/`;
 
     res.json({
       success: result.success,
@@ -51,6 +53,7 @@ router.post('/', async (req: Request, res: Response) => {
       validation: result.validation,
       message: result.message,
       history: result.history,
+      previewUrl,
     });
   } catch (error: any) {
     logger.error('Error during project modification', { error: error.message });

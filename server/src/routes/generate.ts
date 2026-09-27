@@ -39,6 +39,9 @@ router.post('/', async (req: Request, res: Response) => {
       validateBuild: validateBuild !== false, // default true
     });
 
+    const projectName = path.basename(project.projectDir || targetDir);
+    project.previewUrl = `/preview/${encodeURIComponent(projectName)}/`;
+
     res.json({
       success: true,
       data: project,

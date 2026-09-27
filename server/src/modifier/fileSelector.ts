@@ -73,9 +73,19 @@ export function selectRelevantFiles(projectDir: string, instruction: string): Fi
     };
   }
 
-  // 5. Hero section modifications (heading size, copy, layout)
-  if (norm.includes('hero') || norm.includes('heading') || norm.includes('title')) {
-    const heroFile = allFiles.find((f) => f.includes('HeroSection') || f.toLowerCase().includes('hero'));
+  // 5. Hero section modifications (heading size, copy, bakery hero, layout)
+  if (
+    norm.includes('hero') ||
+    norm.includes('heading') ||
+    norm.includes('title') ||
+    norm.includes('bakery')
+  ) {
+    const heroFile = allFiles.find(
+      (f) =>
+        f.includes('HeroSection') ||
+        f.toLowerCase().includes('hero') ||
+        (f.startsWith('src/sections/') && f.includes('Section1'))
+    );
     if (heroFile) {
       return {
         relevantFiles: [heroFile],

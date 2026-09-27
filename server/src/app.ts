@@ -6,6 +6,7 @@ import specRouter from './routes/spec';
 import generateRouter from './routes/generate';
 import validateRouter from './routes/validate';
 import modifyRouter from './routes/modify';
+import previewRouter from './routes/preview';
 
 dotenv.config();
 
@@ -32,6 +33,9 @@ export function createApp() {
   app.use('/api/generate', generateRouter);
   app.use('/api/validate', validateRouter);
   app.use('/api/modify', modifyRouter);
+
+  // Static preview of generated projects
+  app.use('/preview', previewRouter);
 
   // Fallback 404
   app.use((req, res) => {

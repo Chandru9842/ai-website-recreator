@@ -356,11 +356,108 @@ export const TestimonialsSection: React.FC = () => {
   }
 
   // =========================================================================
-  // 5. HERO HEADING LARGER
+  // 5. HERO MODIFICATIONS (Bakery hero replacement or Heading size scaling)
   // =========================================================================
-  if (selection.intentCategory === 'hero' || norm.includes('hero') || norm.includes('heading') || norm.includes('larger')) {
+  if (selection.intentCategory === 'hero' || norm.includes('hero') || norm.includes('heading') || norm.includes('bakery')) {
     const heroFile = selection.relevantFiles[0] || 'src/sections/Section1HeroSection.tsx';
     let code = fileContents[heroFile] || SafeFileModifier.safeReadFile(projectDir, heroFile);
+
+    // Thematic Replacement: Bakery Hero
+    const isBakeryTrigger =
+      norm.includes('replace the hero with a bakery hero') ||
+      norm.includes('make the hero a bakery') ||
+      norm.includes('bakery hero') ||
+      norm.includes('bakery') ||
+      (norm.includes('replace') && norm.includes('hero') && norm.includes('bake'));
+
+    if (isBakeryTrigger) {
+      const targetHeading = 'Freshly Baked Artisanal Delights Every Morning';
+      const targetSubtitle =
+        'Handcrafted sourdough, golden croissants, and organic pastries baked with passion and tradition.';
+      const targetBadge = 'Artisan Bakery & Patisserie';
+      const targetCta = 'Order Fresh Bakes';
+      const targetImage =
+        'https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1200&q=80';
+
+      // 1. Badge replacement or insertion
+      if (
+        code.includes('<span') &&
+        /<span[^>]*uppercase[^>]*>([\s\S]*?)<\/span>/i.test(code)
+      ) {
+        code = code.replace(
+          /(<span[^>]*uppercase[^>]*>)([\s\S]*?)(<\/span>)/i,
+          `$1\n              ${targetBadge}\n            $3`
+        );
+      } else if (
+        code.includes('<span') &&
+        /<span[^>]*mb-4[^>]*>([\s\S]*?)<\/span>/i.test(code)
+      ) {
+        code = code.replace(
+          /(<span[^>]*mb-4[^>]*>)([\s\S]*?)(<\/span>)/i,
+          `$1\n              ${targetBadge}\n            $3`
+        );
+      } else {
+        // Insert badge right before <h1
+        const badgeJsx = `<span className="inline-block px-3 py-1 text-xs font-semibold rounded-full bg-site-primary/10 text-site-primary mb-4 tracking-wide uppercase">
+              ${targetBadge}
+            </span>\n\n            `;
+        code = code.replace(/(<h1)/, `${badgeJsx}$1`);
+      }
+
+      // 2. Heading replacement
+      code = code.replace(
+        /(<h1[^>]*>)([\s\S]*?)(<\/h1>)/,
+        `$1\n              ${targetHeading}\n            $3`
+      );
+
+      // 3. Subtitle / Paragraph replacement
+      code = code.replace(
+        /(<p[^>]*>)([\s\S]*?)(<\/p>)/,
+        `$1\n              ${targetSubtitle}\n            $3`
+      );
+
+      // 4. Button / CTA replacement
+      code = code.replace(
+        /(<Button[^>]*>)([\s\S]*?)(<\/Button>)/,
+        `$1\n                ${targetCta}\n              $3`
+      );
+
+      // 5. MediaAsset or img replacement
+      if (code.includes('<MediaAsset')) {
+        code = code.replace(
+          /(<MediaAsset[^>]*?url=["'])([^"']*?)(["'])/,
+          `$1${targetImage}$3`
+        );
+        code = code.replace(
+          /(<MediaAsset[^>]*?alt=["'])([^"']*?)(["'])/,
+          `$1Freshly Baked Artisanal Bakery Delights$3`
+        );
+      } else if (code.includes('<img')) {
+        code = code.replace(
+          /(<img[^>]*?src=["'])([^"']*?)(["'])/,
+          `$1${targetImage}$3`
+        );
+        code = code.replace(
+          /(<img[^>]*?alt=["'])([^"']*?)(["'])/,
+          `$1Freshly Baked Artisanal Bakery Delights$3`
+        );
+      }
+
+      changes.push({
+        file: heroFile,
+        operation: 'modify',
+        reason:
+          'Transformed hero section into an artisanal bakery hero (heading, subtitle, badge, CTA, and image)',
+        updatedContent: code,
+      });
+
+      return {
+        intent: 'Replace hero with a bakery hero',
+        reasoning:
+          'Updated the hero section with the requested artisanal bakery heading, subtitle, badge, CTA button, and high-quality bakery photography.',
+        changes,
+      };
+    }
 
     // Replace h1 size classes with extra large display typography
     code = code.replace(
