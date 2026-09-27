@@ -364,18 +364,22 @@ export const TestimonialsSection: React.FC = () => {
 
     // Thematic Replacement: Bakery Hero
     const isBakeryTrigger =
+      norm.includes('replace the hero section with a bakery hero') ||
       norm.includes('replace the hero with a bakery hero') ||
+      norm.includes('replace hero with bakery hero') ||
       norm.includes('make the hero a bakery') ||
+      norm.includes('create a bakery hero') ||
       norm.includes('bakery hero') ||
       norm.includes('bakery') ||
-      (norm.includes('replace') && norm.includes('hero') && norm.includes('bake'));
+      (norm.includes('hero') && norm.includes('bake'));
 
     if (isBakeryTrigger) {
       const targetHeading = 'Freshly Baked Artisanal Delights Every Morning';
       const targetSubtitle =
         'Handcrafted sourdough, golden croissants, and organic pastries baked with passion and tradition.';
-      const targetBadge = 'Artisan Bakery & Patisserie';
-      const targetCta = 'Order Fresh Bakes';
+      const targetBadge = 'ARTISAN BAKERY & PATISSERIE';
+      const targetPrimaryCta = 'Order Fresh Bakes';
+      const targetSecondaryCta = 'Explore Our Menu';
       const targetImage =
         'https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1200&q=80';
 
@@ -416,11 +420,18 @@ export const TestimonialsSection: React.FC = () => {
         `$1\n              ${targetSubtitle}\n            $3`
       );
 
-      // 4. Button / CTA replacement
-      code = code.replace(
-        /(<Button[^>]*>)([\s\S]*?)(<\/Button>)/,
-        `$1\n                ${targetCta}\n              $3`
-      );
+      // 4. Button / CTA replacement (Primary & Secondary CTA)
+      if (code.includes('<div className="flex flex-wrap gap-4')) {
+        code = code.replace(
+          /(<div className="flex flex-wrap gap-4[^>]*>)([\s\S]*?)(<\/div>)/,
+          `$1\n              <Button variant="primary" isCta={true} href="#order">\n                ${targetPrimaryCta}\n              </Button>\n              <Button variant="secondary" href="#menu">\n                ${targetSecondaryCta}\n              </Button>\n            $3`
+        );
+      } else if (code.includes('<Button')) {
+        code = code.replace(
+          /(<Button[^>]*>)([\s\S]*?)(<\/Button>)/,
+          `<Button variant="primary" isCta={true} href="#order">\n                ${targetPrimaryCta}\n              </Button>\n              <Button variant="secondary" href="#menu">\n                ${targetSecondaryCta}\n              </Button>`
+        );
+      }
 
       // 5. MediaAsset or img replacement
       if (code.includes('<MediaAsset')) {

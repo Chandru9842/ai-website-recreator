@@ -3,6 +3,7 @@ import * as path from 'path';
 import { modifyProject } from './index';
 import { SafeFileModifier } from './safeFileModifier';
 import { HistoryManager } from './historyManager';
+import { selectRelevantFiles } from './fileSelector';
 
 interface ModifierTestCaseResult {
   name: string;
@@ -204,10 +205,18 @@ async function runModifierTests() {
   console.log('🧪 TEST 5: "Replace the hero section with a bakery hero"');
   console.log('----------------------------------------------------');
   {
+    const navbarBefore = fs.existsSync(navbarPath) ? fs.readFileSync(navbarPath, 'utf-8') : '';
+    const appBefore = fs.existsSync(appPath) ? fs.readFileSync(appPath, 'utf-8') : '';
+
     const instruction = 'Replace the hero section with a bakery hero';
     const result = await modifyProject(testProjectDir, instruction);
 
     const updatedHero = fs.readFileSync(heroPath, 'utf-8');
+    const navbarAfter = fs.existsSync(navbarPath) ? fs.readFileSync(navbarPath, 'utf-8') : '';
+    const appAfter = fs.existsSync(appPath) ? fs.readFileSync(appPath, 'utf-8') : '';
+
+    const navbarUnchanged = navbarBefore === navbarAfter;
+    const appUnchanged = appBefore === appAfter;
 
     // 1. Heading verification
     const hasHeading = updatedHero.includes('Freshly Baked Artisanal Delights Every Morning');
@@ -216,26 +225,38 @@ async function runModifierTests() {
       'Handcrafted sourdough, golden croissants, and organic pastries baked with passion and tradition.'
     );
     // 3. Badge verification
-    const hasBadge = updatedHero.includes('Artisan Bakery & Patisserie');
-    // 4. CTA button verification
-    const hasCta = updatedHero.includes('Order Fresh Bakes');
+    const hasBadge =
+      updatedHero.includes('ARTISAN BAKERY & PATISSERIE') ||
+      updatedHero.toLowerCase().includes('artisan bakery & patisserie');
+    // 4. CTA button verification (Primary & Secondary)
+    const hasPrimaryCta = updatedHero.includes('Order Fresh Bakes');
+    const hasSecondaryCta = updatedHero.includes('Explore Our Menu');
     // 5. Image verification
     const hasBakeryImage = updatedHero.includes('photo-1509440159596-0249088772ff');
 
-    // 6. Isolation: only hero section modified
+    // 6. Isolation: only hero section modified, navbar and others untouched
     const onlyHeroModified =
       result.modifiedFiles.length === 1 &&
-      result.modifiedFiles[0].includes('HeroSection');
+      result.modifiedFiles[0].includes('HeroSection') &&
+      navbarUnchanged &&
+      appUnchanged;
 
-    console.log(`📊 Result Success:          ${result.success}`);
-    console.log(`📝 Modified Files:          ${result.modifiedFiles.join(', ')}`);
-    console.log(`🍞 Heading Verified:        ${hasHeading}`);
-    console.log(`🥐 Subtitle Verified:       ${hasSubtitle}`);
-    console.log(`🏷️  Badge Verified:          ${hasBadge}`);
-    console.log(`🔘 CTA Button Verified:     ${hasCta}`);
-    console.log(`🖼️  Bakery Image Verified:   ${hasBakeryImage}`);
-    console.log(`🛡️  Only Hero Modified:     ${onlyHeroModified}`);
-    console.log(`🛠️  Build Validation:        ${result.validation.success ? 'PASSED' : 'FAILED'}`);
+    // 7. Verify unrelated instruction does not target the hero
+    const unrelatedSelection = selectRelevantFiles(testProjectDir, 'Make the navbar sticky');
+    const heroUntouchedByUnrelated = !unrelatedSelection.relevantFiles.some((f) => f.includes('HeroSection'));
+
+    console.log(`📊 Result Success:               ${result.success}`);
+    console.log(`📝 Modified Files:               ${result.modifiedFiles.join(', ')}`);
+    console.log(`🍞 Heading Verified:             ${hasHeading}`);
+    console.log(`🥐 Subtitle Verified:            ${hasSubtitle}`);
+    console.log(`🏷️  Badge Verified:               ${hasBadge}`);
+    console.log(`🔘 Primary CTA Verified:         ${hasPrimaryCta}`);
+    console.log(`🔘 Secondary CTA Verified:       ${hasSecondaryCta}`);
+    console.log(`🖼️  Bakery Image Verified:        ${hasBakeryImage}`);
+    console.log(`🛡️  Navbar & Sections Unchanged:  ${navbarUnchanged && appUnchanged}`);
+    console.log(`🛡️  Only Hero Modified:          ${onlyHeroModified}`);
+    console.log(`🛡️  Hero Untouched by Unrelated: ${heroUntouchedByUnrelated}`);
+    console.log(`🛠️  Build Validation:             ${result.validation.success ? 'PASSED' : 'FAILED'}`);
 
     const passed =
       result.success &&
@@ -243,19 +264,23 @@ async function runModifierTests() {
       hasHeading &&
       hasSubtitle &&
       hasBadge &&
-      hasCta &&
+      hasPrimaryCta &&
+      hasSecondaryCta &&
       hasBakeryImage &&
+      navbarUnchanged &&
+      appUnchanged &&
+      heroUntouchedByUnrelated &&
       result.validation.success;
 
     results.push({
       name: 'Test 5: Replace hero with a bakery hero',
       passed,
       identifiedFiles: result.modifiedFiles,
-      unrelatedPreserved: onlyHeroModified,
+      unrelatedPreserved: onlyHeroModified && navbarUnchanged && appUnchanged && heroUntouchedByUnrelated,
       buildPassed: result.validation.success,
       historyRecorded: result.history?.some((h) => h.instruction === instruction) || false,
       details:
-        'Transformed hero into artisanal bakery hero with heading, subtitle, badge, CTA, and image',
+        'Transformed hero into artisanal bakery hero (heading, subtitle, badge, primary & secondary CTAs, image) with all non-hero files preserved',
     });
   }
 

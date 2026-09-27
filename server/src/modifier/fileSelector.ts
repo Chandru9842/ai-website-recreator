@@ -61,19 +61,7 @@ export function selectRelevantFiles(projectDir: string, instruction: string): Fi
     };
   }
 
-  // 4. Add section (e.g. Testimonials, FAQ, Pricing, etc.)
-  if (norm.includes('add') || norm.includes('insert') || norm.includes('create')) {
-    const sectionMatch = norm.match(/(?:add|insert|create)\s+(?:a\s+|an\s+)?([a-zA-Z0-9_\-]+)\s*(?:section)?/i);
-    const targetSection = sectionMatch ? sectionMatch[1].toLowerCase() : 'custom';
-
-    return {
-      relevantFiles: ['src/App.tsx'],
-      intentCategory: 'add_section',
-      targetSection,
-    };
-  }
-
-  // 5. Hero section modifications (heading size, copy, bakery hero, layout)
+  // 4. Hero section modifications (heading size, copy, bakery hero, layout)
   if (
     norm.includes('hero') ||
     norm.includes('heading') ||
@@ -92,6 +80,18 @@ export function selectRelevantFiles(projectDir: string, instruction: string): Fi
         intentCategory: 'hero',
       };
     }
+  }
+
+  // 5. Add section (e.g. Testimonials, FAQ, Pricing, etc.)
+  if (norm.includes('add') || norm.includes('insert') || norm.includes('create')) {
+    const sectionMatch = norm.match(/(?:add|insert|create)\s+(?:a\s+|an\s+)?([a-zA-Z0-9_\-]+)\s*(?:section)?/i);
+    const targetSection = sectionMatch ? sectionMatch[1].toLowerCase() : 'custom';
+
+    return {
+      relevantFiles: ['src/App.tsx'],
+      intentCategory: 'add_section',
+      targetSection,
+    };
   }
 
   // 6. General fallback: scan file contents for matching keywords
